@@ -532,11 +532,12 @@ function App() {
         <ToggleButtonGroup
           value={toggleStr}
           exclusive
-          onChange={castleKinds}
+          onChange={toggleTest}
           aria-label="text alignment"
         >
           <ToggleButton
             value="red"
+            onClick={castleKinds}
             aria-label="left aligned"
             sx={{
               width: 1 / 3,
@@ -546,6 +547,7 @@ function App() {
           </ToggleButton>
           <ToggleButton
             value="blue"
+            onClick={castleKinds}
             aria-label="left aligned"
             sx={{
               width: 1 / 3,
@@ -555,6 +557,7 @@ function App() {
           </ToggleButton>
           <ToggleButton
             value="gold"
+            onClick={castleKinds}
             aria-label="left aligned"
             sx={{
               width: 1 / 3,

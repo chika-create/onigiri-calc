@@ -138,6 +138,10 @@ function App() {
 
   // どの城種別を選択したかによって、デッキ数を取得
   const castleKindsSwitch = (item: string): void => {
+    console.log("alignmentRed：" + alignmentRed);
+    console.log("alignmentBlue：" + alignmentBlue);
+    console.log("alignmentGold：" + alignmentGold);
+
     switch (item) {
       case "blue":
         setAlignmentNum(alignmentBlue);
@@ -238,7 +242,7 @@ function App() {
               }}
             >
               <ToggleButton
-                value="red"
+                value="1"
                 aria-label="left aligned"
                 sx={{
                   width: 1 / 4,
@@ -247,7 +251,7 @@ function App() {
                 1
               </ToggleButton>
               <ToggleButton
-                value="blue"
+                value="2"
                 aria-label="left aligned"
                 sx={{
                   width: 1 / 4,
@@ -256,7 +260,7 @@ function App() {
                 2
               </ToggleButton>
               <ToggleButton
-                value="gold"
+                value="3"
                 aria-label="left aligned"
                 sx={{
                   width: 1 / 4,

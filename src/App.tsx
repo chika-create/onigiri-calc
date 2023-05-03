@@ -70,6 +70,49 @@ async function copyToClipboard(num: any) {
   }
 }
 
+interface CastleData {
+  name: string;
+  num: number;
+}
+
+interface DeckData {
+  num: number;
+}
+
+interface LocalDate {
+  castleNum: CastleData[];
+  minDeckNum: DeckData;
+}
+
+const KEY = "settingDate";
+
+function setValue(data: LocalDate): void {
+  localStorage.setItem(KEY, JSON.stringify(data));
+}
+
+function getValue(): LocalDate | null {
+  const data = localStorage.getItem(KEY);
+  if (data) {
+    return JSON.parse(data) as LocalDate;
+  }
+  return null;
+}
+
+// 例：値を設定する
+const settingDate: LocalDate = {
+  castleNum: [
+    { name: "red", num: 1 },
+    { name: "blue", num: 2 },
+  ],
+  minDeckNum: { num: 38 },
+};
+setValue(settingDate);
+
+// 例：値を取得する
+const retrievedData = getValue();
+console.log(retrievedData?.castleNum[0].name); // "red"
+console.log(retrievedData?.minDeckNum.num); // 38
+
 function App() {
   const [toggleStr, setToggleStr] = React.useState<string | null>("left");
 
@@ -138,10 +181,6 @@ function App() {
 
   // どの城種別を選択したかによって、デッキ数を取得
   const castleKindsSwitch = (item: string): void => {
-    console.log("alignmentRed：" + alignmentRed);
-    console.log("alignmentBlue：" + alignmentBlue);
-    console.log("alignmentGold：" + alignmentGold);
-
     switch (item) {
       case "blue":
         setAlignmentNum(alignmentBlue);

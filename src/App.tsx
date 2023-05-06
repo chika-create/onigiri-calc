@@ -70,6 +70,74 @@ async function copyToClipboard(num: any) {
   }
 }
 
+interface CastleData {
+  name: string;
+  num: number;
+}
+
+interface DeckData {
+  num: number;
+}
+
+interface LocalDate {
+  castleNum: CastleData[];
+  minDeckNum: DeckData;
+}
+
+const KEY = "settingDate";
+
+function setValue(data: LocalDate): void {
+  localStorage.setItem(KEY, JSON.stringify(data));
+}
+
+function getValue(): LocalDate | null {
+  const data = localStorage.getItem(KEY);
+  if (data) {
+    return JSON.parse(data) as LocalDate;
+  }
+  return null;
+}
+
+// 例：値を取得する
+const retrievedData = getValue();
+// console.log(retrievedData?.castleNum[0].name); // "red"
+// console.log(retrievedData?.minDeckNum.num); // 38
+
+type ToggleSelectedType = {
+  [key: number]: boolean;
+};
+
+export function useToggleSelected() {
+  const [alignmentRedNum, setAlignmentRedNum] = useState<ToggleSelectedType>({
+    1: true,
+    2: false,
+    3: false,
+  });
+
+  const [alignmentBlueNum, setAlignmentBlueNum] = useState<ToggleSelectedType>({
+    1: true,
+    2: false,
+    3: false,
+  });
+
+  const [alignmentGoldNum, setAlignmentGoldNum] = useState<ToggleSelectedType>({
+    1: true,
+    2: false,
+    3: false,
+  });
+
+  return {
+    alignmentRedNum,
+    setAlignmentRedNum,
+    alignmentBlueNum,
+    setAlignmentBlueNum,
+    alignmentGoldNum,
+    setAlignmentGoldNum,
+  };
+}
+
+// メモ：alignmentRedNumなどトグルボタンのデフォルト値を使用するには、コンポーネント内で呼び出す必要があるため、コンポーネント分けをした際に実装する
+
 function App() {
   const [toggleStr, setToggleStr] = React.useState<string | null>("left");
 
@@ -138,10 +206,6 @@ function App() {
 
   // どの城種別を選択したかによって、デッキ数を取得
   const castleKindsSwitch = (item: string): void => {
-    console.log("alignmentRed：" + alignmentRed);
-    console.log("alignmentBlue：" + alignmentBlue);
-    console.log("alignmentGold：" + alignmentGold);
-
     switch (item) {
       case "blue":
         setAlignmentNum(alignmentBlue);
@@ -196,6 +260,18 @@ function App() {
     copyToClipboard(Math.ceil(numNumer / 2));
   };
 
+  // 例：値を設定する
+  const settingDate: LocalDate = {
+    castleNum: [
+      { name: "red", num: alignmentRed },
+      { name: "blue", num: alignmentBlue },
+      { name: "gold", num: alignmentGold },
+    ],
+    minDeckNum: { num: 38 },
+  };
+  setValue(settingDate);
+  console.log(settingDate);
+
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -242,6 +318,7 @@ function App() {
               }}
             >
               <ToggleButton
+                // selected={alignmentRedNum[1]}
                 value="1"
                 aria-label="left aligned"
                 sx={{
@@ -434,13 +511,13 @@ function App() {
       </Accordion>
 
       <TabPanel value={tabValue} index={0}>
-        <Typography
+        <Box
           sx={{
             mb: 2,
           }}
         >
           傾国のおにぎり計算エリア
-        </Typography>
+        </Box>
 
         {/* handleSubmit はフォームの入力を確かめた上引数に渡した関数（onSubmit）を呼び出す */}
         <Box
@@ -512,10 +589,10 @@ function App() {
         </Box>
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
-        <Typography>群雄のおにぎり計算エリア</Typography>
+        群雄のおにぎり計算エリア
       </TabPanel>
       <TabPanel value={tabValue} index={2}>
-        <Typography>おにぎり一覧表を表示</Typography>
+        おにぎり一覧表を表示
       </TabPanel>
 
       <Box

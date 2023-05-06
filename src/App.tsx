@@ -511,13 +511,13 @@ function App() {
       </Accordion>
 
       <TabPanel value={tabValue} index={0}>
-        <Typography
+        <Box
           sx={{
             mb: 2,
           }}
         >
           傾国のおにぎり計算エリア
-        </Typography>
+        </Box>
 
         {/* handleSubmit はフォームの入力を確かめた上引数に渡した関数（onSubmit）を呼び出す */}
         <Box
@@ -589,10 +589,10 @@ function App() {
         </Box>
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
-        <Typography>群雄のおにぎり計算エリア</Typography>
+        群雄のおにぎり計算エリア
       </TabPanel>
       <TabPanel value={tabValue} index={2}>
-        <Typography>おにぎり一覧表を表示</Typography>
+        おにぎり一覧表を表示
       </TabPanel>
 
       <Box

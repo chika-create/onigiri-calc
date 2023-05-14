@@ -20,6 +20,9 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ServerCastel from "./components/views/ServerCastel";
+import UniversalCastel from "./components/views/UniversalCastel";
+import OnigiriTable from "./components/views/OnigiriTable";
 
 // タブ切り替え管理
 interface TabPanelProps {
@@ -511,6 +514,7 @@ function App() {
       </Accordion>
 
       <TabPanel value={tabValue} index={0}>
+        <ServerCastel />
         <Box
           sx={{
             mb: 2,
@@ -589,10 +593,10 @@ function App() {
         </Box>
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
-        群雄のおにぎり計算エリア
+        <UniversalCastel />
       </TabPanel>
       <TabPanel value={tabValue} index={2}>
-        おにぎり一覧表を表示
+        <OnigiriTable />
       </TabPanel>
 
       <Box

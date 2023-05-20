@@ -25,6 +25,7 @@ import OnigiriTable from "./components/views/OnigiriTable";
 import CastelKinds from "./components/templates/CastelKinds";
 import CalcTime from "./components/templates/CalcTime";
 import AlignmentNum from "./components/templates/setting/AlignmentNum";
+import DeckNum from "./components/templates/setting/DeckNum";
 
 // タブ切り替え管理
 interface TabPanelProps {
@@ -306,35 +307,7 @@ function App() {
             castleChangeGold={castleChangeGold}
           />
 
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "repeat(2, auto 1fr)",
-            }}
-          >
-            <Typography
-              sx={{
-                alignSelf: "center",
-              }}
-            >
-              1分の駐屯数
-            </Typography>
-            <TextField
-              // error={inputDeckError}
-              inputRef={inputRefDeck}
-              // defaultValue=""
-              id="outlined-basic"
-              type="number"
-              // label="Number"
-              variant="outlined"
-              // helperText={inputRefDeck?.current?.validationMessage}
-              // label="deckNum"
-              {...register("deckNum")}
-              sx={{
-                ml: 2,
-              }}
-            />
-          </Box>
+          <DeckNum register={register} inputRefDeck={inputRefDeck} />
         </AccordionDetails>
       </Accordion>
 

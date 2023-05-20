@@ -2,7 +2,6 @@ import "./App.css";
 import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import {
-  Container,
   Box,
   Tabs,
   Tab,
@@ -23,6 +22,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import ServerCastel from "./components/views/ServerCastel";
 import UniversalCastel from "./components/views/UniversalCastel";
 import OnigiriTable from "./components/views/OnigiriTable";
+import CalcTimes from "./components/templates/CalcTimes";
 
 // タブ切り替え管理
 interface TabPanelProps {
@@ -142,15 +142,6 @@ export function useToggleSelected() {
 // メモ：alignmentRedNumなどトグルボタンのデフォルト値を使用するには、コンポーネント内で呼び出す必要があるため、コンポーネント分けをした際に実装する
 
 function App() {
-  const [toggleStr, setToggleStr] = React.useState<string | null>("left");
-
-  const toggleTest = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: string | null
-  ) => {
-    setToggleStr(newAlignment);
-  };
-
   // export default function App(): object {
   // タブ管理
   const [tabValue, setTabValue] = React.useState(0);
@@ -164,12 +155,6 @@ function App() {
 
   // デッキ数計算用
   const inputRefDeck = useRef(null);
-
-  // 城種別ごとのデッキ数
-  const [alignmentNum, setAlignmentNum] = useState(0);
-  const [alignmentRed, setAlignmentRed] = useState(0);
-  const [alignmentBlue, setAlignmentBlue] = useState(0);
-  const [alignmentGold, setAlignmentGold] = useState(0);
 
   // 計算機能用
   const inputRefNum = useRef(null);
@@ -207,6 +192,32 @@ function App() {
     setAlignmentGold(newAlignment);
   };
 
+  const [toggleStr, setToggleStr] = React.useState<string | null>("left");
+
+  const toggleTest = (
+    event: React.MouseEvent<HTMLElement>,
+    newAlignment: string | null
+  ) => {
+    setToggleStr(newAlignment);
+  };
+
+  // 城種別ごとのデッキ数
+  const [alignmentNum, setAlignmentNum] = useState(0);
+  const [alignmentRed, setAlignmentRed] = useState(0);
+  const [alignmentBlue, setAlignmentBlue] = useState(0);
+  const [alignmentGold, setAlignmentGold] = useState(0);
+
+  // どの城種別で計算するか
+  const castleKinds = (
+    event: React.MouseEvent<HTMLElement>,
+    // newToggleAlignment: string | null,
+    newCastelAlignment: string
+  ): void => {
+    // setToggleStr(newToggleAlignment);
+    castleKindsSwitch(newCastelAlignment);
+    calculator();
+  };
+
   // どの城種別を選択したかによって、デッキ数を取得
   const castleKindsSwitch = (item: string): void => {
     switch (item) {
@@ -232,17 +243,6 @@ function App() {
     totalNum = minNum + secNum;
     deckNum = 60 / deckNum;
     setNumNumer(Math.ceil((totalNum * 60) / deckNum));
-  };
-
-  // どの城種別で計算するか
-  const castleKinds = (
-    event: React.MouseEvent<HTMLElement>,
-    // newToggleAlignment: string | null,
-    newCastelAlignment: string
-  ): void => {
-    // setToggleStr(newToggleAlignment);
-    castleKindsSwitch(newCastelAlignment);
-    calculator();
   };
 
   // クリップボードにコピー
@@ -284,7 +284,7 @@ function App() {
           aria-label="basic tabs example"
         >
           <Tab label="傾国" {...tabMenu(0)} />
-          <Tab label="群雄・天下" {...tabMenu(1)} disabled />
+          <Tab label="群雄・天下" {...tabMenu(1)} />
           <Tab label="おにぎり表" {...tabMenu(2)} />
         </Tabs>
       </Box>
@@ -515,13 +515,6 @@ function App() {
 
       <TabPanel value={tabValue} index={0}>
         <ServerCastel />
-        <Box
-          sx={{
-            mb: 2,
-          }}
-        >
-          傾国のおにぎり計算エリア
-        </Box>
 
         {/* handleSubmit はフォームの入力を確かめた上引数に渡した関数（onSubmit）を呼び出す */}
         <Box
@@ -583,6 +576,11 @@ function App() {
             秒
           </Typography>
         </Box>
+        <CalcTimes
+          onChange={toggleTest}
+          onClick={castleKinds}
+          toggleStr={toggleStr}
+        />
         {/* {errors.numMin && <span>This field is required 1</span>}
         {errors.numSec && <span>This field is required 2</span>} */}
         <Box>
@@ -605,53 +603,7 @@ function App() {
           gridTemplateColumns: "auto 1fr",
           p: 3,
         }}
-      >
-        <Typography
-          sx={{
-            alignSelf: "center",
-          }}
-        >
-          城種別
-        </Typography>
-
-        <ToggleButtonGroup
-          value={toggleStr}
-          exclusive
-          onChange={toggleTest}
-          aria-label="text alignment"
-        >
-          <ToggleButton
-            value="red"
-            onClick={castleKinds}
-            aria-label="left aligned"
-            sx={{
-              width: 1 / 3,
-            }}
-          >
-            赤城
-          </ToggleButton>
-          <ToggleButton
-            value="blue"
-            onClick={castleKinds}
-            aria-label="left aligned"
-            sx={{
-              width: 1 / 3,
-            }}
-          >
-            青城
-          </ToggleButton>
-          <ToggleButton
-            value="gold"
-            onClick={castleKinds}
-            aria-label="left aligned"
-            sx={{
-              width: 1 / 3,
-            }}
-          >
-            金城
-          </ToggleButton>
-        </ToggleButtonGroup>
-      </Box>
+      ></Box>
 
       <Box
         sx={{

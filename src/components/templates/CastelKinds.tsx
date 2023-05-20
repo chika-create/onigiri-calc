@@ -1,6 +1,6 @@
 import { Typography, ToggleButtonGroup, ToggleButton } from "@mui/material";
 
-export default function CalcTimes(props: any) {
+export default function CastelKinds(props: any) {
   const toggleStr = props.toggleStr;
   const toggleTest = props.onChange;
   const castleKinds = props.onClick;

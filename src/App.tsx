@@ -22,7 +22,8 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import ServerCastel from "./components/views/ServerCastel";
 import UniversalCastel from "./components/views/UniversalCastel";
 import OnigiriTable from "./components/views/OnigiriTable";
-import CalcTimes from "./components/templates/CalcTimes";
+import CastelKinds from "./components/templates/CastelKinds";
+import CalcTime from "./components/templates/CalcTime";
 
 // タブ切り替え管理
 interface TabPanelProps {
@@ -157,8 +158,6 @@ function App() {
   const inputRefDeck = useRef(null);
 
   // 計算機能用
-  const inputRefNum = useRef(null);
-  const inputRefSec = useRef(null);
   // const [inputNumError, setInputNumError] = useState(false);
   // const [inputSecError, setInputSecError] = useState(false);
   const [numNumer, setNumNumer] = useState(0);
@@ -517,66 +516,8 @@ function App() {
         <ServerCastel />
 
         {/* handleSubmit はフォームの入力を確かめた上引数に渡した関数（onSubmit）を呼び出す */}
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "auto 1fr auto 1fr auto",
-          }}
-        >
-          <Typography
-            sx={{
-              alignSelf: "center",
-            }}
-          >
-            守る時間
-          </Typography>
-          <TextField
-            // error={inputNumError}
-            inputRef={inputRefNum}
-            // defaultValue=""
-            id="outlined-basic"
-            type="number"
-            variant="outlined"
-            // helperText={inputRefNum?.current?.validationMessage}
-            label="minNum"
-            {...register("minNum")}
-            sx={{
-              ml: 2,
-            }}
-          />
-          <Typography
-            sx={{
-              alignSelf: "center",
-              ml: 2,
-            }}
-          >
-            分
-          </Typography>
-          <TextField
-            // error={inputSecError}
-            inputRef={inputRefSec}
-            // defaultValue=""
-            id="outlined-basic"
-            type="number"
-            label="secNum"
-            variant="outlined"
-            // helperText={inputRefSec?.current?.validationMessage}
-            {...register("secNum")}
-            sx={{
-              ml: 2,
-            }}
-          />
-
-          <Typography
-            sx={{
-              alignSelf: "center",
-              ml: 2,
-            }}
-          >
-            秒
-          </Typography>
-        </Box>
-        <CalcTimes
+        <CalcTime register={register} />
+        <CastelKinds
           onChange={toggleTest}
           onClick={castleKinds}
           toggleStr={toggleStr}

@@ -24,6 +24,7 @@ import UniversalCastel from "./components/views/UniversalCastel";
 import OnigiriTable from "./components/views/OnigiriTable";
 import CastelKinds from "./components/templates/CastelKinds";
 import CalcTime from "./components/templates/CalcTime";
+import AlignmentNum from "./components/templates/setting/AlignmentNum";
 
 // タブ切り替え管理
 interface TabPanelProps {
@@ -296,190 +297,15 @@ function App() {
           <Typography>初期設定</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "auto 1fr",
-              mb: 3,
-            }}
-          >
-            <Typography
-              sx={{
-                alignSelf: "center",
-              }}
-            >
-              赤城
-            </Typography>
-            <ToggleButtonGroup
-              // label="alignmentRed"
-              value={alignmentRed}
-              onChange={castleChangeRed}
-              exclusive
-              sx={{
-                ml: 2,
-              }}
-            >
-              <ToggleButton
-                // selected={alignmentRedNum[1]}
-                value="1"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                1
-              </ToggleButton>
-              <ToggleButton
-                value="2"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                2
-              </ToggleButton>
-              <ToggleButton
-                value="3"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                3
-              </ToggleButton>
-              <ToggleButton
-                value="4"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                4
-              </ToggleButton>
-            </ToggleButtonGroup>
-          </Box>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "auto 1fr",
-              mb: 3,
-            }}
-          >
-            <Typography
-              sx={{
-                alignSelf: "center",
-              }}
-            >
-              青城
-            </Typography>
-            <ToggleButtonGroup
-              // label="alignmentBlue"
-              value={alignmentBlue}
-              onChange={castleChangeBlue}
-              exclusive
-              sx={{
-                ml: 2,
-              }}
-            >
-              <ToggleButton
-                value="1"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                1
-              </ToggleButton>
-              <ToggleButton
-                value="2"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                2
-              </ToggleButton>
-              <ToggleButton
-                value="3"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                3
-              </ToggleButton>
-              <ToggleButton
-                value="4"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                4
-              </ToggleButton>
-            </ToggleButtonGroup>
-          </Box>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "auto 1fr",
-              mb: 3,
-            }}
-          >
-            <Typography
-              sx={{
-                alignSelf: "center",
-              }}
-            >
-              青城
-            </Typography>
-            <ToggleButtonGroup
-              // label="alignmentGold"
-              value={alignmentGold}
-              onChange={castleChangeGold}
-              exclusive
-              sx={{
-                ml: 2,
-              }}
-            >
-              <ToggleButton
-                value="1"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                1
-              </ToggleButton>
-              <ToggleButton
-                value="2"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                2
-              </ToggleButton>
-              <ToggleButton
-                value="3"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                3
-              </ToggleButton>
-              <ToggleButton
-                value="4"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                4
-              </ToggleButton>
-            </ToggleButtonGroup>
-          </Box>
+          <AlignmentNum
+            alignmentRed={alignmentRed}
+            alignmentBlue={alignmentBlue}
+            alignmentGold={alignmentGold}
+            castleChangeRed={castleChangeRed}
+            castleChangeBlue={castleChangeBlue}
+            castleChangeGold={castleChangeGold}
+          />
+
           <Box
             sx={{
               display: "grid",

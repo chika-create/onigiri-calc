@@ -2,7 +2,6 @@ import "./App.css";
 import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import {
-  Container,
   Box,
   Tabs,
   Tab,
@@ -10,9 +9,6 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  ToggleButtonGroup,
-  ToggleButton,
-  TextField,
   FormControlLabel,
   Checkbox,
   Tooltip,
@@ -20,6 +16,13 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ServerCastel from "./components/views/ServerCastel";
+import UniversalCastel from "./components/views/UniversalCastel";
+import OnigiriTable from "./components/views/OnigiriTable";
+import CastelKinds from "./components/templates/CastelKinds";
+import CalcTime from "./components/templates/CalcTime";
+import AlignmentNum from "./components/templates/setting/AlignmentNum";
+import DeckNum from "./components/templates/setting/DeckNum";
 
 // タブ切り替え管理
 interface TabPanelProps {
@@ -139,15 +142,6 @@ export function useToggleSelected() {
 // メモ：alignmentRedNumなどトグルボタンのデフォルト値を使用するには、コンポーネント内で呼び出す必要があるため、コンポーネント分けをした際に実装する
 
 function App() {
-  const [toggleStr, setToggleStr] = React.useState<string | null>("left");
-
-  const toggleTest = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: string | null
-  ) => {
-    setToggleStr(newAlignment);
-  };
-
   // export default function App(): object {
   // タブ管理
   const [tabValue, setTabValue] = React.useState(0);
@@ -162,15 +156,7 @@ function App() {
   // デッキ数計算用
   const inputRefDeck = useRef(null);
 
-  // 城種別ごとのデッキ数
-  const [alignmentNum, setAlignmentNum] = useState(0);
-  const [alignmentRed, setAlignmentRed] = useState(0);
-  const [alignmentBlue, setAlignmentBlue] = useState(0);
-  const [alignmentGold, setAlignmentGold] = useState(0);
-
   // 計算機能用
-  const inputRefNum = useRef(null);
-  const inputRefSec = useRef(null);
   // const [inputNumError, setInputNumError] = useState(false);
   // const [inputSecError, setInputSecError] = useState(false);
   const [numNumer, setNumNumer] = useState(0);
@@ -204,6 +190,32 @@ function App() {
     setAlignmentGold(newAlignment);
   };
 
+  const [toggleStr, setToggleStr] = React.useState<string | null>("left");
+
+  const toggleTest = (
+    event: React.MouseEvent<HTMLElement>,
+    newAlignment: string | null
+  ) => {
+    setToggleStr(newAlignment);
+  };
+
+  // 城種別ごとのデッキ数
+  const [alignmentNum, setAlignmentNum] = useState(0);
+  const [alignmentRed, setAlignmentRed] = useState(0);
+  const [alignmentBlue, setAlignmentBlue] = useState(0);
+  const [alignmentGold, setAlignmentGold] = useState(0);
+
+  // どの城種別で計算するか
+  const castleKinds = (
+    event: React.MouseEvent<HTMLElement>,
+    // newToggleAlignment: string | null,
+    newCastelAlignment: string
+  ): void => {
+    // setToggleStr(newToggleAlignment);
+    castleKindsSwitch(newCastelAlignment);
+    calculator();
+  };
+
   // どの城種別を選択したかによって、デッキ数を取得
   const castleKindsSwitch = (item: string): void => {
     switch (item) {
@@ -229,17 +241,6 @@ function App() {
     totalNum = minNum + secNum;
     deckNum = 60 / deckNum;
     setNumNumer(Math.ceil((totalNum * 60) / deckNum));
-  };
-
-  // どの城種別で計算するか
-  const castleKinds = (
-    event: React.MouseEvent<HTMLElement>,
-    // newToggleAlignment: string | null,
-    newCastelAlignment: string
-  ): void => {
-    // setToggleStr(newToggleAlignment);
-    castleKindsSwitch(newCastelAlignment);
-    calculator();
   };
 
   // クリップボードにコピー
@@ -281,7 +282,7 @@ function App() {
           aria-label="basic tabs example"
         >
           <Tab label="傾国" {...tabMenu(0)} />
-          <Tab label="群雄・天下" {...tabMenu(1)} disabled />
+          <Tab label="群雄・天下" {...tabMenu(1)} />
           <Tab label="おにぎり表" {...tabMenu(2)} />
         </Tabs>
       </Box>
@@ -294,291 +295,29 @@ function App() {
           <Typography>初期設定</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "auto 1fr",
-              mb: 3,
-            }}
-          >
-            <Typography
-              sx={{
-                alignSelf: "center",
-              }}
-            >
-              赤城
-            </Typography>
-            <ToggleButtonGroup
-              // label="alignmentRed"
-              value={alignmentRed}
-              onChange={castleChangeRed}
-              exclusive
-              sx={{
-                ml: 2,
-              }}
-            >
-              <ToggleButton
-                // selected={alignmentRedNum[1]}
-                value="1"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                1
-              </ToggleButton>
-              <ToggleButton
-                value="2"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                2
-              </ToggleButton>
-              <ToggleButton
-                value="3"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                3
-              </ToggleButton>
-              <ToggleButton
-                value="4"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                4
-              </ToggleButton>
-            </ToggleButtonGroup>
-          </Box>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "auto 1fr",
-              mb: 3,
-            }}
-          >
-            <Typography
-              sx={{
-                alignSelf: "center",
-              }}
-            >
-              青城
-            </Typography>
-            <ToggleButtonGroup
-              // label="alignmentBlue"
-              value={alignmentBlue}
-              onChange={castleChangeBlue}
-              exclusive
-              sx={{
-                ml: 2,
-              }}
-            >
-              <ToggleButton
-                value="1"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                1
-              </ToggleButton>
-              <ToggleButton
-                value="2"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                2
-              </ToggleButton>
-              <ToggleButton
-                value="3"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                3
-              </ToggleButton>
-              <ToggleButton
-                value="4"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                4
-              </ToggleButton>
-            </ToggleButtonGroup>
-          </Box>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "auto 1fr",
-              mb: 3,
-            }}
-          >
-            <Typography
-              sx={{
-                alignSelf: "center",
-              }}
-            >
-              青城
-            </Typography>
-            <ToggleButtonGroup
-              // label="alignmentGold"
-              value={alignmentGold}
-              onChange={castleChangeGold}
-              exclusive
-              sx={{
-                ml: 2,
-              }}
-            >
-              <ToggleButton
-                value="1"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                1
-              </ToggleButton>
-              <ToggleButton
-                value="2"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                2
-              </ToggleButton>
-              <ToggleButton
-                value="3"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                3
-              </ToggleButton>
-              <ToggleButton
-                value="4"
-                aria-label="left aligned"
-                sx={{
-                  width: 1 / 4,
-                }}
-              >
-                4
-              </ToggleButton>
-            </ToggleButtonGroup>
-          </Box>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "repeat(2, auto 1fr)",
-            }}
-          >
-            <Typography
-              sx={{
-                alignSelf: "center",
-              }}
-            >
-              1分の駐屯数
-            </Typography>
-            <TextField
-              // error={inputDeckError}
-              inputRef={inputRefDeck}
-              // defaultValue=""
-              id="outlined-basic"
-              type="number"
-              // label="Number"
-              variant="outlined"
-              // helperText={inputRefDeck?.current?.validationMessage}
-              // label="deckNum"
-              {...register("deckNum")}
-              sx={{
-                ml: 2,
-              }}
-            />
-          </Box>
+          <AlignmentNum
+            alignmentRed={alignmentRed}
+            alignmentBlue={alignmentBlue}
+            alignmentGold={alignmentGold}
+            castleChangeRed={castleChangeRed}
+            castleChangeBlue={castleChangeBlue}
+            castleChangeGold={castleChangeGold}
+          />
+
+          <DeckNum register={register} inputRefDeck={inputRefDeck} />
         </AccordionDetails>
       </Accordion>
 
       <TabPanel value={tabValue} index={0}>
-        <Box
-          sx={{
-            mb: 2,
-          }}
-        >
-          傾国のおにぎり計算エリア
-        </Box>
+        <ServerCastel />
 
         {/* handleSubmit はフォームの入力を確かめた上引数に渡した関数（onSubmit）を呼び出す */}
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "auto 1fr auto 1fr auto",
-          }}
-        >
-          <Typography
-            sx={{
-              alignSelf: "center",
-            }}
-          >
-            守る時間
-          </Typography>
-          <TextField
-            // error={inputNumError}
-            inputRef={inputRefNum}
-            // defaultValue=""
-            id="outlined-basic"
-            type="number"
-            variant="outlined"
-            // helperText={inputRefNum?.current?.validationMessage}
-            label="minNum"
-            {...register("minNum")}
-            sx={{
-              ml: 2,
-            }}
-          />
-          <Typography
-            sx={{
-              alignSelf: "center",
-              ml: 2,
-            }}
-          >
-            分
-          </Typography>
-          <TextField
-            // error={inputSecError}
-            inputRef={inputRefSec}
-            // defaultValue=""
-            id="outlined-basic"
-            type="number"
-            label="secNum"
-            variant="outlined"
-            // helperText={inputRefSec?.current?.validationMessage}
-            {...register("secNum")}
-            sx={{
-              ml: 2,
-            }}
-          />
-
-          <Typography
-            sx={{
-              alignSelf: "center",
-              ml: 2,
-            }}
-          >
-            秒
-          </Typography>
-        </Box>
+        <CalcTime register={register} />
+        <CastelKinds
+          onChange={toggleTest}
+          onClick={castleKinds}
+          toggleStr={toggleStr}
+        />
         {/* {errors.numMin && <span>This field is required 1</span>}
         {errors.numSec && <span>This field is required 2</span>} */}
         <Box>
@@ -589,10 +328,10 @@ function App() {
         </Box>
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
-        群雄のおにぎり計算エリア
+        <UniversalCastel />
       </TabPanel>
       <TabPanel value={tabValue} index={2}>
-        おにぎり一覧表を表示
+        <OnigiriTable />
       </TabPanel>
 
       <Box
@@ -601,53 +340,7 @@ function App() {
           gridTemplateColumns: "auto 1fr",
           p: 3,
         }}
-      >
-        <Typography
-          sx={{
-            alignSelf: "center",
-          }}
-        >
-          城種別
-        </Typography>
-
-        <ToggleButtonGroup
-          value={toggleStr}
-          exclusive
-          onChange={toggleTest}
-          aria-label="text alignment"
-        >
-          <ToggleButton
-            value="red"
-            onClick={castleKinds}
-            aria-label="left aligned"
-            sx={{
-              width: 1 / 3,
-            }}
-          >
-            赤城
-          </ToggleButton>
-          <ToggleButton
-            value="blue"
-            onClick={castleKinds}
-            aria-label="left aligned"
-            sx={{
-              width: 1 / 3,
-            }}
-          >
-            青城
-          </ToggleButton>
-          <ToggleButton
-            value="gold"
-            onClick={castleKinds}
-            aria-label="left aligned"
-            sx={{
-              width: 1 / 3,
-            }}
-          >
-            金城
-          </ToggleButton>
-        </ToggleButtonGroup>
-      </Box>
+      ></Box>
 
       <Box
         sx={{

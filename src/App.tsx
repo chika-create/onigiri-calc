@@ -20,10 +20,8 @@ import CastelKinds from "./components/templates/CastelKinds";
 import CalcTime from "./components/templates/CalcTime";
 import AlignmentNum from "./components/templates/setting/AlignmentNum";
 import DeckNum from "./components/templates/setting/DeckNum";
-import FullStack from "./components/templates/FullStack";
-import HarfStack from "./components/templates/HarfStack";
-import FullOnigiri from "./components/templates/FullOnigiri";
-// import TabBox from "./components/templates/TabBox";
+import CountOutput from "./components/templates/countOutput/CountOutput";
+import TabBox from "./components/templates/TabBox";
 
 // タブ切り替え管理
 interface TabPanelProps {
@@ -63,15 +61,6 @@ interface CalcFormInput {
   minNum: number;
   secNum: number;
   deckNum: number;
-}
-
-// クリップボードにコピー
-async function copyToClipboard(num: any) {
-  try {
-    await navigator.clipboard.writeText(num);
-  } catch (error) {
-    console.log(error || "コピーに失敗しました");
-  }
 }
 
 interface CastleData {
@@ -227,25 +216,6 @@ function App() {
     setNumNumer(Math.ceil((totalNum * 60) / deckNum));
   };
 
-  // クリップボードにコピー
-  const anyText = "copy hoge";
-  const [openTip, setOpenTip] = useState<boolean>(false);
-
-  const handleClickButton = (): void => {
-    setOpenTip(true);
-    copyToClipboard(numNumer);
-  };
-
-  const handleClickButton2 = (): void => {
-    setOpenTip(true);
-    copyToClipboard(Math.ceil(numNumer / 2));
-  };
-
-  const handleClickButton3 = (): void => {
-    setOpenTip(true);
-    copyToClipboard(numNumer * alignmentNum);
-  };
-
   // 例：値を設定する
   const settingDate: LocalDate = {
     castleNum: [
@@ -260,17 +230,7 @@ function App() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs
-          value={tabValue}
-          onChange={tabChange}
-          aria-label="basic tabs example"
-        >
-          <Tab label="傾国" {...tabMenu(0)} />
-          <Tab label="群雄・天下" {...tabMenu(1)} />
-          <Tab label="おにぎり表" {...tabMenu(2)} />
-        </Tabs>
-      </Box>
+      <TabBox />
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -315,23 +275,7 @@ function App() {
       <TabPanel value={tabValue} index={2}>
         <OnigiriTable />
       </TabPanel>
-
-      <Box
-        sx={{
-          p: 3,
-        }}
-      >
-        <FullStack numNumer={numNumer} handleClickButton={handleClickButton} />
-        <HarfStack
-          numNumer={numNumer}
-          handleClickButton2={handleClickButton2}
-        />
-        <FullOnigiri
-          numNumer={numNumer}
-          alignmentNum={alignmentNum}
-          handleClickButton3={handleClickButton3}
-        />
-      </Box>
+      <CountOutput numNumer={numNumer} alignmentNum={alignmentNum} />
     </Box>
   );
 }

@@ -3,8 +3,6 @@ import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import {
   Box,
-  Tabs,
-  Tab,
   Typography,
   Accordion,
   AccordionSummary,
@@ -16,10 +14,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ServerCastel from "./components/views/ServerCastel";
 import UniversalCastel from "./components/views/UniversalCastel";
 import OnigiriTable from "./components/views/OnigiriTable";
+import InitialSetting from "./components/templates/initialSetting/InitialSetting";
 import CastelKinds from "./components/templates/CastelKinds";
 import CalcTime from "./components/templates/CalcTime";
-import AlignmentNum from "./components/templates/setting/AlignmentNum";
-import DeckNum from "./components/templates/setting/DeckNum";
 import CountOutput from "./components/templates/countOutput/CountOutput";
 import TabBox from "./components/templates/TabBox";
 
@@ -135,9 +132,6 @@ function App() {
     setTabValue(newValue);
   };
 
-  // デッキ数計算用
-  const inputRefDeck = useRef(null);
-
   // 計算機能用
   const [numNumer, setNumNumer] = useState(0);
 
@@ -240,16 +234,15 @@ function App() {
           <Typography>初期設定</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <AlignmentNum
+          <InitialSetting
             alignmentRed={alignmentRed}
             alignmentBlue={alignmentBlue}
             alignmentGold={alignmentGold}
             castleChangeRed={castleChangeRed}
             castleChangeBlue={castleChangeBlue}
             castleChangeGold={castleChangeGold}
+            register={register}
           />
-
-          <DeckNum register={register} inputRefDeck={inputRefDeck} />
         </AccordionDetails>
       </Accordion>
 

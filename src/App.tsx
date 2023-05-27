@@ -11,11 +11,8 @@ import {
   AccordionDetails,
   FormControlLabel,
   Checkbox,
-  Tooltip,
-  IconButton,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import ServerCastel from "./components/views/ServerCastel";
 import UniversalCastel from "./components/views/UniversalCastel";
 import OnigiriTable from "./components/views/OnigiriTable";
@@ -107,8 +104,6 @@ function getValue(): LocalDate | null {
 
 // 例：値を取得する
 const retrievedData = getValue();
-// console.log(retrievedData?.castleNum[0].name); // "red"
-// console.log(retrievedData?.minDeckNum.num); // 38
 
 type ToggleSelectedType = {
   [key: number]: boolean;
@@ -144,33 +139,20 @@ export function useToggleSelected() {
 }
 
 // メモ：alignmentRedNumなどトグルボタンのデフォルト値を使用するには、コンポーネント内で呼び出す必要があるため、コンポーネント分けをした際に実装する
-
 function App() {
-  // export default function App(): object {
   // タブ管理
   const [tabValue, setTabValue] = React.useState(0);
   const tabChange = (event: React.SyntheticEvent, newValue: number): void => {
     setTabValue(newValue);
   };
-  // const tabChange = (newValue: number): number => {
-  //   setTabValue(newValue);
-  // };
-  // const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   // デッキ数計算用
   const inputRefDeck = useRef(null);
 
   // 計算機能用
-  // const [inputNumError, setInputNumError] = useState(false);
-  // const [inputSecError, setInputSecError] = useState(false);
   const [numNumer, setNumNumer] = useState(0);
 
-  const {
-    register,
-    // handleSubmit,
-    getValues,
-    // formState: { errors },
-  } = useForm<CalcFormInput>();
+  const { register, getValues } = useForm<CalcFormInput>();
 
   // 城種別ごとのデッキ数の取得
   const castleChangeRed = (
@@ -212,10 +194,8 @@ function App() {
   // どの城種別で計算するか
   const castleKinds = (
     event: React.MouseEvent<HTMLElement>,
-    // newToggleAlignment: string | null,
     newCastelAlignment: string
   ): void => {
-    // setToggleStr(newToggleAlignment);
     castleKindsSwitch(newCastelAlignment);
     calculator();
   };
@@ -250,10 +230,6 @@ function App() {
   // クリップボードにコピー
   const anyText = "copy hoge";
   const [openTip, setOpenTip] = useState<boolean>(false);
-
-  // const handleCloseTip = (): void => {
-  //   setOpenTip(false);
-  // };
 
   const handleClickButton = (): void => {
     setOpenTip(true);
@@ -320,15 +296,12 @@ function App() {
       <TabPanel value={tabValue} index={0}>
         <ServerCastel />
 
-        {/* handleSubmit はフォームの入力を確かめた上引数に渡した関数（onSubmit）を呼び出す */}
         <CalcTime register={register} />
         <CastelKinds
           onChange={toggleTest}
           onClick={castleKinds}
           toggleStr={toggleStr}
         />
-        {/* {errors.numMin && <span>This field is required 1</span>}
-        {errors.numSec && <span>This field is required 2</span>} */}
         <Box>
           <FormControlLabel
             control={<Checkbox />}

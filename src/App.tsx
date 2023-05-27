@@ -1,20 +1,11 @@
 import "./App.css";
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import {
-  Box,
-  Typography,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  FormControlLabel,
-  Checkbox,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 import ServerCastel from "./components/views/ServerCastel";
 import UniversalCastel from "./components/views/UniversalCastel";
 import OnigiriTable from "./components/views/OnigiriTable";
-import InitialSetting from "./components/templates/initialSetting/InitialSetting";
+import InitialAccordion from "./components/templates/initialSetting/InitialAccordion";
 import CastelKinds from "./components/templates/CastelKinds";
 import CalcTime from "./components/templates/CalcTime";
 import CountOutput from "./components/templates/countOutput/CountOutput";
@@ -225,26 +216,15 @@ function App() {
   return (
     <Box sx={{ width: "100%" }}>
       <TabBox />
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography>初期設定</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <InitialSetting
-            alignmentRed={alignmentRed}
-            alignmentBlue={alignmentBlue}
-            alignmentGold={alignmentGold}
-            castleChangeRed={castleChangeRed}
-            castleChangeBlue={castleChangeBlue}
-            castleChangeGold={castleChangeGold}
-            register={register}
-          />
-        </AccordionDetails>
-      </Accordion>
+      <InitialAccordion
+        alignmentRed={alignmentRed}
+        alignmentBlue={alignmentBlue}
+        alignmentGold={alignmentGold}
+        castleChangeRed={castleChangeRed}
+        castleChangeBlue={castleChangeBlue}
+        castleChangeGold={castleChangeGold}
+        register={register}
+      />
 
       <TabPanel value={tabValue} index={0}>
         <ServerCastel />

@@ -23,6 +23,10 @@ import CastelKinds from "./components/templates/CastelKinds";
 import CalcTime from "./components/templates/CalcTime";
 import AlignmentNum from "./components/templates/setting/AlignmentNum";
 import DeckNum from "./components/templates/setting/DeckNum";
+import FullStack from "./components/templates/FullStack";
+import HarfStack from "./components/templates/HarfStack";
+import FullOnigiri from "./components/templates/FullOnigiri";
+// import TabBox from "./components/templates/TabBox";
 
 // タブ切り替え管理
 interface TabPanelProps {
@@ -261,6 +265,11 @@ function App() {
     copyToClipboard(Math.ceil(numNumer / 2));
   };
 
+  const handleClickButton3 = (): void => {
+    setOpenTip(true);
+    copyToClipboard(numNumer * alignmentNum);
+  };
+
   // 例：値を設定する
   const settingDate: LocalDate = {
     castleNum: [
@@ -336,110 +345,19 @@ function App() {
 
       <Box
         sx={{
-          display: "grid",
-          gridTemplateColumns: "auto 1fr",
-          p: 3,
-        }}
-      ></Box>
-
-      <Box
-        sx={{
           p: 3,
         }}
       >
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr auto",
-          }}
-        >
-          <Typography
-            sx={{
-              alignSelf: "center",
-            }}
-          >
-            積み切り駐屯
-          </Typography>
-          <Typography
-            sx={{
-              fontWeight: "medium",
-              fontSize: 30,
-            }}
-          >
-            {numNumer}
-          </Typography>
-          <Tooltip title="ContentCopyIcon" onClick={handleClickButton}>
-            <IconButton>
-              <ContentCopyIcon
-                sx={{
-                  width: "0.8em",
-                }}
-              />
-            </IconButton>
-          </Tooltip>
-        </Box>
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr auto",
-          }}
-        >
-          <Typography
-            sx={{
-              alignSelf: "center",
-            }}
-          >
-            再駐屯込み
-          </Typography>
-          <Typography
-            sx={{
-              fontWeight: "medium",
-              fontSize: 30,
-            }}
-          >
-            {Math.ceil(numNumer / 2)}
-          </Typography>
-          <Tooltip title="ContentCopyIcon" onClick={handleClickButton2}>
-            <IconButton>
-              <ContentCopyIcon
-                sx={{
-                  width: "0.8em",
-                }}
-              />
-            </IconButton>
-          </Tooltip>
-        </Box>
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr auto",
-          }}
-        >
-          <Typography
-            sx={{
-              alignSelf: "center",
-            }}
-          >
-            必要おにぎり
-          </Typography>
-          <Typography
-            sx={{
-              fontWeight: "medium",
-              fontSize: 30,
-            }}
-          >
-            {numNumer * alignmentNum}
-          </Typography>
-          <Tooltip title="ContentCopyIcon">
-            <IconButton>
-              <ContentCopyIcon
-                sx={{
-                  width: "0.8em",
-                }}
-              />
-            </IconButton>
-          </Tooltip>
-        </Box>
+        <FullStack numNumer={numNumer} handleClickButton={handleClickButton} />
+        <HarfStack
+          numNumer={numNumer}
+          handleClickButton2={handleClickButton2}
+        />
+        <FullOnigiri
+          numNumer={numNumer}
+          alignmentNum={alignmentNum}
+          handleClickButton3={handleClickButton3}
+        />
       </Box>
     </Box>
   );

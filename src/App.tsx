@@ -73,7 +73,7 @@ function getValue(): LocalDate | null {
 }
 
 // 例：値を取得する
-const retrievedData = getValue();
+// const retrievedData = getValue();
 
 type ToggleSelectedType = {
   [key: number]: boolean;

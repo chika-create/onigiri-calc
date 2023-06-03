@@ -2,10 +2,8 @@ import React from "react";
 import { Box, Tabs, Tab } from "@mui/material";
 
 export default function TabBox(props: any) {
-  const [tabValue, setTabValue] = React.useState(0);
-  const tabChange = (event: React.SyntheticEvent, newValue: number): void => {
-    setTabValue(newValue);
-  };
+  const tabValue = props.tabValue;
+  const tabChange = props.tabChange;
 
   function tabMenu(index: number): object {
     return {

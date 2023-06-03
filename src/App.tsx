@@ -37,13 +37,6 @@ function TabPanel(props: TabPanelProps): any {
   );
 }
 
-function tabMenu(index: number): object {
-  return {
-    id: `tab-${index}`,
-    "aria-controls": `tabpanel-${index}`,
-  };
-}
-
 // フォームの型
 interface CalcFormInput {
   minNum: number;
@@ -215,7 +208,7 @@ function App() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <TabBox />
+      <TabBox tabValue={tabValue} tabChange={tabChange} />
       <InitialAccordion
         alignmentRed={alignmentRed}
         alignmentBlue={alignmentBlue}

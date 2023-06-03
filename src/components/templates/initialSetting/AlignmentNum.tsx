@@ -10,9 +10,7 @@ export default function AlignmentNum(props: any) {
   const alignmentBlue = props.alignmentBlue;
   const alignmentGold = props.alignmentGold;
 
-  const castleChangeRed = props.castleChangeRed;
-  const castleChangeBlue = props.castleChangeBlue;
-  const castleChangeGold = props.castleChangeGold;
+  const castleChange = props.castleChange;
 
   return (
     <>
@@ -32,8 +30,8 @@ export default function AlignmentNum(props: any) {
         </Typography>
         <ToggleButtonGroup
           // label="alignmentRed"
-          value={alignmentRed}
-          onChange={castleChangeRed}
+          // value={alignmentRed}
+          // onChange={() => castleChange(alignmentRed, "red")}
           exclusive
           sx={{
             ml: 2,
@@ -42,6 +40,7 @@ export default function AlignmentNum(props: any) {
           <ToggleButton
             // selected={alignmentRedNum[1]}
             value="1"
+            onClick={() => castleChange(1, "red")}
             aria-label="left aligned"
             sx={{
               width: 1 / 4,
@@ -51,6 +50,7 @@ export default function AlignmentNum(props: any) {
           </ToggleButton>
           <ToggleButton
             value="2"
+            onClick={() => castleChange(2, "red")}
             aria-label="left aligned"
             sx={{
               width: 1 / 4,
@@ -60,6 +60,7 @@ export default function AlignmentNum(props: any) {
           </ToggleButton>
           <ToggleButton
             value="3"
+            onClick={() => castleChange(3, "red")}
             aria-label="left aligned"
             sx={{
               width: 1 / 4,
@@ -69,6 +70,7 @@ export default function AlignmentNum(props: any) {
           </ToggleButton>
           <ToggleButton
             value="4"
+            onClick={() => castleChange(4, "red")}
             aria-label="left aligned"
             sx={{
               width: 1 / 4,
@@ -94,8 +96,8 @@ export default function AlignmentNum(props: any) {
         </Typography>
         <ToggleButtonGroup
           // label="alignmentBlue"
-          value={alignmentBlue}
-          onChange={castleChangeBlue}
+          // value={alignmentBlue}
+          // onChange={castleChangeBlue}
           exclusive
           sx={{
             ml: 2,
@@ -103,6 +105,7 @@ export default function AlignmentNum(props: any) {
         >
           <ToggleButton
             value="1"
+            onClick={() => castleChange(1, "blue")}
             aria-label="left aligned"
             sx={{
               width: 1 / 4,
@@ -112,6 +115,7 @@ export default function AlignmentNum(props: any) {
           </ToggleButton>
           <ToggleButton
             value="2"
+            onClick={() => castleChange(2, "blue")}
             aria-label="left aligned"
             sx={{
               width: 1 / 4,
@@ -121,6 +125,7 @@ export default function AlignmentNum(props: any) {
           </ToggleButton>
           <ToggleButton
             value="3"
+            onClick={() => castleChange(3, "blue")}
             aria-label="left aligned"
             sx={{
               width: 1 / 4,
@@ -130,6 +135,7 @@ export default function AlignmentNum(props: any) {
           </ToggleButton>
           <ToggleButton
             value="4"
+            onClick={() => castleChange(4, "blue")}
             aria-label="left aligned"
             sx={{
               width: 1 / 4,
@@ -155,8 +161,8 @@ export default function AlignmentNum(props: any) {
         </Typography>
         <ToggleButtonGroup
           // label="alignmentGold"
-          value={alignmentGold}
-          onChange={castleChangeGold}
+          // value={alignmentGold}
+          // onChange={castleChangeGold}
           exclusive
           sx={{
             ml: 2,
@@ -164,6 +170,7 @@ export default function AlignmentNum(props: any) {
         >
           <ToggleButton
             value="1"
+            onClick={() => castleChange(1, "gold")}
             aria-label="left aligned"
             sx={{
               width: 1 / 4,
@@ -173,6 +180,7 @@ export default function AlignmentNum(props: any) {
           </ToggleButton>
           <ToggleButton
             value="2"
+            onClick={() => castleChange(2, "gold")}
             aria-label="left aligned"
             sx={{
               width: 1 / 4,
@@ -182,6 +190,7 @@ export default function AlignmentNum(props: any) {
           </ToggleButton>
           <ToggleButton
             value="3"
+            onClick={() => castleChange(3, "gold")}
             aria-label="left aligned"
             sx={{
               width: 1 / 4,
@@ -191,6 +200,7 @@ export default function AlignmentNum(props: any) {
           </ToggleButton>
           <ToggleButton
             value="4"
+            onClick={() => castleChange(4, "gold")}
             aria-label="left aligned"
             sx={{
               width: 1 / 4,

@@ -15,9 +15,7 @@ export default function InitialAccordion(props: any) {
   const alignmentBlue = props.alignmentBlue;
   const alignmentGold = props.alignmentGold;
 
-  const castleChangeRed = props.castleChangeRed;
-  const castleChangeBlue = props.castleChangeBlue;
-  const castleChangeGold = props.castleChangeGold;
+  const castleChange = props.castleChange;
 
   const register = props.register;
 
@@ -38,9 +36,7 @@ export default function InitialAccordion(props: any) {
           alignmentRed={alignmentRed}
           alignmentBlue={alignmentBlue}
           alignmentGold={alignmentGold}
-          castleChangeRed={castleChangeRed}
-          castleChangeBlue={castleChangeBlue}
-          castleChangeGold={castleChangeGold}
+          castleChange={castleChange}
         />
 
         <DeckNum register={register} inputRefDeck={inputRefDeck} />

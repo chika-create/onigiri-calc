@@ -122,25 +122,18 @@ function App() {
   const { register, getValues } = useForm<CalcFormInput>();
 
   // 城種別ごとのデッキ数の取得
-  const castleChangeRed = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: number
-  ): void => {
-    setAlignmentRed(newAlignment);
-  };
-
-  const castleChangeBlue = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: number
-  ): void => {
-    setAlignmentBlue(newAlignment);
-  };
-
-  const castleChangeGold = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: number
-  ): void => {
-    setAlignmentGold(newAlignment);
+  const castleChange = (value: number, string: string): void => {
+    const newData = {
+      value: value,
+      string: string,
+    };
+    if (newData.string === "blue") {
+      setAlignmentBlue(newData.value);
+    } else if (newData.string === "gold") {
+      setAlignmentGold(newData.value);
+    } else {
+      setAlignmentRed(newData.value);
+    }
   };
 
   const [toggleStr, setToggleStr] = React.useState<string | null>("left");
@@ -204,7 +197,7 @@ function App() {
     minDeckNum: { num: 38 },
   };
   setValue(settingDate);
-  console.log(settingDate);
+  console.log("hoge: " + settingDate);
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -213,9 +206,7 @@ function App() {
         alignmentRed={alignmentRed}
         alignmentBlue={alignmentBlue}
         alignmentGold={alignmentGold}
-        castleChangeRed={castleChangeRed}
-        castleChangeBlue={castleChangeBlue}
-        castleChangeGold={castleChangeGold}
+        castleChange={castleChange}
         register={register}
       />
 

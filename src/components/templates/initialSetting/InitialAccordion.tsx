@@ -32,12 +32,7 @@ export default function InitialAccordion(props: any) {
         <Typography>初期設定</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <AlignmentNum
-          alignmentRed={alignmentRed}
-          alignmentBlue={alignmentBlue}
-          alignmentGold={alignmentGold}
-          castleChange={castleChange}
-        />
+        <AlignmentNum castleChange={castleChange} />
 
         <DeckNum register={register} inputRefDeck={inputRefDeck} />
       </AccordionDetails>

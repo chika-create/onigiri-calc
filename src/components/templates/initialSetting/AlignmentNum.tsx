@@ -11,17 +11,8 @@ type ToggleSelectedType = {
 };
 
 export default function AlignmentNum(props: any) {
-  const alignmentRed = props.alignmentRed;
-  const alignmentBlue = props.alignmentBlue;
-  const alignmentGold = props.alignmentGold;
-
   const castleChange = props.castleChange;
-  // const [selected1, setSelected1] = React.useState(false);
-  // const [selected2, setSelected2] = React.useState(false);
-  // const [selected3, setSelected3] = React.useState(false);
-  // const [selected4, setSelected4] = React.useState(false);
 
-  //export function useToggleSelected() {
   const [alignmentRedNum, setAlignmentRedNum] = useState<ToggleSelectedType>({
     1: true,
     2: false,
@@ -43,16 +34,6 @@ export default function AlignmentNum(props: any) {
     4: false,
   });
 
-  // return {
-  //   alignmentRedNum,
-  //   setAlignmentRedNum,
-  //   alignmentBlueNum,
-  //   setAlignmentBlueNum,
-  //   alignmentGoldNum,
-  //   setAlignmentGoldNum,
-  // };
-  //}
-
   return (
     <>
       <Box
@@ -70,9 +51,6 @@ export default function AlignmentNum(props: any) {
           赤城
         </Typography>
         <ToggleButtonGroup
-          // label="alignmentRed"
-          // value={alignmentRed}
-          // onChange={() => castleChange(alignmentRed, "red")}
           exclusive
           sx={{
             ml: 2,
@@ -175,9 +153,6 @@ export default function AlignmentNum(props: any) {
           青城
         </Typography>
         <ToggleButtonGroup
-          // label="alignmentBlue"
-          // value={alignmentBlue}
-          // onChange={castleChangeBlue}
           exclusive
           sx={{
             ml: 2,
@@ -240,9 +215,6 @@ export default function AlignmentNum(props: any) {
           金城
         </Typography>
         <ToggleButtonGroup
-          // label="alignmentGold"
-          // value={alignmentGold}
-          // onChange={castleChangeGold}
           exclusive
           sx={{
             ml: 2,

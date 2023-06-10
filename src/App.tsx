@@ -169,13 +169,7 @@ function App() {
   return (
     <Box sx={{ width: "100%" }}>
       <TabBox tabValue={tabValue} tabChange={tabChange} />
-      <InitialAccordion
-        alignmentRed={alignmentRed}
-        alignmentBlue={alignmentBlue}
-        alignmentGold={alignmentGold}
-        castleChange={castleChange}
-        register={register}
-      />
+      <InitialAccordion castleChange={castleChange} register={register} />
 
       <TabPanel value={tabValue} index={0}>
         <ServerCastel />

@@ -1,8 +1,11 @@
+import { useRef } from "react";
 import { Box, Typography, TextField } from "@mui/material";
 
 export default function DeckNum(props: any) {
   const register = props.register;
-  const inputRefDeck = props.inputRefDeck;
+
+  // デッキ数計算用
+  const inputRefDeck = useRef(null);
 
   return (
     <Box

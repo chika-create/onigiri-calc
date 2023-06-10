@@ -103,6 +103,7 @@ function App() {
     }
   };
 
+  // ↓ CastelKindsの城種別のトグルボタンの切り替え。あとでCastelKinds内に移す
   const [toggleStr, setToggleStr] = React.useState<string | null>("left");
 
   const toggleTest = (
@@ -111,6 +112,7 @@ function App() {
   ) => {
     setToggleStr(newAlignment);
   };
+  // ↑ ここまで移す
 
   // 城種別ごとのデッキ数
   const [alignmentNum, setAlignmentNum] = useState(0);
@@ -132,12 +134,18 @@ function App() {
     switch (item) {
       case "blue":
         setAlignmentNum(alignmentBlue);
+        console.log("alignmentBlue: " + alignmentBlue);
+        console.log("-------");
         break;
       case "gold":
         setAlignmentNum(alignmentGold);
+        console.log("alignmentGold: " + alignmentGold);
+        console.log("-------");
         break;
       default:
         setAlignmentNum(alignmentRed);
+        console.log("alignmentRed: " + alignmentRed);
+        console.log("-------");
     }
   };
 
@@ -164,12 +172,17 @@ function App() {
     minDeckNum: { num: 38 },
   };
   setValue(settingDate);
-  console.log("hoge: " + settingDate);
 
   return (
     <Box sx={{ width: "100%" }}>
       <TabBox tabValue={tabValue} tabChange={tabChange} />
-      <InitialAccordion castleChange={castleChange} register={register} />
+      <InitialAccordion
+        castleChange={castleChange}
+        alignmentRed={alignmentRed}
+        alignmentBlue={alignmentBlue}
+        alignmentGold={alignmentGold}
+        register={register}
+      />
 
       <TabPanel value={tabValue} index={0}>
         <ServerCastel />

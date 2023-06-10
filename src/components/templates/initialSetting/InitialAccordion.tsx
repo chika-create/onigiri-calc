@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import {
   Accordion,
   AccordionSummary,
@@ -7,20 +6,17 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import AlignmentNum from "./AlignmentNum";
+import AlignmentNumRed from "./AlignmentNumRed";
+import AlignmentNumBlue from "./AlignmentNumBlue";
+import AlignmentNumGold from "./AlignmentNumGold";
 import DeckNum from "./DeckNum";
 
 export default function InitialAccordion(props: any) {
-  const alignmentRed = props.alignmentRed;
-  const alignmentBlue = props.alignmentBlue;
-  const alignmentGold = props.alignmentGold;
-
   const castleChange = props.castleChange;
-
+  // const alignmentRed = props.alignmentRed;
+  // const alignmentBlue = props.alignmentBlue;
+  // const alignmentGold = props.alignmentGold;
   const register = props.register;
-
-  // デッキ数計算用
-  const inputRefDeck = useRef(null);
 
   return (
     <Accordion>
@@ -32,9 +28,10 @@ export default function InitialAccordion(props: any) {
         <Typography>初期設定</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <AlignmentNum castleChange={castleChange} />
-
-        <DeckNum register={register} inputRefDeck={inputRefDeck} />
+        <AlignmentNumRed castleChange={castleChange}  />
+        <AlignmentNumBlue castleChange={castleChange} />
+        <AlignmentNumGold castleChange={castleChange}  />
+        <DeckNum register={register} />
       </AccordionDetails>
     </Accordion>
   );

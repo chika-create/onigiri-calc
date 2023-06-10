@@ -64,49 +64,16 @@ function setValue(data: LocalDate): void {
   localStorage.setItem(KEY, JSON.stringify(data));
 }
 
-function getValue(): LocalDate | null {
-  const data = localStorage.getItem(KEY);
-  if (data) {
-    return JSON.parse(data) as LocalDate;
-  }
-  return null;
-}
+// function getValue(): LocalDate | null {
+//   const data = localStorage.getItem(KEY);
+//   if (data) {
+//     return JSON.parse(data) as LocalDate;
+//   }
+//   return null;
+// }
 
 // 例：値を取得する
 // const retrievedData = getValue();
-
-type ToggleSelectedType = {
-  [key: number]: boolean;
-};
-
-export function useToggleSelected() {
-  const [alignmentRedNum, setAlignmentRedNum] = useState<ToggleSelectedType>({
-    1: true,
-    2: false,
-    3: false,
-  });
-
-  const [alignmentBlueNum, setAlignmentBlueNum] = useState<ToggleSelectedType>({
-    1: true,
-    2: false,
-    3: false,
-  });
-
-  const [alignmentGoldNum, setAlignmentGoldNum] = useState<ToggleSelectedType>({
-    1: true,
-    2: false,
-    3: false,
-  });
-
-  return {
-    alignmentRedNum,
-    setAlignmentRedNum,
-    alignmentBlueNum,
-    setAlignmentBlueNum,
-    alignmentGoldNum,
-    setAlignmentGoldNum,
-  };
-}
 
 // メモ：alignmentRedNumなどトグルボタンのデフォルト値を使用するには、コンポーネント内で呼び出す必要があるため、コンポーネント分けをした際に実装する
 function App() {

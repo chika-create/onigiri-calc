@@ -1,11 +1,11 @@
-import { useRef } from "react";
+// import { useRef } from "react";
 import { Box, Typography, TextField } from "@mui/material";
 
 export default function MinDeckNum(props: any) {
   const register = props.register;
 
   // デッキ数計算用
-  const inputRefDeck = useRef(null);
+  // const inputRefDeck = useRef(null);
 
   return (
     <Box
@@ -23,7 +23,7 @@ export default function MinDeckNum(props: any) {
       </Typography>
       <TextField
         // error={inputDeckError}
-        inputRef={inputRefDeck}
+        // inputRef={inputRefDeck}
         // defaultValue=""
         id="outlined-basic"
         type="number"

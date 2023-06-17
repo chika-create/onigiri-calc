@@ -1,9 +1,9 @@
-import { useRef } from "react";
+// import { useRef } from "react";
 import { Box, Typography, TextField } from "@mui/material";
 
 export default function CalcTime(props: any) {
-  const inputRefNum = useRef(null);
-  const inputRefSec = useRef(null);
+  // const inputRefNum = useRef(null);
+  // const inputRefSec = useRef(null);
   const register = props.register;
 
   return (
@@ -22,7 +22,7 @@ export default function CalcTime(props: any) {
       </Typography>
       <TextField
         // error={inputNumError}
-        inputRef={inputRefNum}
+        // inputRef={inputRefNum}
         // defaultValue=""
         id="outlined-basic"
         type="number"
@@ -44,7 +44,7 @@ export default function CalcTime(props: any) {
       </Typography>
       <TextField
         // error={inputSecError}
-        inputRef={inputRefSec}
+        // inputRef={inputRefSec}
         // defaultValue=""
         id="outlined-basic"
         type="number"

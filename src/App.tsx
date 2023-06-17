@@ -86,7 +86,8 @@ function App() {
   // 計算機能用
   const [numNumer, setNumNumer] = useState(0);
 
-  const { register, getValues } = useForm<CalcFormInput>();
+  const { register, watch, getValues } = useForm<CalcFormInput>();
+  const deckNum = watch("deckNum");
 
   // 城種別ごとのデッキ数の取得
   const castleChange = (value: number, string: string): void => {

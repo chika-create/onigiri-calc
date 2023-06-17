@@ -3,13 +3,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
-import {
-  TabPanelProps,
-  CalcFormInput,
-  CastleData,
-  DeckData,
-  LocalDate,
-} from "./types";
+import { TabPanelProps, CalcFormInput } from "./types";
 import ServerCastel from "./components/views/ServerCastel";
 import UniversalCastel from "./components/views/UniversalCastel";
 import OnigiriTable from "./components/views/OnigiriTable";
@@ -38,12 +32,6 @@ function TabPanel(props: TabPanelProps): any {
   );
 }
 
-const KEY = "settingDate";
-
-function setValue(data: LocalDate): void {
-  localStorage.setItem(KEY, JSON.stringify(data));
-}
-
 // メモ：alignmentRedNumなどトグルボタンのデフォルト値を使用するには、コンポーネント内で呼び出す必要があるため、コンポーネント分けをした際に実装する
 function App() {
   // タブ管理
@@ -56,7 +44,7 @@ function App() {
   const [numNumer, setNumNumer] = useState(0);
 
   const { register, watch, getValues } = useForm<CalcFormInput>();
-  const deckNum = watch("deckNum");
+  //const deckNum = watch("deckNum");
 
   // 城種別ごとのデッキ数の取得
   const castleChange = (value: number, string: string): void => {
@@ -64,7 +52,6 @@ function App() {
       value: value,
       string: string,
     };
-    console.log("string : " + newData.string + " / value: " + newData.value);
     if (newData.string === "blue") {
       setAlignmentBlue(newData.value);
     } else if (newData.string === "gold") {
@@ -94,19 +81,12 @@ function App() {
     switch (item) {
       case "blue":
         setAlignmentNum(alignmentBlue);
-        // alignmentBlue、Gold の値がおかしい
-        console.log("alignmentBlue: " + alignmentBlue);
-        console.log("-------");
         break;
       case "gold":
         setAlignmentNum(alignmentGold);
-        console.log("alignmentGold: " + alignmentGold);
-        console.log("-------");
         break;
       default:
         setAlignmentNum(alignmentRed);
-        console.log("alignmentRed: " + alignmentRed);
-        console.log("-------");
     }
   };
 
@@ -122,17 +102,6 @@ function App() {
     deckNum = 60 / deckNum;
     setNumNumer(Math.ceil((totalNum * 60) / deckNum));
   };
-
-  // 例：値を設定する
-  const settingDate: LocalDate = {
-    castleNum: [
-      { name: "red", num: alignmentRed },
-      { name: "blue", num: alignmentBlue },
-      { name: "gold", num: alignmentGold },
-    ],
-    minDeckNum: { num: 38 },
-  };
-  setValue(settingDate);
 
   return (
     <Box sx={{ width: "100%" }}>

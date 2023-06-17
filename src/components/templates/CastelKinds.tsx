@@ -1,11 +1,31 @@
-import { Typography, ToggleButtonGroup, ToggleButton } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  ToggleButtonGroup,
+  ToggleButton,
+} from "@mui/material";
 
 export default function CastelKinds(props: any) {
-  const toggleStr = props.toggleStr;
-  const toggleTest = props.onChange;
   const castleKinds = props.onClick;
+
+  const [toggleStr, setToggleStr] = React.useState<string | null>("left");
+
+  const toggleTest = (
+    event: React.MouseEvent<HTMLElement>,
+    newAlignment: string | null
+  ) => {
+    setToggleStr(newAlignment);
+  };
+
   return (
-    <>
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "auto 1fr",
+        p: 3,
+      }}
+    >
       <Typography
         sx={{
           alignSelf: "center",
@@ -51,6 +71,6 @@ export default function CastelKinds(props: any) {
           金城
         </ToggleButton>
       </ToggleButtonGroup>
-    </>
+    </Box>
   );
 }

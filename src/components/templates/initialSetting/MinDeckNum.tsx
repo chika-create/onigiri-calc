@@ -1,8 +1,8 @@
+// import { useRef } from "react";
 import { Box, Typography, TextField } from "@mui/material";
 
-export default function DeckNum(props: any) {
+export default function MinDeckNum(props: any) {
   const register = props.register;
-  const inputRefDeck = props.inputRefDeck;
 
   return (
     <Box
@@ -19,15 +19,9 @@ export default function DeckNum(props: any) {
         1分の駐屯数
       </Typography>
       <TextField
-        // error={inputDeckError}
-        inputRef={inputRefDeck}
-        // defaultValue=""
         id="outlined-basic"
         type="number"
-        // label="Number"
         variant="outlined"
-        // helperText={inputRefDeck?.current?.validationMessage}
-        // label="deckNum"
         {...register("deckNum")}
         sx={{
           ml: 2,

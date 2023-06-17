@@ -1,0 +1,21 @@
+// tsファイルにするとエラーになるため、値の保持コードをtxtファイルでおいておく
+
+import { LocalDate, CastleData, DeckData } from "./types";
+
+const KEY = "settingDate";
+
+function setValue(data: LocalDate): void {
+  localStorage.setItem(KEY, JSON.stringify(data));
+}
+
+// 例：値を設定する
+const settingDate: LocalDate = {
+  castleNum: [
+    { name: "red", num: alignmentRed },
+    { name: "blue", num: alignmentBlue },
+    { name: "gold", num: alignmentGold },
+  ],
+  minDeckNum: { num: 38 },
+};
+
+setValue(settingDate);

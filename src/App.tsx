@@ -94,6 +94,7 @@ function App() {
       value: value,
       string: string,
     };
+    console.log("string : " + newData.string + " / value: " + newData.value);
     if (newData.string === "blue") {
       setAlignmentBlue(newData.value);
     } else if (newData.string === "gold") {
@@ -134,6 +135,7 @@ function App() {
     switch (item) {
       case "blue":
         setAlignmentNum(alignmentBlue);
+        // alignmentBlue、Gold の値がおかしい
         console.log("alignmentBlue: " + alignmentBlue);
         console.log("-------");
         break;

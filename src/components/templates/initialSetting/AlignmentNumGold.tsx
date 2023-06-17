@@ -86,7 +86,7 @@ export default function AlignmentNumGold(props: any) {
           value="3"
           selected={alignmentGoldNum[3]}
           onClick={() => {
-            castleChange(3, "red");
+            castleChange(3, "gold");
             setAlignmentGoldNum({
               1: false,
               2: false,
@@ -105,7 +105,7 @@ export default function AlignmentNumGold(props: any) {
           value="4"
           selected={alignmentGoldNum[4]}
           onClick={() => {
-            castleChange(4, "red");
+            castleChange(4, "gold");
             setAlignmentGoldNum({
               1: false,
               2: false,

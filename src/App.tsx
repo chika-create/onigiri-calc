@@ -2,6 +2,14 @@ import "./App.css";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
+
+import {
+  TabPanelProps,
+  CalcFormInput,
+  CastleData,
+  DeckData,
+  LocalDate,
+} from "./types";
 import ServerCastel from "./components/views/ServerCastel";
 import UniversalCastel from "./components/views/UniversalCastel";
 import OnigiriTable from "./components/views/OnigiriTable";
@@ -10,13 +18,6 @@ import CastelKinds from "./components/templates/CastelKinds";
 import CalcTime from "./components/templates/CalcTime";
 import CountOutput from "./components/templates/countOutput/CountOutput";
 import TabBox from "./components/templates/TabBox";
-
-// タブ切り替え管理
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
-}
 
 function TabPanel(props: TabPanelProps): any {
   const { children, value, index, ...other } = props;
@@ -35,27 +36,6 @@ function TabPanel(props: TabPanelProps): any {
       )}
     </Box>
   );
-}
-
-// フォームの型
-interface CalcFormInput {
-  minNum: number;
-  secNum: number;
-  deckNum: number;
-}
-
-interface CastleData {
-  name: string;
-  num: number;
-}
-
-interface DeckData {
-  num: number;
-}
-
-interface LocalDate {
-  castleNum: CastleData[];
-  minDeckNum: DeckData;
 }
 
 const KEY = "settingDate";
@@ -93,17 +73,6 @@ function App() {
       setAlignmentRed(newData.value);
     }
   };
-
-  // ↓ CastelKindsの城種別のトグルボタンの切り替え。あとでCastelKinds内に移す
-  const [toggleStr, setToggleStr] = React.useState<string | null>("left");
-
-  const toggleTest = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: string | null
-  ) => {
-    setToggleStr(newAlignment);
-  };
-  // ↑ ここまで移す
 
   // 城種別ごとのデッキ数
   const [alignmentNum, setAlignmentNum] = useState(0);
@@ -174,11 +143,7 @@ function App() {
         <ServerCastel />
 
         <CalcTime register={register} />
-        <CastelKinds
-          onChange={toggleTest}
-          onClick={castleKinds}
-          toggleStr={toggleStr}
-        />
+        <CastelKinds onClick={castleKinds} />
         <Box>
           <FormControlLabel
             control={<Checkbox />}

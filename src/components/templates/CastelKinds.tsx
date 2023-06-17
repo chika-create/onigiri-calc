@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -6,9 +7,17 @@ import {
 } from "@mui/material";
 
 export default function CastelKinds(props: any) {
-  const toggleStr = props.toggleStr;
-  const toggleTest = props.onChange;
   const castleKinds = props.onClick;
+
+  const [toggleStr, setToggleStr] = React.useState<string | null>("left");
+
+  const toggleTest = (
+    event: React.MouseEvent<HTMLElement>,
+    newAlignment: string | null
+  ) => {
+    setToggleStr(newAlignment);
+  };
+
   return (
     <Box
       sx={{

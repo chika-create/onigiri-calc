@@ -12,9 +12,6 @@ type ToggleSelectedType = {
 
 export default function AlignmentNumRed(props: any) {
   const castleChange = props.castleChange;
-  // const alignmentRed = props.alignmentRed;
-  // const alignmentBlue = props.alignmentBlue;
-  // const alignmentGold = props.alignmentGold;
 
   const [alignmentRedNum, setAlignmentRedNum] = useState<ToggleSelectedType>({
     1: true,

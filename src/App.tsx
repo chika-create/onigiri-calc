@@ -64,17 +64,6 @@ function setValue(data: LocalDate): void {
   localStorage.setItem(KEY, JSON.stringify(data));
 }
 
-// function getValue(): LocalDate | null {
-//   const data = localStorage.getItem(KEY);
-//   if (data) {
-//     return JSON.parse(data) as LocalDate;
-//   }
-//   return null;
-// }
-
-// 例：値を取得する
-// const retrievedData = getValue();
-
 // メモ：alignmentRedNumなどトグルボタンのデフォルト値を使用するには、コンポーネント内で呼び出す必要があるため、コンポーネント分けをした際に実装する
 function App() {
   // タブ管理
@@ -179,13 +168,7 @@ function App() {
   return (
     <Box sx={{ width: "100%" }}>
       <TabBox tabValue={tabValue} tabChange={tabChange} />
-      <InitialAccordion
-        castleChange={castleChange}
-        alignmentRed={alignmentRed}
-        alignmentBlue={alignmentBlue}
-        alignmentGold={alignmentGold}
-        register={register}
-      />
+      <InitialAccordion castleChange={castleChange} register={register} />
 
       <TabPanel value={tabValue} index={0}>
         <ServerCastel />

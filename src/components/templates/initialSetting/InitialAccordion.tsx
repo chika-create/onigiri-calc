@@ -13,9 +13,6 @@ import MinDeckNum from "./MinDeckNum";
 
 export default function InitialAccordion(props: any) {
   const castleChange = props.castleChange;
-  // const alignmentRed = props.alignmentRed;
-  // const alignmentBlue = props.alignmentBlue;
-  // const alignmentGold = props.alignmentGold;
   const register = props.register;
 
   return (

@@ -1,4 +1,9 @@
 import "./App.css";
+import './index.css';
+import store from './lib/store';
+import { Provider } from 'react-redux';
+import InboxScreen from './components/InboxScreen';
+
 import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -274,6 +279,7 @@ function App() {
   console.log(settingDate);
 
   return (
+    <>
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
@@ -442,7 +448,11 @@ function App() {
         </Box>
       </Box>
     </Box>
-  );
+    <Provider store={store}>
+      <InboxScreen />
+    </Provider>
+    </>
+);
 }
 
 export default App;

@@ -11,7 +11,7 @@ import AlignmentNumBlue from "../parts/initialSetting/AlignmentNumBlue";
 import AlignmentNumGold from "../parts/initialSetting/AlignmentNumGold";
 import MinDeckNum from "../parts/initialSetting/MinDeckNum";
 
-export default function InitialAccordion(props: any) {
+export default function InitialSetting(props: any) {
   const castleChange = props.castleChange;
   const register = props.register;
 

@@ -7,7 +7,7 @@ import { TabPanelProps, CalcFormInput } from "./types";
 import ServerCastel from "./components/pages/ServerCastel";
 import UniversalCastel from "./components/pages/UniversalCastel";
 import OnigiriTable from "./components/pages/OnigiriTable";
-import InitialAccordion from "./components/templates/InitialAccordion";
+import InitialSetting from "./components/templates/InitialSetting";
 import CastelKinds from "./components/parts/CastelKinds";
 import CalcTime from "./components/parts/CalcTime";
 import CountOutput from "./components/templates/CountOutput";
@@ -106,7 +106,7 @@ function App() {
   return (
     <Box sx={{ width: "100%" }}>
       <TabBox tabValue={tabValue} tabChange={tabChange} />
-      <InitialAccordion castleChange={castleChange} register={register} />
+      <InitialSetting castleChange={castleChange} register={register} />
 
       <TabPanel value={tabValue} index={0}>
         <ServerCastel />

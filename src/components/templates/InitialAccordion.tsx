@@ -6,10 +6,10 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import AlignmentNumRed from "./AlignmentNumRed";
-import AlignmentNumBlue from "./AlignmentNumBlue";
-import AlignmentNumGold from "./AlignmentNumGold";
-import MinDeckNum from "./MinDeckNum";
+import AlignmentNumRed from "../parts/initialSetting/AlignmentNumRed";
+import AlignmentNumBlue from "../parts/initialSetting/AlignmentNumBlue";
+import AlignmentNumGold from "../parts/initialSetting/AlignmentNumGold";
+import MinDeckNum from "../parts/initialSetting/MinDeckNum";
 
 export default function InitialAccordion(props: any) {
   const castleChange = props.castleChange;

@@ -4,14 +4,14 @@ import { useForm } from "react-hook-form";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
 import { TabPanelProps, CalcFormInput } from "./types";
-import ServerCastel from "./components/views/ServerCastel";
-import UniversalCastel from "./components/views/UniversalCastel";
-import OnigiriTable from "./components/views/OnigiriTable";
-import InitialAccordion from "./components/templates/initialSetting/InitialAccordion";
-import CastelKinds from "./components/templates/CastelKinds";
-import CalcTime from "./components/templates/CalcTime";
-import CountOutput from "./components/templates/countOutput/CountOutput";
-import TabBox from "./components/templates/TabBox";
+import ServerCastel from "./components/pages/ServerCastel";
+import UniversalCastel from "./components/pages/UniversalCastel";
+import OnigiriTable from "./components/pages/OnigiriTable";
+import InitialAccordion from "./components/templates/InitialAccordion";
+import CastelKinds from "./components/parts/CastelKinds";
+import CalcTime from "./components/parts/CalcTime";
+import CountOutput from "./components/templates/CountOutput";
+import TabBox from "./components/views/TabBox";
 
 function TabPanel(props: TabPanelProps): any {
   const { children, value, index, ...other } = props;

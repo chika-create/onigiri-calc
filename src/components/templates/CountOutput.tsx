@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Box } from "@mui/material";
-import FullStack from "./FullStack";
-import HarfStack from "./HarfStack";
-import FullOnigiri from "./FullOnigiri";
+import FullStack from "../parts/countOutput/FullStack";
+import HarfStack from "../parts/countOutput/HarfStack";
+import FullOnigiri from "../parts/countOutput/FullOnigiri";
 
 export default function CountOutput(props: any) {
   const numNumer = props.numNumer;

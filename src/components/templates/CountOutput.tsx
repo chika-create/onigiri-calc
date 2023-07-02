@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Box } from "@mui/material";
+
+import { numNumber } from "../../SettingUseContext";
 import FullStack from "../parts/countOutput/FullStack";
 import HarfStack from "../parts/countOutput/HarfStack";
 import FullOnigiri from "../parts/countOutput/FullOnigiri";
 
 export default function CountOutput(props: any) {
-  const numNumer = props.numNumer;
+  // const numNumer = props.numNumer;
   const alignmentNum = props.alignmentNum;
+  const numNumer = useContext(numNumber);
 
   // クリップボードにコピー
   const [openTip, setOpenTip] = useState<boolean>(false);
@@ -41,10 +44,9 @@ export default function CountOutput(props: any) {
         p: 3,
       }}
     >
-      <FullStack numNumer={numNumer} handleClickButton={handleClickButton} />
-      <HarfStack numNumer={numNumer} handleClickButton2={handleClickButton2} />
+      <FullStack handleClickButton={handleClickButton} />
+      <HarfStack handleClickButton2={handleClickButton2} />
       <FullOnigiri
-        numNumer={numNumer}
         alignmentNum={alignmentNum}
         handleClickButton3={handleClickButton3}
       />

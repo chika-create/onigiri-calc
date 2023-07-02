@@ -1,9 +1,11 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
 import { TabPanelProps, CalcFormInput } from "./types";
+import { numNumber } from "./SettingUseContext";
+
 import ServerCastel from "./components/pages/ServerCastel";
 import UniversalCastel from "./components/pages/UniversalCastel";
 import OnigiriTable from "./components/pages/OnigiriTable";
@@ -126,7 +128,9 @@ function App() {
       <TabPanel value={tabValue} index={2}>
         <OnigiriTable />
       </TabPanel>
-      <CountOutput numNumer={numNumer} alignmentNum={alignmentNum} />
+      <numNumber.Provider value={numNumer}>
+        <CountOutput numNumer={numNumer} alignmentNum={alignmentNum} />
+      </numNumber.Provider>
     </Box>
   );
 }

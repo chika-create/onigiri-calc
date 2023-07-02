@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import { numNumber } from "../../../SettingUseContext";
+
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 export default function FullStack(props: any) {
-  const numNumer = props.numNumer;
+  // const numNumer = props.numNumer;
+  const numNumer = useContext(numNumber);
   const handleClickButton = props.handleClickButton;
 
   return (

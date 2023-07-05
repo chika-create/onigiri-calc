@@ -1,17 +1,19 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
 import { TabPanelProps, CalcFormInput } from "./types";
-import ServerCastel from "./components/views/ServerCastel";
-import UniversalCastel from "./components/views/UniversalCastel";
-import OnigiriTable from "./components/views/OnigiriTable";
-import InitialAccordion from "./components/templates/initialSetting/InitialAccordion";
-import CastelKinds from "./components/templates/CastelKinds";
-import CalcTime from "./components/templates/CalcTime";
-import CountOutput from "./components/templates/countOutput/CountOutput";
-import TabBox from "./components/templates/TabBox";
+import { numNumber } from "./SettingUseContext";
+
+import ServerCastel from "./components/pages/ServerCastel";
+import UniversalCastel from "./components/pages/UniversalCastel";
+import OnigiriTable from "./components/pages/OnigiriTable";
+import InitialSetting from "./components/templates/InitialSetting";
+import CastelKinds from "./components/parts/CastelKinds";
+import CalcTime from "./components/parts/CalcTime";
+import CountOutput from "./components/templates/CountOutput";
+import TabBox from "./components/views/TabBox";
 
 function TabPanel(props: TabPanelProps): any {
   const { children, value, index, ...other } = props;
@@ -106,7 +108,7 @@ function App() {
   return (
     <Box sx={{ width: "100%" }}>
       <TabBox tabValue={tabValue} tabChange={tabChange} />
-      <InitialAccordion castleChange={castleChange} register={register} />
+      <InitialSetting castleChange={castleChange} register={register} />
 
       <TabPanel value={tabValue} index={0}>
         <ServerCastel />
@@ -126,7 +128,9 @@ function App() {
       <TabPanel value={tabValue} index={2}>
         <OnigiriTable />
       </TabPanel>
-      <CountOutput numNumer={numNumer} alignmentNum={alignmentNum} />
+      <numNumber.Provider value={numNumer}>
+        <CountOutput numNumer={numNumer} alignmentNum={alignmentNum} />
+      </numNumber.Provider>
     </Box>
   );
 }

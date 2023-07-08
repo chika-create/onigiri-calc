@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { Box } from "@mui/material";
 
-import { numNumber } from "../../SettingUseContext";
+import { numNumberTest } from "../../SettingUseContext";
 import FullStack from "../parts/countOutput/FullStack";
 import HarfStack from "../parts/countOutput/HarfStack";
 import FullOnigiri from "../parts/countOutput/FullOnigiri";
@@ -9,7 +9,7 @@ import FullOnigiri from "../parts/countOutput/FullOnigiri";
 export default function CountOutput(props: any) {
   // const numNumer = props.numNumer;
   const alignmentNum = props.alignmentNum;
-  const numNumer = useContext(numNumber);
+  const numNumber = useContext(numNumberTest);
 
   // クリップボードにコピー
   const [openTip, setOpenTip] = useState<boolean>(false);
@@ -25,17 +25,17 @@ export default function CountOutput(props: any) {
 
   const handleClickButton = (): void => {
     setOpenTip(true);
-    copyToClipboard(numNumer);
+    copyToClipboard(numNumber);
   };
 
   const handleClickButton2 = (): void => {
     setOpenTip(true);
-    copyToClipboard(Math.ceil(numNumer / 2));
+    copyToClipboard(Math.ceil(numNumber / 2));
   };
 
   const handleClickButton3 = (): void => {
     setOpenTip(true);
-    copyToClipboard(numNumer * alignmentNum);
+    copyToClipboard(numNumber * alignmentNum);
   };
 
   return (

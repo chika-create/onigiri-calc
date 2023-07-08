@@ -3,8 +3,8 @@ import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
-import { TabPanelProps, CalcFormInput } from "./types";
-import { numNumber } from "./SettingUseContext";
+import { TabPanelProps, CalcFormInput } from "./Types";
+import { numNumberTest } from "./SettingUseContext";
 
 import ServerCastel from "./components/pages/ServerCastel";
 import UniversalCastel from "./components/pages/UniversalCastel";
@@ -43,7 +43,7 @@ function App() {
   };
 
   // 計算機能用
-  const [numNumer, setNumNumer] = useState(0);
+  const [numNumber, setNumNumber] = useState(0);
 
   const { register, watch, getValues } = useForm<CalcFormInput>();
   //const deckNum = watch("deckNum");
@@ -102,7 +102,7 @@ function App() {
     secNum = secNum / 60;
     totalNum = minNum + secNum;
     deckNum = 60 / deckNum;
-    setNumNumer(Math.ceil((totalNum * 60) / deckNum));
+    setNumNumber(Math.ceil((totalNum * 60) / deckNum));
   };
 
   return (
@@ -128,9 +128,9 @@ function App() {
       <TabPanel value={tabValue} index={2}>
         <OnigiriTable />
       </TabPanel>
-      <numNumber.Provider value={numNumer}>
-        <CountOutput numNumer={numNumer} alignmentNum={alignmentNum} />
-      </numNumber.Provider>
+      <numNumberTest.Provider value={numNumber}>
+        <CountOutput numNumber={numNumber} alignmentNum={alignmentNum} />
+      </numNumberTest.Provider>
     </Box>
   );
 }

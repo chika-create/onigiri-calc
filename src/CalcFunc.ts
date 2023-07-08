@@ -1,15 +1,13 @@
 import "./App.css";
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { TabPanelProps, CalcFormInput } from "./Types";
-import { numNumberTest } from "./SettingUseContext";
+import { CalcFormInput } from "./Types";
 
 export function CalcFunc() {
   // 計算機能用
   const [numNumber, setNumNumber] = useState(0);
 
   const { register, watch, getValues } = useForm<CalcFormInput>();
-  //const deckNum = watch("deckNum");
 
   // 城種別ごとのデッキ数の取得
   const castleChange = (value: number, string: string): void => {

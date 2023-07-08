@@ -1,9 +1,8 @@
 import "./App.css";
-import React, { useState, useContext } from "react";
-import { useForm } from "react-hook-form";
+import React from "react";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
-import { TabPanelProps, CalcFormInput } from "./Types";
+import { TabPanelProps } from "./Types";
 import { numNumberTest } from "./SettingUseContext";
 import { CalcFunc } from "./CalcFunc";
 

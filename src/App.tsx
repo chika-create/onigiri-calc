@@ -42,7 +42,7 @@ function App() {
     setTabValue(newValue);
   };
 
-  const { alignmentNum, castleChange, castleKinds, numNumber, register } =
+  const { castleChange, castleKinds, numNumber, register } =
     CalcFunc();
 
   return (
@@ -69,7 +69,7 @@ function App() {
         <OnigiriTable />
       </TabPanel>
       <numNumberTest.Provider value={numNumber}>
-        <CountOutput numNumber={numNumber} alignmentNum={alignmentNum} />
+        <CountOutput numNumber={numNumber} />
       </numNumberTest.Provider>
     </Box>
   );

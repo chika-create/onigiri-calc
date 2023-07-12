@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { numNumberTest } from "../../../SettingUseContext";
+import { numNumberTest, alignmentNumTest } from "../../../SettingUseContext";
+// import { CalcFunc } from "../../../CalcFunc";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
@@ -7,7 +8,9 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 export default function FullStack(props: any) {
   // const numNumer = props.numNumer;
   const numNumber = useContext(numNumberTest);
-  const alignmentNum = props.alignmentNum;
+  const alignmentNum = useContext(alignmentNumTest);
+  // const { alignmentNum } = CalcFunc();
+  // const alignmentNum = props.alignmentNum;
   const handleClickButton3 = props.handleClickButton3;
 
   return (

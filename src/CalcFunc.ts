@@ -1,7 +1,8 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { CalcFormInput } from "./Types";
+import { alignmentNumTest } from "./SettingUseContext";
 
 export function CalcFunc() {
   // 計算機能用
@@ -25,6 +26,7 @@ export function CalcFunc() {
   };
 
   // 城種別ごとのデッキ数
+  const alignmentNumHoge = useContext(alignmentNumTest);
   const [alignmentNum, setAlignmentNum] = useState(0);
   const [alignmentRed, setAlignmentRed] = useState(0);
   const [alignmentBlue, setAlignmentBlue] = useState(0);

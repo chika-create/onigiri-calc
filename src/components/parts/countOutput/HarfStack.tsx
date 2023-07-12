@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { numNumber } from "../../../SettingUseContext";
+import { numNumberTest } from "../../../SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 export default function HarfStack(props: any) {
   // const numNumer = props.numNumer;
-  const numNumer = useContext(numNumber);
+  const numNumber = useContext(numNumberTest);
   const handleClickButton2 = props.handleClickButton2;
 
   return (
@@ -29,7 +29,7 @@ export default function HarfStack(props: any) {
           fontSize: 30,
         }}
       >
-        {Math.ceil(numNumer / 2)}
+        {Math.ceil(numNumber / 2)}
       </Typography>
       <Tooltip title="ContentCopyIcon" onClick={handleClickButton2}>
         <IconButton>

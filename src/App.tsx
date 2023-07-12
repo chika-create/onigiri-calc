@@ -1,10 +1,10 @@
 import "./App.css";
-import React, { useState, useContext } from "react";
-import { useForm } from "react-hook-form";
+import React from "react";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
-import { TabPanelProps, CalcFormInput } from "./types";
-import { numNumber } from "./SettingUseContext";
+import { TabPanelProps } from "./Types";
+import { numNumberTest } from "./SettingUseContext";
+import { CalcFunc } from "./CalcFunc";
 
 import ServerCastel from "./components/pages/ServerCastel";
 import UniversalCastel from "./components/pages/UniversalCastel";
@@ -42,68 +42,8 @@ function App() {
     setTabValue(newValue);
   };
 
-  // 計算機能用
-  const [numNumer, setNumNumer] = useState(0);
-
-  const { register, watch, getValues } = useForm<CalcFormInput>();
-  //const deckNum = watch("deckNum");
-
-  // 城種別ごとのデッキ数の取得
-  const castleChange = (value: number, string: string): void => {
-    const newData = {
-      value: value,
-      string: string,
-    };
-    if (newData.string === "blue") {
-      setAlignmentBlue(newData.value);
-    } else if (newData.string === "gold") {
-      setAlignmentGold(newData.value);
-    } else {
-      setAlignmentRed(newData.value);
-    }
-  };
-
-  // 城種別ごとのデッキ数
-  const [alignmentNum, setAlignmentNum] = useState(0);
-  const [alignmentRed, setAlignmentRed] = useState(0);
-  const [alignmentBlue, setAlignmentBlue] = useState(0);
-  const [alignmentGold, setAlignmentGold] = useState(0);
-
-  // どの城種別で計算するか
-  const castleKinds = (
-    event: React.MouseEvent<HTMLElement>,
-    newCastelAlignment: string
-  ): void => {
-    castleKindsSwitch(newCastelAlignment);
-    calculator();
-  };
-
-  // どの城種別を選択したかによって、デッキ数を取得
-  const castleKindsSwitch = (item: string): void => {
-    switch (item) {
-      case "blue":
-        setAlignmentNum(alignmentBlue);
-        break;
-      case "gold":
-        setAlignmentNum(alignmentGold);
-        break;
-      default:
-        setAlignmentNum(alignmentRed);
-    }
-  };
-
-  // 計算機能
-  const calculator = (): void => {
-    const minNum = Number(getValues(["minNum"]));
-    let secNum = Number(getValues(["secNum"]));
-    let deckNum = Number(getValues(["deckNum"]));
-    let totalNum = 0;
-
-    secNum = secNum / 60;
-    totalNum = minNum + secNum;
-    deckNum = 60 / deckNum;
-    setNumNumer(Math.ceil((totalNum * 60) / deckNum));
-  };
+  const { alignmentNum, castleChange, castleKinds, numNumber, register } =
+    CalcFunc();
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -128,9 +68,9 @@ function App() {
       <TabPanel value={tabValue} index={2}>
         <OnigiriTable />
       </TabPanel>
-      <numNumber.Provider value={numNumer}>
-        <CountOutput numNumer={numNumer} alignmentNum={alignmentNum} />
-      </numNumber.Provider>
+      <numNumberTest.Provider value={numNumber}>
+        <CountOutput numNumber={numNumber} alignmentNum={alignmentNum} />
+      </numNumberTest.Provider>
     </Box>
   );
 }

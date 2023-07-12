@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { numNumber } from "../../../SettingUseContext";
+import { numNumberTest } from "../../../SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 export default function FullStack(props: any) {
   // const numNumer = props.numNumer;
-  const numNumer = useContext(numNumber);
+  const numNumber = useContext(numNumberTest);
   const handleClickButton = props.handleClickButton;
 
   return (
@@ -29,7 +29,7 @@ export default function FullStack(props: any) {
           fontSize: 30,
         }}
       >
-        {numNumer}
+        {numNumber}
       </Typography>
       <Tooltip title="ContentCopyIcon" onClick={handleClickButton}>
         <IconButton>

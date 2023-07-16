@@ -3,7 +3,7 @@ import React from "react";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
 import { TabPanelProps } from "./Types";
-import { numNumberTest } from "./SettingUseContext";
+import { numNumberTest, alignmentNumTest } from "./SettingUseContext";
 import { CalcFunc } from "./CalcFunc";
 
 import ServerCastel from "./components/pages/ServerCastel";
@@ -42,7 +42,7 @@ function App() {
     setTabValue(newValue);
   };
 
-  const { castleChange, castleKinds, numNumber, register } =
+  const { alignmentNum, castleChange, castleKinds, numNumber, register } =
     CalcFunc();
 
   return (
@@ -69,7 +69,9 @@ function App() {
         <OnigiriTable />
       </TabPanel>
       <numNumberTest.Provider value={numNumber}>
-        <CountOutput numNumber={numNumber} />
+        <alignmentNumTest.Provider value={alignmentNum}>
+          <CountOutput numNumber={numNumber} alignmentNum={alignmentNum} />
+        </alignmentNumTest.Provider>
       </numNumberTest.Provider>
     </Box>
   );

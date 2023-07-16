@@ -70,12 +70,8 @@ export function CalcFunc() {
   return {
     alignmentNum,
     castleChange,
-    // castleKindsSwitch,
     castleKinds,
-    // calculator,
     numNumber,
     register,
-    // watch,
-    // getValues,
   };
 }

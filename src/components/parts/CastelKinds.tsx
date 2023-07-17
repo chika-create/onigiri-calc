@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Typography,
@@ -11,7 +11,7 @@ export default function CastelKinds(props: any) {
 
   const [toggleStr, setToggleStr] = React.useState<string | null>("left");
 
-  const toggleTest = (
+  const toggleChange = (
     event: React.MouseEvent<HTMLElement>,
     newAlignment: string | null
   ) => {
@@ -37,7 +37,7 @@ export default function CastelKinds(props: any) {
       <ToggleButtonGroup
         value={toggleStr}
         exclusive
-        onChange={toggleTest}
+        onChange={toggleChange}
         aria-label="text alignment"
       >
         <ToggleButton

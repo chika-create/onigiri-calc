@@ -1,12 +1,15 @@
 import { useContext } from "react";
-import { numNumberTest, alignmentNumTest } from "../../../SettingUseContext";
+import {
+  numNumberContext,
+  alignmentNumContext,
+} from "../../../SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 export default function FullStack(props: any) {
-  const numNumber = useContext(numNumberTest);
-  const alignmentNum = useContext(alignmentNumTest);
+  const numNumber = useContext(numNumberContext);
+  const alignmentNum = useContext(alignmentNumContext);
   const handleClickButton3 = props.handleClickButton3;
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
-export const numNumberTest = React.createContext<number>(0);
-export const alignmentNumTest = React.createContext<number>(0);
+export const numNumberContext = React.createContext<number>(0);
+export const alignmentNumContext = React.createContext<number>(0);

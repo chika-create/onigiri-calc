@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { numNumberTest } from "../../../SettingUseContext";
+import { numNumberContext } from "../../../SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 export default function HarfStack(props: any) {
-  const numNumber = useContext(numNumberTest);
+  const numNumber = useContext(numNumberContext);
   const handleClickButton2 = props.handleClickButton2;
 
   return (

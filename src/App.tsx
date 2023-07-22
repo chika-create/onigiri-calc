@@ -48,9 +48,9 @@ function App() {
   return (
     <Box sx={{ width: "100%" }}>
       <TabBox tabValue={tabValue} tabChange={tabChange} />
-      <InitialSetting castleChange={castleChange} register={register} />
 
       <TabPanel value={tabValue} index={0}>
+        <InitialSetting castleChange={castleChange} register={register} />
         <ServerCastel />
 
         <CalcTime register={register} />
@@ -61,6 +61,11 @@ function App() {
             label="今から終了まで（まだ使えません）"
           />
         </Box>
+        <numNumberContext.Provider value={numNumber}>
+          <alignmentNumContext.Provider value={alignmentNum}>
+            <CountOutput numNumber={numNumber} alignmentNum={alignmentNum} />
+          </alignmentNumContext.Provider>
+        </numNumberContext.Provider>
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
         <UniversalCastel />
@@ -68,11 +73,6 @@ function App() {
       <TabPanel value={tabValue} index={2}>
         <OnigiriTable />
       </TabPanel>
-      <numNumberContext.Provider value={numNumber}>
-        <alignmentNumContext.Provider value={alignmentNum}>
-          <CountOutput numNumber={numNumber} alignmentNum={alignmentNum} />
-        </alignmentNumContext.Provider>
-      </numNumberContext.Provider>
     </Box>
   );
 }

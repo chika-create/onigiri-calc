@@ -1,14 +1,22 @@
-import { useContext } from "react";
-import { numNumberTest } from "../../../SettingUseContext";
+import { useState, useContext } from "react";
+import {
+  numNumberContext,
+  alignmentNumContext,
+} from "../../../SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 export default function FullStack(props: any) {
-  // const numNumer = props.numNumer;
-  const numNumber = useContext(numNumberTest);
-  const alignmentNum = props.alignmentNum;
-  const handleClickButton3 = props.handleClickButton3;
+  const numNumber = useContext(numNumberContext);
+  const alignmentNum = useContext(alignmentNumContext);
+  const copyToClipboard = props.copyToClipboard;
+  const [openTip, setOpenTip] = useState<boolean>(false);
+
+  const handleClickButtonFullOnigiri = (): void => {
+    setOpenTip(true);
+    copyToClipboard(numNumber * alignmentNum);
+  };
 
   return (
     <Box
@@ -32,7 +40,7 @@ export default function FullStack(props: any) {
       >
         {numNumber * alignmentNum}
       </Typography>
-      <Tooltip title="ContentCopyIcon" onClick={handleClickButton3}>
+      <Tooltip title="ContentCopyIcon" onClick={handleClickButtonFullOnigiri}>
         <IconButton>
           <ContentCopyIcon
             sx={{

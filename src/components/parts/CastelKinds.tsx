@@ -8,7 +8,6 @@ import {
 
 export default function CastelKinds(props: any) {
   const castleKinds = props.onClick;
-
   const [toggleStr, setToggleStr] = React.useState<string | null>("left");
 
   const toggleChange = (

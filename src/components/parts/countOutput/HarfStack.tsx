@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { numNumberContext } from "../../../SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
@@ -6,7 +6,13 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 export default function HarfStack(props: any) {
   const numNumber = useContext(numNumberContext);
-  const handleClickButton2 = props.handleClickButton2;
+  const copyToClipboard = props.copyToClipboard;
+  const [openTip, setOpenTip] = useState<boolean>(false);
+
+  const handleClickButtonHarfStack = (): void => {
+    setOpenTip(true);
+    copyToClipboard(Math.ceil(numNumber / 2));
+  };
 
   return (
     <Box
@@ -30,7 +36,7 @@ export default function HarfStack(props: any) {
       >
         {Math.ceil(numNumber / 2)}
       </Typography>
-      <Tooltip title="ContentCopyIcon" onClick={handleClickButton2}>
+      <Tooltip title="ContentCopyIcon" onClick={handleClickButtonHarfStack}>
         <IconButton>
           <ContentCopyIcon
             sx={{

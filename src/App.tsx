@@ -48,9 +48,9 @@ function App() {
   return (
     <Box sx={{ width: "100%" }}>
       <TabBox tabValue={tabValue} tabChange={tabChange} />
+      <InitialSetting castleChange={castleChange} register={register} />
 
       <TabPanel value={tabValue} index={0}>
-        <InitialSetting castleChange={castleChange} register={register} />
         <ServerCastel />
 
         <CalcTime register={register} />

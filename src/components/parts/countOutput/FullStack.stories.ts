@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import FullStack from "./FullStack";
 
 const meta: Meta<typeof FullStack> = {
-  title: "FullStack",
+  title: "parts/countOutput/FullStack",
   component: FullStack,
   tags: ["autodocs"],
   parameters: {
@@ -18,9 +18,11 @@ export const LoggedIn: Story = {
     // これ効いていない
     numNumber: 42,
     copyToClipboard: (value: number) => {
-      // hoge
+      try {
+        navigator.clipboard.writeText("42");
+      } catch (error) {
+        console.log(error || "コピーに失敗しました");
+      }
     },
   },
 };
-
-export const LoggedOut: Story = {};

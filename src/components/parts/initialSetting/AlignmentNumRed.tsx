@@ -25,6 +25,17 @@ export default function AlignmentNumRed(props: any) {
     const savedAlignmentRedNum = localStorage.getItem("alignmentRedNum");
     if (savedAlignmentRedNum) {
       setAlignmentRedNum(JSON.parse(savedAlignmentRedNum));
+      console.log("alignmentRedNum: " + savedAlignmentRedNum);
+      // プロパティの状態によって城種別を変更
+      if (alignmentRedNum[1]) {
+        castleChange(1, "red");
+      } else if (alignmentRedNum[2]) {
+        castleChange(2, "red");
+      } else if (alignmentRedNum[3]) {
+        castleChange(3, "red");
+      } else if (alignmentRedNum[4]) {
+        castleChange(4, "red");
+      }
     }
   }, []);
 

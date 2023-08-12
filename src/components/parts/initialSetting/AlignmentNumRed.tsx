@@ -14,7 +14,7 @@ export default function AlignmentNumRed(props: any) {
   const castleChange = props.castleChange;
 
   const [alignmentRedNum, setAlignmentRedNum] = useState<ToggleSelectedType>({
-    1: true,
+    1: false,
     2: false,
     3: false,
     4: false,

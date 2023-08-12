@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -20,6 +20,41 @@ export default function AlignmentNumRed(props: any) {
     4: false,
   });
 
+  useEffect(() => {
+    const savedAlignmentRedNum = localStorage.getItem("alignmentRedNum");
+    if (savedAlignmentRedNum) {
+      setAlignmentRedNum(JSON.parse(savedAlignmentRedNum));
+
+      // 城の選択状態を判断して castleChange を呼び出す
+      if (JSON.parse(savedAlignmentRedNum)[1]) {
+        castleChange(1, "red");
+      } else if (JSON.parse(savedAlignmentRedNum)[2]) {
+        castleChange(2, "red");
+      } else if (JSON.parse(savedAlignmentRedNum)[3]) {
+        castleChange(3, "red");
+      } else if (JSON.parse(savedAlignmentRedNum)[4]) {
+        castleChange(4, "red");
+      }
+    }
+  }, []);
+
+  const handleButtonClick = (value: number) => {
+    castleChange(value, "red");
+    setAlignmentRedNum((prev) => {
+      const newAlignmentRedNum = {
+        1: value === 1,
+        2: value === 2,
+        3: value === 3,
+        4: value === 4,
+      };
+      localStorage.setItem(
+        "alignmentRedNum",
+        JSON.stringify(newAlignmentRedNum)
+      );
+      return newAlignmentRedNum;
+    });
+  };
+
   return (
     <Box
       sx={{
@@ -37,22 +72,23 @@ export default function AlignmentNumRed(props: any) {
       </Typography>
       <ToggleButtonGroup
         exclusive
+        value={
+          alignmentRedNum[1]
+            ? 1
+            : alignmentRedNum[2]
+            ? 2
+            : alignmentRedNum[3]
+            ? 3
+            : 4
+        }
         sx={{
           ml: 2,
         }}
       >
         <ToggleButton
-          value="1"
+          value={1}
           selected={alignmentRedNum[1]}
-          onClick={() => {
-            castleChange(1, "red");
-            setAlignmentRedNum({
-              1: true,
-              2: false,
-              3: false,
-              4: false,
-            });
-          }}
+          onClick={() => handleButtonClick(1)}
           aria-label="left aligned"
           sx={{
             width: 1 / 4,
@@ -61,17 +97,9 @@ export default function AlignmentNumRed(props: any) {
           1
         </ToggleButton>
         <ToggleButton
-          value="2"
+          value={2}
           selected={alignmentRedNum[2]}
-          onClick={() => {
-            castleChange(2, "red");
-            setAlignmentRedNum({
-              1: false,
-              2: true,
-              3: false,
-              4: false,
-            });
-          }}
+          onClick={() => handleButtonClick(2)}
           aria-label="left aligned"
           sx={{
             width: 1 / 4,
@@ -80,17 +108,9 @@ export default function AlignmentNumRed(props: any) {
           2
         </ToggleButton>
         <ToggleButton
-          value="3"
+          value={3}
           selected={alignmentRedNum[3]}
-          onClick={() => {
-            castleChange(3, "red");
-            setAlignmentRedNum({
-              1: false,
-              2: false,
-              3: true,
-              4: false,
-            });
-          }}
+          onClick={() => handleButtonClick(3)}
           aria-label="left aligned"
           sx={{
             width: 1 / 4,
@@ -99,17 +119,9 @@ export default function AlignmentNumRed(props: any) {
           3
         </ToggleButton>
         <ToggleButton
-          value="4"
+          value={4}
           selected={alignmentRedNum[4]}
-          onClick={() => {
-            castleChange(4, "red");
-            setAlignmentRedNum({
-              1: false,
-              2: false,
-              3: false,
-              4: true,
-            });
-          }}
+          onClick={() => handleButtonClick(4)}
           aria-label="left aligned"
           sx={{
             width: 1 / 4,

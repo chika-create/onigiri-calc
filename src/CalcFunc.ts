@@ -56,13 +56,17 @@ export function CalcFunc() {
   const calculator = (): void => {
     const minNum = Number(getValues(["minNum"]));
     let secNum = Number(getValues(["secNum"]));
-    let deckNum = Number(getValues(["deckNum"]));
+    let deckNum2 = 0;
     let totalNum = 0;
+
+    const deckNum = localStorage.getItem("deckNum");
+    deckNum2 = Number(deckNum);
 
     secNum = secNum / 60;
     totalNum = minNum + secNum;
-    deckNum = 60 / deckNum;
-    setNumNumber(Math.ceil((totalNum * 60) / deckNum));
+    deckNum2 = 60 / deckNum2;
+
+    setNumNumber(Math.ceil((totalNum * 60) / deckNum2));
   };
   return {
     alignmentNum,

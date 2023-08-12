@@ -21,10 +21,21 @@ export default function AlignmentNumGold(props: any) {
   });
 
   useEffect(() => {
-    // コンポーネントがマウントされた時にlocalStorageから値を読み込む
     const savedAlignmentGoldNum = localStorage.getItem("alignmentGoldNum");
     if (savedAlignmentGoldNum) {
       setAlignmentGoldNum(JSON.parse(savedAlignmentGoldNum));
+      console.log("alignmentGoldNum: " + savedAlignmentGoldNum);
+
+      // 城の選択状態を判断して castleChange を呼び出す
+      if (JSON.parse(savedAlignmentGoldNum)[1]) {
+        castleChange(1, "gold");
+      } else if (JSON.parse(savedAlignmentGoldNum)[2]) {
+        castleChange(2, "gold");
+      } else if (JSON.parse(savedAlignmentGoldNum)[3]) {
+        castleChange(3, "gold");
+      } else if (JSON.parse(savedAlignmentGoldNum)[4]) {
+        castleChange(4, "gold");
+      }
     }
   }, []);
 

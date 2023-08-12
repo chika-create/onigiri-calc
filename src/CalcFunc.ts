@@ -43,12 +43,15 @@ export function CalcFunc() {
     switch (item) {
       case "blue":
         setAlignmentNum(alignmentBlue);
+        console.log("castleKindsSwitch: blue");
         break;
       case "gold":
         setAlignmentNum(alignmentGold);
+        console.log("castleKindsSwitch: gold");
         break;
       default:
         setAlignmentNum(alignmentRed);
+        console.log("castleKindsSwitch: red");
     }
   };
 

@@ -39,7 +39,7 @@ export default function AlignmentNumBlue(props: any) {
   }, []);
 
   const handleButtonClick = (value: number) => {
-    castleChange(value, "Blue");
+    castleChange(value, "blue");
     setAlignmentBlueNum((prev) => {
       const newAlignmentBlueNum = {
         1: value === 1,

@@ -24,7 +24,6 @@ export default function AlignmentNumGold(props: any) {
     const savedAlignmentGoldNum = localStorage.getItem("alignmentGoldNum");
     if (savedAlignmentGoldNum) {
       setAlignmentGoldNum(JSON.parse(savedAlignmentGoldNum));
-      console.log("alignmentGoldNum: " + savedAlignmentGoldNum);
 
       // 城の選択状態を判断して castleChange を呼び出す
       if (JSON.parse(savedAlignmentGoldNum)[1]) {

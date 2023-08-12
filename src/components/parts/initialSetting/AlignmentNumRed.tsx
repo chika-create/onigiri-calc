@@ -24,7 +24,6 @@ export default function AlignmentNumRed(props: any) {
     const savedAlignmentRedNum = localStorage.getItem("alignmentRedNum");
     if (savedAlignmentRedNum) {
       setAlignmentRedNum(JSON.parse(savedAlignmentRedNum));
-      console.log("alignmentRedNum: " + savedAlignmentRedNum);
 
       // 城の選択状態を判断して castleChange を呼び出す
       if (JSON.parse(savedAlignmentRedNum)[1]) {

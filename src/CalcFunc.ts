@@ -43,15 +43,12 @@ export function CalcFunc() {
     switch (item) {
       case "blue":
         setAlignmentNum(alignmentBlue);
-        console.log("castleKindsSwitch: blue");
         break;
       case "gold":
         setAlignmentNum(alignmentGold);
-        console.log("castleKindsSwitch: gold");
         break;
       default:
         setAlignmentNum(alignmentRed);
-        console.log("castleKindsSwitch: red");
     }
   };
 
@@ -59,7 +56,6 @@ export function CalcFunc() {
   const calculator = (): void => {
     const minNum = Number(getValues(["minNum"]));
     let secNum = Number(getValues(["secNum"]));
-    // let deckNum = Number(getValues(["deckNum"]));
     let deckNum2 = 0;
     let totalNum = 0;
 
@@ -69,15 +65,6 @@ export function CalcFunc() {
     secNum = secNum / 60;
     totalNum = minNum + secNum;
     deckNum2 = 60 / deckNum2;
-
-    console.log(
-      "minNum: " +
-        minNum +
-        " /// secNum: " +
-        secNum +
-        " /// deckNum2: " +
-        deckNum2
-    );
 
     setNumNumber(Math.ceil((totalNum * 60) / deckNum2));
   };

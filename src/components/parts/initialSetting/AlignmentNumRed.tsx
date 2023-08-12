@@ -14,10 +14,11 @@ export default function AlignmentNumRed(props: any) {
   const castleChange = props.castleChange;
 
   const [alignmentRedNum, setAlignmentRedNum] = useState<ToggleSelectedType>({
-    1: true,
+    1: false,
     2: false,
     3: false,
     4: false,
+    5: false,
   });
 
   useEffect(() => {
@@ -34,6 +35,8 @@ export default function AlignmentNumRed(props: any) {
         castleChange(3, "red");
       } else if (JSON.parse(savedAlignmentRedNum)[4]) {
         castleChange(4, "red");
+      } else if (JSON.parse(savedAlignmentRedNum)[5]) {
+        castleChange(5, "red");
       }
     }
   }, []);
@@ -46,6 +49,7 @@ export default function AlignmentNumRed(props: any) {
         2: value === 2,
         3: value === 3,
         4: value === 4,
+        5: value === 5,
       };
       localStorage.setItem(
         "alignmentRedNum",
@@ -79,7 +83,9 @@ export default function AlignmentNumRed(props: any) {
             ? 2
             : alignmentRedNum[3]
             ? 3
-            : 4
+            : alignmentRedNum[4]
+            ? 4
+            : 5
         }
         sx={{
           ml: 2,
@@ -91,7 +97,7 @@ export default function AlignmentNumRed(props: any) {
           onClick={() => handleButtonClick(1)}
           aria-label="left aligned"
           sx={{
-            width: 1 / 4,
+            width: 1 / 5,
           }}
         >
           1
@@ -102,7 +108,7 @@ export default function AlignmentNumRed(props: any) {
           onClick={() => handleButtonClick(2)}
           aria-label="left aligned"
           sx={{
-            width: 1 / 4,
+            width: 1 / 5,
           }}
         >
           2
@@ -113,7 +119,7 @@ export default function AlignmentNumRed(props: any) {
           onClick={() => handleButtonClick(3)}
           aria-label="left aligned"
           sx={{
-            width: 1 / 4,
+            width: 1 / 5,
           }}
         >
           3
@@ -124,10 +130,21 @@ export default function AlignmentNumRed(props: any) {
           onClick={() => handleButtonClick(4)}
           aria-label="left aligned"
           sx={{
-            width: 1 / 4,
+            width: 1 / 5,
           }}
         >
           4
+        </ToggleButton>
+        <ToggleButton
+          value={5}
+          selected={alignmentRedNum[5]}
+          onClick={() => handleButtonClick(5)}
+          aria-label="left aligned"
+          sx={{
+            width: 1 / 5,
+          }}
+        >
+          5
         </ToggleButton>
       </ToggleButtonGroup>
     </Box>

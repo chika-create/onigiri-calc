@@ -28,6 +28,7 @@ export default function CastelKinds(props: any) {
       <Typography
         sx={{
           alignSelf: "center",
+          mr: 1,
         }}
       >
         城種別

@@ -59,14 +59,19 @@ export function CalcFunc() {
     let deckNum2 = 0;
     let totalNum = 0;
 
+    console.log("calculator: " + minNum);
+
     const deckNum = localStorage.getItem("deckNum");
     deckNum2 = Number(deckNum);
+
+    console.log("calculator_2: " + deckNum2);
 
     secNum = secNum / 60;
     totalNum = minNum + secNum;
     deckNum2 = 60 / deckNum2;
 
     setNumNumber(Math.ceil((totalNum * 60) / deckNum2));
+    console.log("calculator_3: " + Math.ceil((totalNum * 60) / deckNum2));
   };
   return {
     alignmentNum,

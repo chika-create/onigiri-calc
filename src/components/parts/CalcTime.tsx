@@ -21,7 +21,7 @@ export default function CalcTime(props: any) {
         id="outlined-basic"
         type="number"
         variant="outlined"
-        label="minNum"
+        label="min"
         {...register("minNum")}
         sx={{
           ml: 2,
@@ -38,7 +38,7 @@ export default function CalcTime(props: any) {
       <TextField
         id="outlined-basic"
         type="number"
-        label="secNum"
+        label="sec"
         variant="outlined"
         {...register("secNum")}
         sx={{

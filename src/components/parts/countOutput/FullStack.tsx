@@ -32,6 +32,7 @@ export default function FullStack(props: any) {
         sx={{
           fontWeight: "medium",
           fontSize: 30,
+          textAlign: "center",
         }}
       >
         {numNumber}

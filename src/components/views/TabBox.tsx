@@ -19,9 +19,9 @@ export default function TabBox(props: any) {
         onChange={tabChange}
         aria-label="basic tabs example"
       >
-        <Tab label="傾国" {...tabMenu(0)} />
-        <Tab label="群雄・天下" {...tabMenu(1)} />
-        <Tab label="おにぎり表" {...tabMenu(2)} />
+        <Tab label="城戦" {...tabMenu(0)} />
+        <Tab label="test" {...tabMenu(1)} disabled />
+        <Tab label="おにぎり表" {...tabMenu(2)} disabled />
       </Tabs>
     </Box>
   );

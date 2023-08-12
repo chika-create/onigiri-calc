@@ -26,12 +26,13 @@ export default function HarfStack(props: any) {
           alignSelf: "center",
         }}
       >
-        再駐屯込み
+        再駐屯込み駐屯数
       </Typography>
       <Typography
         sx={{
           fontWeight: "medium",
           fontSize: 30,
+          textAlign: "center",
         }}
       >
         {Math.ceil(numNumber / 2)}

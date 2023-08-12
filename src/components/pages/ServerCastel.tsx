@@ -1,5 +1,9 @@
-import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 
 export default function ServerCastel() {
-  return <Container maxWidth="sm">傾国のおにぎり計算エリア</Container>;
+  return (
+    <Box maxWidth="sm" sx={{ mb: 1.5 }}>
+      おにぎり計算エリア
+    </Box>
+  );
 }

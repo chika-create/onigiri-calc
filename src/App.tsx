@@ -34,7 +34,6 @@ function TabPanel(props: TabPanelProps): any {
   );
 }
 
-// メモ：alignmentRedNumなどトグルボタンのデフォルト値を使用するには、コンポーネント内で呼び出す必要があるため、コンポーネント分けをした際に実装する
 function App() {
   // タブ管理
   const [tabValue, setTabValue] = React.useState(0);
@@ -55,12 +54,12 @@ function App() {
 
         <CalcTime register={register} />
         <CastelKinds onClick={castleKinds} />
-        <Box>
+        {/* <Box>
           <FormControlLabel
             control={<Checkbox />}
             label="今から終了まで（まだ使えません）"
           />
-        </Box>
+        </Box> */}
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
         <UniversalCastel />

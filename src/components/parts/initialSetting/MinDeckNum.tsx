@@ -3,7 +3,7 @@ import { Box, Typography, TextField } from "@mui/material";
 
 export default function MinDeckNum(props: any) {
   const register = props.register;
-  const [deckNum, setDeckNum] = useState(0);
+  const [deckNum, setDeckNum] = useState(38);
 
   useEffect(() => {
     // コンポーネントがマウントされた時にlocalStorageから値を読み込む

@@ -6,6 +6,9 @@ import { TabPanelProps } from "./Types";
 import { numNumberContext, alignmentNumContext } from "./SettingUseContext";
 import { CalcFunc } from "./CalcFunc";
 
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Term from "./components/pages/Term";
+
 import ServerCastel from "./components/pages/ServerCastel";
 import UniversalCastel from "./components/pages/UniversalCastel";
 import OnigiriTable from "./components/pages/OnigiriTable";
@@ -72,6 +75,14 @@ function App() {
           <CountOutput numNumber={numNumber} alignmentNum={alignmentNum} />
         </alignmentNumContext.Provider>
       </numNumberContext.Provider>
+      <p>hoge</p>
+      <BrowserRouter>
+        <Link to="/term">利用規約</Link>
+        <Routes>
+          <Route path="/term" element={<Term />} />
+        </Routes>
+      </BrowserRouter>
+      <p>fuga</p>
     </Box>
   );
 }

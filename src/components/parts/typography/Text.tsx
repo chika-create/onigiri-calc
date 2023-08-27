@@ -6,7 +6,7 @@ function Text(props: any) {
   return (
     <Typography
       sx={{
-        fontSize: 15,
+        fontSize: 14,
         mb: 2,
       }}
     >

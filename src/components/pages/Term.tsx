@@ -1,12 +1,16 @@
-// src/pages/TermsPage.js
 import React from "react";
+import { Box, Typography } from "@mui/material";
+import TitleH1 from "../parts/typography/TitleH1";
+import TitleH2 from "../parts/typography/TitleH2";
+import Text from "../parts/typography/Text";
 
 function Term() {
   return (
-    <div>
-      <h1>利用規約タイトル</h1>
-      <p>ここに利用規約の内容を書く</p>
-    </div>
+    <Box>
+      <TitleH1 text="利用規約" />
+      <TitleH2 text="小見出し" />
+      <Text text="ここに利用規約の内容を書く" />
+    </Box>
   );
 }
 

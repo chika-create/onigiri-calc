@@ -3,3 +3,5 @@ export const castleColors = [
   { ja: "赤", en: "red" },
   { ja: "青", en: "blue" },
 ];
+
+export const castleNumber = [1, 2, 3, 4, 5];

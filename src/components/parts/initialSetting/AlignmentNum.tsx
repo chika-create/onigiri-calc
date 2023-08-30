@@ -12,6 +12,7 @@ type ToggleSelectedType = {
 };
 
 export default function AlignmentNum({ castleColor, castleChange }: any) {
+  const [selectedNumber, setSelectedNumber] = useState(1);
   const [alignmentGoldNum, setAlignmentGoldNum] = useState<ToggleSelectedType>({
     1: false,
     2: false,
@@ -42,6 +43,7 @@ export default function AlignmentNum({ castleColor, castleChange }: any) {
   }, []);
 
   const handleButtonClick = (value: number) => {
+    setSelectedNumber(value);
     castleChange(value, "gold");
     setAlignmentGoldNum((prev) => {
       const newAlignmentGoldNum = {
@@ -95,7 +97,7 @@ export default function AlignmentNum({ castleColor, castleChange }: any) {
           return (
             <ToggleButton
               value={item}
-              selected={alignmentGoldNum[item]}
+              selected={selectedNumber === item}
               onClick={() => handleButtonClick(item)}
               aria-label="left aligned"
               sx={{

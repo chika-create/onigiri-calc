@@ -11,6 +11,9 @@ import AlignmentNumBlue from "../parts/initialSetting/AlignmentNumBlue";
 import AlignmentNumGold from "../parts/initialSetting/AlignmentNumGold";
 import MinDeckNum from "../parts/initialSetting/MinDeckNum";
 
+import { castleColors } from "../../constants/constants";
+import AlignmentNum from "../parts/initialSetting/AlignmentNum";
+
 export default function InitialSetting(props: any) {
   const castleChange = props.castleChange;
   const register = props.register;
@@ -28,6 +31,14 @@ export default function InitialSetting(props: any) {
         <AlignmentNumRed castleChange={castleChange} />
         <AlignmentNumBlue castleChange={castleChange} />
         <AlignmentNumGold castleChange={castleChange} />
+        {castleColors.map((castleColor) => {
+          return (
+            <AlignmentNum
+              castleColor={castleColor}
+              castleChange={castleChange}
+            />
+          );
+        })}
         <MinDeckNum register={register} />
       </AccordionDetails>
     </Accordion>

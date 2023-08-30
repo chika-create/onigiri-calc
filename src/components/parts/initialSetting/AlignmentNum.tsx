@@ -72,7 +72,7 @@ export default function AlignmentNum({ castleColor, castleChange }: any) {
           alignSelf: "center",
         }}
       >
-        金城
+        {castleColor.ja}城
       </Typography>
       <ToggleButtonGroup
         exclusive

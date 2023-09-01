@@ -1,8 +1,7 @@
 import React from "react";
 import { Typography } from "@mui/material";
 
-function Text(props: any) {
-  const text = props.text;
+function Text({ children }: any) {
   return (
     <Typography
       sx={{
@@ -10,7 +9,7 @@ function Text(props: any) {
         mb: 2,
       }}
     >
-      {text}
+      {children}
     </Typography>
   );
 }

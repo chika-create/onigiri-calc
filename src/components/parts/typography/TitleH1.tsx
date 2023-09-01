@@ -1,8 +1,7 @@
 import React from "react";
 import { Typography } from "@mui/material";
 
-function TitleH1(props: any) {
-  const text = props.text;
+function TitleH1({ children }: any) {
   return (
     <Typography
       variant="h1"
@@ -12,7 +11,7 @@ function TitleH1(props: any) {
         mb: 4,
       }}
     >
-      {text}
+      {children}
     </Typography>
   );
 }

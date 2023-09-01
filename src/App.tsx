@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
-import { TabPanelProps } from "./Types";
+import { TabPanelProps } from "./types";
 import { numNumberContext, alignmentNumContext } from "./SettingUseContext";
 import { CalcFunc } from "./CalcFunc";
 

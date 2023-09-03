@@ -6,7 +6,7 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import { castelColors } from "../../constants";
+import { castelColors } from "../../constants/constants";
 import AlignmentNum from "../parts/initialSetting/AlignmentNum";
 import AlignmentNumRed from "../parts/initialSetting/AlignmentNumRed";
 import AlignmentNumBlue from "../parts/initialSetting/AlignmentNumBlue";
@@ -30,10 +30,10 @@ export default function InitialSetting(props: any) {
         <AlignmentNumRed castleChange={castleChange} />
         <AlignmentNumBlue castleChange={castleChange} />
         <AlignmentNumGold castleChange={castleChange} />
-        {castleColors.map((castleColor) => {
+        {castelColors.map((castleColor) => {
           return (
             <AlignmentNum
-              castelColor={castelColor}
+              castelColor={castleColor}
               castleChange={castleChange}
             />
           );

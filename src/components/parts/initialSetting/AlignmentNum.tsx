@@ -5,7 +5,7 @@ import {
   ToggleButtonGroup,
   ToggleButton,
 } from "@mui/material";
-import { castleNumber } from "../../../constants";
+import { castleNumber } from "../../../constants/constants";
 
 type ToggleSelectedType = {
   [key: number]: boolean;
@@ -71,7 +71,7 @@ export default function AlignmentNum({ castleColor, castleChange }: any) {
           alignSelf: "center",
         }}
       >
-        {castleColor.ja}城
+        青城
       </Typography>
       <ToggleButtonGroup
         exclusive

@@ -7,55 +7,33 @@ import {
 } from "@mui/material";
 import { castleNumber } from "../../../constants/constants";
 
-type ToggleSelectedType = {
-  [key: number]: boolean;
-};
-
 export default function AlignmentNum({ castleColor, castleChange }: any) {
-  const [alignmentBlueNum, setAlignmentBlueNum] = useState<ToggleSelectedType>({
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-  });
+  const [selectedNumber, setSelectedNumber] = useState(1);
 
   useEffect(() => {
     const savedAlignmentBlueNum = localStorage.getItem("alignmentBlueNum");
     if (savedAlignmentBlueNum) {
-      setAlignmentBlueNum(JSON.parse(savedAlignmentBlueNum));
+      setSelectedNumber(JSON.parse(savedAlignmentBlueNum));
 
       // 城の選択状態を判断して castleChange を呼び出す
-      if (JSON.parse(savedAlignmentBlueNum)[1]) {
+      if (JSON.parse(savedAlignmentBlueNum) === "1") {
         castleChange(1, "blue");
-      } else if (JSON.parse(savedAlignmentBlueNum)[2]) {
+      } else if (JSON.parse(savedAlignmentBlueNum) === "2") {
         castleChange(2, "blue");
-      } else if (JSON.parse(savedAlignmentBlueNum)[3]) {
+      } else if (JSON.parse(savedAlignmentBlueNum) === "3") {
         castleChange(3, "blue");
-      } else if (JSON.parse(savedAlignmentBlueNum)[4]) {
+      } else if (JSON.parse(savedAlignmentBlueNum) === "4") {
         castleChange(4, "blue");
-      } else if (JSON.parse(savedAlignmentBlueNum)[5]) {
+      } else if (JSON.parse(savedAlignmentBlueNum) === "5") {
         castleChange(5, "blue");
       }
     }
   }, []);
 
   const handleButtonClick = (value: number) => {
+    setSelectedNumber(value);
     castleChange(value, "blue");
-    setAlignmentBlueNum((prev) => {
-      const newAlignmentBlueNum = {
-        1: value === 1,
-        2: value === 2,
-        3: value === 3,
-        4: value === 4,
-        5: value === 5,
-      };
-      localStorage.setItem(
-        "alignmentBlueNum",
-        JSON.stringify(newAlignmentBlueNum)
-      );
-      return newAlignmentBlueNum;
-    });
+    localStorage.setItem("alignmentBlueNum", JSON.stringify(value));
   };
 
   return (
@@ -71,20 +49,12 @@ export default function AlignmentNum({ castleColor, castleChange }: any) {
           alignSelf: "center",
         }}
       >
-        青城
+        青城hoge
       </Typography>
       <ToggleButtonGroup
         exclusive
         value={
-          alignmentBlueNum[1]
-            ? 1
-            : alignmentBlueNum[2]
-            ? 2
-            : alignmentBlueNum[3]
-            ? 3
-            : alignmentBlueNum[4]
-            ? 4
-            : 5
+          selectedNumber ? 1 : "true" ? 2 : "true" ? 3 : "true" ? 4 : "true"
         }
         sx={{
           ml: 2,
@@ -94,7 +64,7 @@ export default function AlignmentNum({ castleColor, castleChange }: any) {
           return (
             <ToggleButton
               value={item}
-              selected={alignmentBlueNum[item]}
+              selected={selectedNumber === item}
               onClick={() => handleButtonClick(item)}
               aria-label="left aligned"
               sx={{

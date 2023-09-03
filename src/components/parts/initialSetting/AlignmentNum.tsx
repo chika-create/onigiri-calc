@@ -5,6 +5,7 @@ import {
   ToggleButtonGroup,
   ToggleButton,
 } from "@mui/material";
+import { castleNumber } from "../../../constants";
 
 type ToggleSelectedType = {
   [key: number]: boolean;
@@ -89,61 +90,21 @@ export default function AlignmentNum({ castleColor, castleChange }: any) {
           ml: 2,
         }}
       >
-        <ToggleButton
-          value={1}
-          selected={alignmentBlueNum[1]}
-          onClick={() => handleButtonClick(1)}
-          aria-label="left aligned"
-          sx={{
-            width: 1 / 5,
-          }}
-        >
-          1
-        </ToggleButton>
-        <ToggleButton
-          value={2}
-          selected={alignmentBlueNum[2]}
-          onClick={() => handleButtonClick(2)}
-          aria-label="left aligned"
-          sx={{
-            width: 1 / 5,
-          }}
-        >
-          2
-        </ToggleButton>
-        <ToggleButton
-          value={3}
-          selected={alignmentBlueNum[3]}
-          onClick={() => handleButtonClick(3)}
-          aria-label="left aligned"
-          sx={{
-            width: 1 / 5,
-          }}
-        >
-          3
-        </ToggleButton>
-        <ToggleButton
-          value={4}
-          selected={alignmentBlueNum[4]}
-          onClick={() => handleButtonClick(4)}
-          aria-label="left aligned"
-          sx={{
-            width: 1 / 5,
-          }}
-        >
-          4
-        </ToggleButton>
-        <ToggleButton
-          value={5}
-          selected={alignmentBlueNum[5]}
-          onClick={() => handleButtonClick(5)}
-          aria-label="left aligned"
-          sx={{
-            width: 1 / 5,
-          }}
-        >
-          5
-        </ToggleButton>
+        {castleNumber.map((item: number) => {
+          return (
+            <ToggleButton
+              value={item}
+              selected={alignmentBlueNum[item]}
+              onClick={() => handleButtonClick(item)}
+              aria-label="left aligned"
+              sx={{
+                width: 1 / 5,
+              }}
+            >
+              {item}
+            </ToggleButton>
+          );
+        })}
       </ToggleButtonGroup>
     </Box>
   );

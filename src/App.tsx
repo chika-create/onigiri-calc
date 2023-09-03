@@ -2,6 +2,10 @@ import "./App.css";
 import React from "react";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
+import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
+import Term from "./components/pages/Term";
+import PrivacyPolicy from "./components/pages/PrivacyPolicy";
+
 import { TabPanelProps } from "./types";
 import { numNumberContext, alignmentNumContext } from "./SettingUseContext";
 import { CalcFunc } from "./CalcFunc";
@@ -35,6 +39,23 @@ function TabPanel(props: TabPanelProps): any {
 }
 
 function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AppContent />} />
+        <Route path="/term" element={<Term />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+      </Routes>
+
+      <nav>
+        <Link to="/">ホーム</Link> / <Link to="/term">利用規約</Link> /
+        <Link to="/privacypolicy">プライバシーポリシー</Link>
+      </nav>
+    </BrowserRouter>
+  );
+}
+
+function AppContent() {
   // タブ管理
   const [tabValue, setTabValue] = React.useState(0);
   const tabChange = (event: React.SyntheticEvent, newValue: number): void => {
@@ -45,34 +66,36 @@ function App() {
     CalcFunc();
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <TabBox tabValue={tabValue} tabChange={tabChange} />
-      <InitialSetting castleChange={castleChange} register={register} />
+    <>
+      <Box sx={{ width: "100%" }}>
+        <TabBox tabValue={tabValue} tabChange={tabChange} />
+        <InitialSetting castleChange={castleChange} register={register} />
 
-      <TabPanel value={tabValue} index={0}>
-        <ServerCastel />
+        <TabPanel value={tabValue} index={0}>
+          <ServerCastel />
 
-        <CalcTime register={register} />
-        <CastelKinds onClick={castleKinds} />
-        {/* <Box>
-          <FormControlLabel
-            control={<Checkbox />}
-            label="今から終了まで（まだ使えません）"
-          />
-        </Box> */}
-      </TabPanel>
-      <TabPanel value={tabValue} index={1}>
-        <UniversalCastel />
-      </TabPanel>
-      <TabPanel value={tabValue} index={2}>
-        <OnigiriTable />
-      </TabPanel>
-      <numNumberContext.Provider value={numNumber}>
-        <alignmentNumContext.Provider value={alignmentNum}>
-          <CountOutput numNumber={numNumber} alignmentNum={alignmentNum} />
-        </alignmentNumContext.Provider>
-      </numNumberContext.Provider>
-    </Box>
+          <CalcTime register={register} />
+          <CastelKinds onClick={castleKinds} />
+          {/* <Box>
+            <FormControlLabel
+              control={<Checkbox />}
+              label="今から終了まで（まだ使えません）"
+            />
+          </Box> */}
+        </TabPanel>
+        <TabPanel value={tabValue} index={1}>
+          <UniversalCastel />
+        </TabPanel>
+        <TabPanel value={tabValue} index={2}>
+          <OnigiriTable />
+        </TabPanel>
+        <numNumberContext.Provider value={numNumber}>
+          <alignmentNumContext.Provider value={alignmentNum}>
+            <CountOutput numNumber={numNumber} alignmentNum={alignmentNum} />
+          </alignmentNumContext.Provider>
+        </numNumberContext.Provider>
+      </Box>
+    </>
   );
 }
 

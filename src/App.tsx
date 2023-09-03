@@ -4,6 +4,7 @@ import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
 import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 import Term from "./components/pages/Term";
+import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 
 import { TabPanelProps } from "./Types";
 import { numNumberContext, alignmentNumContext } from "./SettingUseContext";
@@ -43,11 +44,12 @@ function App() {
       <Routes>
         <Route path="/" element={<AppContent />} />
         <Route path="/term" element={<Term />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
       </Routes>
 
       <nav>
-        <Link to="/">ホーム</Link>
-        <Link to="/term">利用規約</Link>
+        <Link to="/">ホーム</Link> / <Link to="/term">利用規約</Link> /
+        <Link to="/privacypolicy">プライバシーポリシー</Link>
       </nav>
     </BrowserRouter>
   );

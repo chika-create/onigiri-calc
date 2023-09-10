@@ -15,11 +15,11 @@ export default function AlignmentNum({
   const [selectedNumber, setSelectedNumber] = useState(1);
 
   useEffect(() => {
-    const savedAlignmentCastle = localStorage.getItem(castleColorEn);
-    if (savedAlignmentCastle) {
-      const AlignmentCastle = JSON.parse(savedAlignmentCastle);
-      setSelectedNumber(AlignmentCastle);
-      castleChange(AlignmentCastle, castleColorEn);
+    const savedAlignmentNum = localStorage.getItem(castleColorEn);
+    if (savedAlignmentNum) {
+      const alignmentNum = JSON.parse(savedAlignmentNum);
+      setSelectedNumber(alignmentNum);
+      castleChange(alignmentNum, castleColorEn);
     }
   }, []);
 

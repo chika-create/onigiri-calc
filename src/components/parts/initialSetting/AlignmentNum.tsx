@@ -19,19 +19,7 @@ export default function AlignmentNum({
     if (savedAlignmentCastle) {
       const AlignmentCastle = JSON.parse(savedAlignmentCastle);
       setSelectedNumber(AlignmentCastle);
-
-      // 城の選択状態を判断して castleChange を呼び出す
-      if (AlignmentCastle === "1") {
-        castleChange(1, castleColorEn);
-      } else if (AlignmentCastle === "2") {
-        castleChange(2, castleColorEn);
-      } else if (AlignmentCastle === "3") {
-        castleChange(3, castleColorEn);
-      } else if (AlignmentCastle === "4") {
-        castleChange(4, castleColorEn);
-      } else if (AlignmentCastle === "5") {
-        castleChange(5, castleColorEn);
-      }
+      castleChange(AlignmentCastle, castleColorEn);
     }
   }, []);
 
@@ -58,9 +46,6 @@ export default function AlignmentNum({
       </Typography>
       <ToggleButtonGroup
         exclusive
-        // value={
-        //   selectedNumber ? 1 : "true" ? 2 : "true" ? 3 : "true" ? 4 : "true"
-        // }
         sx={{
           ml: 2,
         }}

@@ -53,9 +53,9 @@ export default function AlignmentNum({ castleColor, castleChange }: any) {
       </Typography>
       <ToggleButtonGroup
         exclusive
-        value={
-          selectedNumber ? 1 : "true" ? 2 : "true" ? 3 : "true" ? 4 : "true"
-        }
+        // value={
+        //   selectedNumber ? 1 : "true" ? 2 : "true" ? 3 : "true" ? 4 : "true"
+        // }
         sx={{
           ml: 2,
         }}

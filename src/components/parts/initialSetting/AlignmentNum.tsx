@@ -7,33 +7,37 @@ import {
 } from "@mui/material";
 import { castleNumber } from "../../../constants/constants";
 
-export default function AlignmentNum({ castleColor, castleChange }: any) {
+export default function AlignmentNum({
+  castleColorJa,
+  castleColorEn,
+  castleChange,
+}: any) {
   const [selectedNumber, setSelectedNumber] = useState(1);
 
   useEffect(() => {
-    const savedAlignmentBlueNum = localStorage.getItem("alignmentBlueNum");
+    const savedAlignmentBlueNum = localStorage.getItem(castleColorEn);
     if (savedAlignmentBlueNum) {
       setSelectedNumber(JSON.parse(savedAlignmentBlueNum));
 
       // 城の選択状態を判断して castleChange を呼び出す
       if (JSON.parse(savedAlignmentBlueNum) === "1") {
-        castleChange(1, "blue");
+        castleChange(1, castleColorEn);
       } else if (JSON.parse(savedAlignmentBlueNum) === "2") {
-        castleChange(2, "blue");
+        castleChange(2, castleColorEn);
       } else if (JSON.parse(savedAlignmentBlueNum) === "3") {
-        castleChange(3, "blue");
+        castleChange(3, castleColorEn);
       } else if (JSON.parse(savedAlignmentBlueNum) === "4") {
-        castleChange(4, "blue");
+        castleChange(4, castleColorEn);
       } else if (JSON.parse(savedAlignmentBlueNum) === "5") {
-        castleChange(5, "blue");
+        castleChange(5, castleColorEn);
       }
     }
   }, []);
 
   const handleButtonClick = (value: number) => {
     setSelectedNumber(value);
-    castleChange(value, "blue");
-    localStorage.setItem("alignmentBlueNum", JSON.stringify(value));
+    castleChange(value, castleColorEn);
+    localStorage.setItem(castleColorEn, JSON.stringify(value));
   };
 
   return (

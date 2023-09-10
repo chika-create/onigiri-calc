@@ -15,20 +15,20 @@ export default function AlignmentNum({
   const [selectedNumber, setSelectedNumber] = useState(1);
 
   useEffect(() => {
-    const savedAlignmentBlueNum = localStorage.getItem(castleColorEn);
-    if (savedAlignmentBlueNum) {
-      setSelectedNumber(JSON.parse(savedAlignmentBlueNum));
+    const savedAlignmentCastle = localStorage.getItem(castleColorEn);
+    if (savedAlignmentCastle) {
+      setSelectedNumber(JSON.parse(savedAlignmentCastle));
 
       // 城の選択状態を判断して castleChange を呼び出す
-      if (JSON.parse(savedAlignmentBlueNum) === "1") {
+      if (JSON.parse(savedAlignmentCastle) === "1") {
         castleChange(1, castleColorEn);
-      } else if (JSON.parse(savedAlignmentBlueNum) === "2") {
+      } else if (JSON.parse(savedAlignmentCastle) === "2") {
         castleChange(2, castleColorEn);
-      } else if (JSON.parse(savedAlignmentBlueNum) === "3") {
+      } else if (JSON.parse(savedAlignmentCastle) === "3") {
         castleChange(3, castleColorEn);
-      } else if (JSON.parse(savedAlignmentBlueNum) === "4") {
+      } else if (JSON.parse(savedAlignmentCastle) === "4") {
         castleChange(4, castleColorEn);
-      } else if (JSON.parse(savedAlignmentBlueNum) === "5") {
+      } else if (JSON.parse(savedAlignmentCastle) === "5") {
         castleChange(5, castleColorEn);
       }
     }

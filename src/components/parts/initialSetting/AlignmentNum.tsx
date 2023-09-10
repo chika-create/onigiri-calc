@@ -8,7 +8,7 @@ import {
 import { castleNumber } from "../../../constants/constants";
 
 export default function AlignmentNum({
-  castleColorJa,
+  castleColorJs,
   castleColorEn,
   castleChange,
 }: any) {
@@ -42,7 +42,7 @@ export default function AlignmentNum({
           alignSelf: "center",
         }}
       >
-        青城hoge
+        {castleColorJs}城
       </Typography>
       <ToggleButtonGroup
         exclusive

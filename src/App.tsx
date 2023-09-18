@@ -104,7 +104,7 @@ function AppContent() {
           <OnigiriTable />
         </TabPanel>
         <numNumberContext.Provider value={numNumber}>
-          <selectCastleKindContext.Provider value={"red"}>
+          <selectCastleKindContext.Provider value={selectCastleKind}>
             <alignmentNumContext2.Provider value={alignmentNum2}>
               <alignmentNumContext.Provider value={alignmentNum}>
                 <CountOutput

@@ -6,12 +6,13 @@ import {
   ToggleButton,
 } from "@mui/material";
 import { castleNumber } from "../../../constants/constants";
+import { AlignmentNumProps } from "../../../types";
 
 export default function AlignmentNum({
-  castleColorJs,
+  castleColorJa,
   castleColorEn,
   castleChange,
-}: any) {
+}: AlignmentNumProps) {
   const [selectedNumber, setSelectedNumber] = useState(1);
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function AlignmentNum({
           alignSelf: "center",
         }}
       >
-        {castleColorJs}城
+        {castleColorJa}城
       </Typography>
       <ToggleButtonGroup
         exclusive

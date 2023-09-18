@@ -27,7 +27,7 @@ export default function InitialSetting(props: any) {
         {castelColors.map((castleColor) => {
           return (
             <AlignmentNum
-              castleColorJs={castleColor.ja}
+              castleColorJa={castleColor.ja}
               castleColorEn={castleColor.en}
               castleChange={castleChange}
             />

@@ -25,3 +25,9 @@ export interface LocalDate {
   castleNum: CastleData[];
   minDeckNum: DeckData;
 }
+
+export interface AlignmentNumProps {
+  castleColorJa: string;
+  castleColorEn: string;
+  castleChange: (alignmentNum: number, castleColorEn: string) => void;
+}

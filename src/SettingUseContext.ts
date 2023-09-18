@@ -8,4 +8,4 @@ export const alignmentNumContext2 = React.createContext({
   gold: 3,
 });
 
-export const selectCastleKindContext = React.createContext<string>("");
+export const selectCastleKindContext = React.createContext<string>("red");

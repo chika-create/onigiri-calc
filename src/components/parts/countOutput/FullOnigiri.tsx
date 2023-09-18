@@ -3,6 +3,7 @@ import {
   numNumberContext,
   alignmentNumContext,
   alignmentNumContext2,
+  selectCastleKindContext,
 } from "../../../SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
@@ -12,8 +13,12 @@ export default function FullStack(props: any) {
   const numNumber = useContext(numNumberContext);
   const alignmentNum = useContext(alignmentNumContext);
   const alignmentNum2 = useContext(alignmentNumContext2);
+  const selectCastleKind = useContext(selectCastleKindContext);
   const copyToClipboard = props.copyToClipboard;
   const [openTip, setOpenTip] = useState<boolean>(false);
+
+  console.log("selectCastleKind: ", selectCastleKind);
+  console.log(alignmentNum2.red);
 
   const handleClickButtonFullOnigiri = (): void => {
     setOpenTip(true);

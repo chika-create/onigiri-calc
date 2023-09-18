@@ -34,7 +34,7 @@ export function CalcFunc() {
   const [alignmentRed, setAlignmentRed] = useState(0);
   const [alignmentBlue, setAlignmentBlue] = useState(0);
   const [alignmentGold, setAlignmentGold] = useState(0);
-  const [selectCastleKind, setSelectCastleKind] = useState("");
+  const [selectCastleKind, setSelectCastleKind] = useState("red");
 
   const updateAlignmentNum2 = (castleKind: string, number: number): void => {
     setAlignmentNum2((prevAlignmentNum) => ({
@@ -49,6 +49,7 @@ export function CalcFunc() {
     newCastelAlignment: string
   ): void => {
     castleKindsSwitch(newCastelAlignment);
+    // console.log("setSelectCastleKind: ", newCastelAlignment);
     setSelectCastleKind(newCastelAlignment);
     calculator();
   };

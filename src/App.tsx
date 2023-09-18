@@ -19,6 +19,8 @@ import CalcTime from "./components/parts/CalcTime";
 import CountOutput from "./components/templates/CountOutput";
 import TabBox from "./components/views/TabBox";
 
+import usePageTracking from "./useTracking";
+
 function TabPanel(props: TabPanelProps): any {
   const { children, value, index, ...other } = props;
   return (

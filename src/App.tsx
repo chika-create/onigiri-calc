@@ -7,7 +7,11 @@ import Term from "./components/pages/Term";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 
 import { TabPanelProps } from "./types";
-import { numNumberContext, alignmentNumContext } from "./SettingUseContext";
+import {
+  numNumberContext,
+  alignmentNumContext,
+  alignmentNumContext2,
+} from "./SettingUseContext";
 import { CalcFunc } from "./CalcFunc";
 
 import ServerCastel from "./components/pages/ServerCastel";
@@ -64,8 +68,14 @@ function AppContent() {
     setTabValue(newValue);
   };
 
-  const { alignmentNum, castleChange, castleKinds, numNumber, register } =
-    CalcFunc();
+  const {
+    alignmentNum,
+    alignmentNum2,
+    castleChange,
+    castleKinds,
+    numNumber,
+    register,
+  } = CalcFunc();
 
   return (
     <>
@@ -92,9 +102,11 @@ function AppContent() {
           <OnigiriTable />
         </TabPanel>
         <numNumberContext.Provider value={numNumber}>
-          <alignmentNumContext.Provider value={alignmentNum}>
-            <CountOutput numNumber={numNumber} alignmentNum={alignmentNum} />
-          </alignmentNumContext.Provider>
+          <alignmentNumContext2.Provider value={alignmentNum2}>
+            <alignmentNumContext.Provider value={alignmentNum}>
+              <CountOutput numNumber={numNumber} alignmentNum={alignmentNum} />
+            </alignmentNumContext.Provider>
+          </alignmentNumContext2.Provider>
         </numNumberContext.Provider>
       </Box>
     </>

@@ -34,6 +34,13 @@ export function CalcFunc() {
   const [alignmentBlue, setAlignmentBlue] = useState(0);
   const [alignmentGold, setAlignmentGold] = useState(0);
 
+  const updateRedValue = (castleKind: string, number: number): void => {
+    setAlignmentNum2((prevAlignmentNum) => ({
+      ...prevAlignmentNum,
+      [castleKind]: number,
+    }));
+  };
+
   // どの城種別で計算するか
   const castleKinds = (
     event: React.MouseEvent<HTMLElement>,

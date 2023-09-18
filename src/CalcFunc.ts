@@ -34,7 +34,7 @@ export function CalcFunc() {
   const [alignmentBlue, setAlignmentBlue] = useState(0);
   const [alignmentGold, setAlignmentGold] = useState(0);
 
-  const updateRedValue = (castleKind: string, number: number): void => {
+  const updateAlignmentNum2 = (castleKind: string, number: number): void => {
     setAlignmentNum2((prevAlignmentNum) => ({
       ...prevAlignmentNum,
       [castleKind]: number,
@@ -55,12 +55,15 @@ export function CalcFunc() {
     switch (item) {
       case "blue":
         setAlignmentNum(alignmentBlue);
+        updateAlignmentNum2(item, alignmentBlue);
         break;
       case "gold":
         setAlignmentNum(alignmentGold);
+        updateAlignmentNum2(item, alignmentGold);
         break;
       default:
         setAlignmentNum(alignmentRed);
+        updateAlignmentNum2(item, alignmentRed);
     }
   };
 

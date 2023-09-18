@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { CalcFormInput } from "./Types";
+import { CalcFormInput } from "./types";
 
 export function CalcFunc() {
   // 計算機能用

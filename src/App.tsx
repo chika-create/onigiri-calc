@@ -6,7 +6,7 @@ import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 import Term from "./components/pages/Term";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 
-import { TabPanelProps } from "./Types";
+import { TabPanelProps } from "./types";
 import { numNumberContext, alignmentNumContext } from "./SettingUseContext";
 import { CalcFunc } from "./CalcFunc";
 
@@ -18,6 +18,8 @@ import CastelKinds from "./components/parts/CastelKinds";
 import CalcTime from "./components/parts/CalcTime";
 import CountOutput from "./components/templates/CountOutput";
 import TabBox from "./components/views/TabBox";
+
+import usePageTracking from "./useTracking";
 
 function TabPanel(props: TabPanelProps): any {
   const { children, value, index, ...other } = props;

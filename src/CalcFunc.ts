@@ -21,6 +21,7 @@ export function CalcFunc() {
     } else {
       setAlignmentRed(newData.value);
     }
+    updateAlignmentNum2(newData.string, newData.value);
   };
 
   // 城種別ごとのデッキ数

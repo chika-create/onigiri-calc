@@ -104,7 +104,11 @@ function AppContent() {
         <numNumberContext.Provider value={numNumber}>
           <alignmentNumContext2.Provider value={alignmentNum2}>
             <alignmentNumContext.Provider value={alignmentNum}>
-              <CountOutput numNumber={numNumber} alignmentNum={alignmentNum} />
+              <CountOutput
+                numNumber={numNumber}
+                alignmentNum={alignmentNum}
+                alignmentNum2={alignmentNum2}
+              />
             </alignmentNumContext.Provider>
           </alignmentNumContext2.Provider>
         </numNumberContext.Provider>

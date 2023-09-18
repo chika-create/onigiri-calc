@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import {
   numNumberContext,
   alignmentNumContext,
+  alignmentNumContext2,
 } from "../../../SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
@@ -10,6 +11,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 export default function FullStack(props: any) {
   const numNumber = useContext(numNumberContext);
   const alignmentNum = useContext(alignmentNumContext);
+  const alignmentNum2 = useContext(alignmentNumContext2);
   const copyToClipboard = props.copyToClipboard;
   const [openTip, setOpenTip] = useState<boolean>(false);
 

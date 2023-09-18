@@ -11,6 +11,7 @@ import {
   numNumberContext,
   alignmentNumContext,
   alignmentNumContext2,
+  selectCastleKindContext,
 } from "./SettingUseContext";
 import { CalcFunc } from "./CalcFunc";
 
@@ -73,6 +74,7 @@ function AppContent() {
     alignmentNum2,
     castleChange,
     castleKinds,
+    selectCastleKind,
     numNumber,
     register,
   } = CalcFunc();
@@ -102,15 +104,17 @@ function AppContent() {
           <OnigiriTable />
         </TabPanel>
         <numNumberContext.Provider value={numNumber}>
-          <alignmentNumContext2.Provider value={alignmentNum2}>
-            <alignmentNumContext.Provider value={alignmentNum}>
-              <CountOutput
-                numNumber={numNumber}
-                alignmentNum={alignmentNum}
-                alignmentNum2={alignmentNum2}
-              />
-            </alignmentNumContext.Provider>
-          </alignmentNumContext2.Provider>
+          <selectCastleKindContext.Provider value={"red"}>
+            <alignmentNumContext2.Provider value={alignmentNum2}>
+              <alignmentNumContext.Provider value={alignmentNum}>
+                <CountOutput
+                  numNumber={numNumber}
+                  alignmentNum={alignmentNum}
+                  alignmentNum2={alignmentNum2}
+                />
+              </alignmentNumContext.Provider>
+            </alignmentNumContext2.Provider>
+          </selectCastleKindContext.Provider>
         </numNumberContext.Provider>
       </Box>
     </>

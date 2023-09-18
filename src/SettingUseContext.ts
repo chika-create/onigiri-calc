@@ -7,3 +7,5 @@ export const alignmentNumContext2 = React.createContext({
   blue: 2,
   gold: 3,
 });
+
+export const selectCastleKindContext = React.createContext<string>("");

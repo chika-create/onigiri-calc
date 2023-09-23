@@ -8,8 +8,8 @@ import {
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
-// alignmentNum2 の型をアノテーション
-type AlignmentNum2Type = {
+// alignmentNumbers の型をアノテーション
+type AlignmentNumbersType = {
   red: number;
   blue: number;
   gold: number;
@@ -17,17 +17,18 @@ type AlignmentNum2Type = {
 
 export default function FullStack(props: any) {
   const numNumber = useContext(numNumberContext);
-  const alignmentNum2: AlignmentNum2Type = useContext(alignmentNumContext2);
+  const alignmentNumbers: AlignmentNumbersType =
+    useContext(alignmentNumContext2);
   const selectCastleKind: string = useContext(selectCastleKindContext);
   const copyToClipboard = props.copyToClipboard;
   const [openTip, setOpenTip] = useState<boolean>(false);
 
-  const alignmentNum3: number =
-    alignmentNum2[selectCastleKind as keyof AlignmentNum2Type];
+  const castleAlignmentNumber: number =
+    alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];
 
   const handleClickButtonFullOnigiri = (): void => {
     setOpenTip(true);
-    copyToClipboard(numNumber * alignmentNum3);
+    copyToClipboard(numNumber * castleAlignmentNumber);
   };
 
   return (
@@ -51,7 +52,7 @@ export default function FullStack(props: any) {
           textAlign: "center",
         }}
       >
-        {numNumber * alignmentNum3}
+        {numNumber * castleAlignmentNumber}
       </Typography>
       <Tooltip title="ContentCopyIcon" onClick={handleClickButtonFullOnigiri}>
         <IconButton>

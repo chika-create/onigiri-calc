@@ -9,16 +9,26 @@ import {
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
+// alignmentNum2 の型をアノテーション
+type AlignmentNum2Type = {
+  red: number;
+  blue: number;
+  gold: number;
+};
+
 export default function FullStack(props: any) {
   const numNumber = useContext(numNumberContext);
   const alignmentNum = useContext(alignmentNumContext);
-  const alignmentNum2 = useContext(alignmentNumContext2);
-  const selectCastleKind = useContext(selectCastleKindContext);
+  const alignmentNum2: AlignmentNum2Type = useContext(alignmentNumContext2);
+  const selectCastleKind: string = useContext(selectCastleKindContext);
   const copyToClipboard = props.copyToClipboard;
   const [openTip, setOpenTip] = useState<boolean>(false);
 
-  console.log("selectCastleKind: ", selectCastleKind);
-  console.log(alignmentNum2.red);
+  const alignmentNum3: number =
+    alignmentNum2[selectCastleKind as keyof AlignmentNum2Type];
+
+  // console.log("selectCastleKind: ", selectCastleKind);
+  // console.log("alignmentNum2[red]: ", alignmentNum2["red"]);
 
   const handleClickButtonFullOnigiri = (): void => {
     setOpenTip(true);

@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import {
   numNumberContext,
-  alignmentNumContext2,
+  alignmentNumbersContext,
   selectCastleKindContext,
 } from "../../../SettingUseContext";
 
@@ -17,8 +17,9 @@ type AlignmentNumbersType = {
 
 export default function FullStack(props: any) {
   const numNumber = useContext(numNumberContext);
-  const alignmentNumbers: AlignmentNumbersType =
-    useContext(alignmentNumContext2);
+  const alignmentNumbers: AlignmentNumbersType = useContext(
+    alignmentNumbersContext
+  );
   const selectCastleKind: string = useContext(selectCastleKindContext);
   const copyToClipboard = props.copyToClipboard;
   const [openTip, setOpenTip] = useState<boolean>(false);

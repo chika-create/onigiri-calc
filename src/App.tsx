@@ -10,7 +10,7 @@ import { TabPanelProps } from "./types";
 import {
   numNumberContext,
   alignmentNumContext,
-  alignmentNumContext2,
+  alignmentNumbersContext,
   selectCastleKindContext,
 } from "./SettingUseContext";
 import { CalcFunc } from "./CalcFunc";
@@ -106,7 +106,7 @@ function AppContent() {
         </TabPanel>
         <numNumberContext.Provider value={numNumber}>
           <selectCastleKindContext.Provider value={selectCastleKind}>
-            <alignmentNumContext2.Provider value={alignmentNum2}>
+            <alignmentNumbersContext.Provider value={alignmentNum2}>
               <alignmentNumContext.Provider value={alignmentNum}>
                 <CountOutput
                   numNumber={numNumber}
@@ -114,7 +114,7 @@ function AppContent() {
                   alignmentNum2={alignmentNum2}
                 />
               </alignmentNumContext.Provider>
-            </alignmentNumContext2.Provider>
+            </alignmentNumbersContext.Provider>
           </selectCastleKindContext.Provider>
         </numNumberContext.Provider>
       </Box>

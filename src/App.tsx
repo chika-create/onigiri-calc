@@ -9,7 +9,6 @@ import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 import { TabPanelProps } from "./types";
 import {
   numNumberContext,
-  alignmentNumContext,
   alignmentNumbersContext,
   selectCastleKindContext,
 } from "./SettingUseContext";
@@ -70,7 +69,6 @@ function AppContent() {
   };
 
   const {
-    alignmentNum,
     alignmentNum2,
     castleChange,
     castleKinds,
@@ -107,13 +105,10 @@ function AppContent() {
         <numNumberContext.Provider value={numNumber}>
           <selectCastleKindContext.Provider value={selectCastleKind}>
             <alignmentNumbersContext.Provider value={alignmentNum2}>
-              <alignmentNumContext.Provider value={alignmentNum}>
-                <CountOutput
-                  numNumber={numNumber}
-                  alignmentNum={alignmentNum}
-                  alignmentNum2={alignmentNum2}
-                />
-              </alignmentNumContext.Provider>
+              <CountOutput
+                numNumber={numNumber}
+                alignmentNum2={alignmentNum2}
+              />
             </alignmentNumbersContext.Provider>
           </selectCastleKindContext.Provider>
         </numNumberContext.Provider>

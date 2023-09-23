@@ -25,7 +25,6 @@ export function CalcFunc() {
   };
 
   // 城種別ごとのデッキ数
-  const [alignmentNum, setAlignmentNum] = useState(0);
   const [alignmentNum2, setAlignmentNum2] = useState({
     red: 1,
     blue: 2,
@@ -58,15 +57,12 @@ export function CalcFunc() {
   const castleKindsSwitch = (item: string): void => {
     switch (item) {
       case "blue":
-        setAlignmentNum(alignmentBlue);
         updateAlignmentNum2(item, alignmentBlue);
         break;
       case "gold":
-        setAlignmentNum(alignmentGold);
         updateAlignmentNum2(item, alignmentGold);
         break;
       default:
-        setAlignmentNum(alignmentRed);
         updateAlignmentNum2(item, alignmentRed);
     }
   };
@@ -93,7 +89,6 @@ export function CalcFunc() {
     // console.log("calculator_3: " + Math.ceil((totalNum * 60) / deckNum2));
   };
   return {
-    alignmentNum,
     alignmentNum2,
     castleChange,
     castleKinds,

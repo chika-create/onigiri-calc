@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import {
   numNumberContext,
-  alignmentNumContext,
   alignmentNumContext2,
   selectCastleKindContext,
 } from "../../../SettingUseContext";
@@ -18,7 +17,6 @@ type AlignmentNum2Type = {
 
 export default function FullStack(props: any) {
   const numNumber = useContext(numNumberContext);
-  const alignmentNum = useContext(alignmentNumContext);
   const alignmentNum2: AlignmentNum2Type = useContext(alignmentNumContext2);
   const selectCastleKind: string = useContext(selectCastleKindContext);
   const copyToClipboard = props.copyToClipboard;
@@ -27,12 +25,9 @@ export default function FullStack(props: any) {
   const alignmentNum3: number =
     alignmentNum2[selectCastleKind as keyof AlignmentNum2Type];
 
-  // console.log("selectCastleKind: ", selectCastleKind);
-  // console.log("alignmentNum2[red]: ", alignmentNum2["red"]);
-
   const handleClickButtonFullOnigiri = (): void => {
     setOpenTip(true);
-    copyToClipboard(numNumber * alignmentNum);
+    copyToClipboard(numNumber * alignmentNum3);
   };
 
   return (
@@ -56,7 +51,7 @@ export default function FullStack(props: any) {
           textAlign: "center",
         }}
       >
-        {numNumber * alignmentNum}
+        {numNumber * alignmentNum3}
       </Typography>
       <Tooltip title="ContentCopyIcon" onClick={handleClickButtonFullOnigiri}>
         <IconButton>

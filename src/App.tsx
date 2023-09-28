@@ -69,7 +69,7 @@ function AppContent() {
   };
 
   const {
-    alignmentNum2,
+    alignmentNum,
     castleChange,
     castleKinds,
     selectCastleKind,
@@ -104,10 +104,9 @@ function AppContent() {
         </TabPanel>
         <numNumberContext.Provider value={numNumber}>
           <selectCastleKindContext.Provider value={selectCastleKind}>
-            <alignmentNumbersContext.Provider value={alignmentNum2}>
+            <alignmentNumbersContext.Provider value={alignmentNum}>
               <CountOutput
                 numNumber={numNumber}
-                alignmentNum2={alignmentNum2}
               />
             </alignmentNumbersContext.Provider>
           </selectCastleKindContext.Provider>

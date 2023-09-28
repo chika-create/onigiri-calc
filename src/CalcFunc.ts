@@ -14,13 +14,6 @@ export function CalcFunc() {
       value: value,
       string: string,
     };
-    if (newData.string === "blue") {
-      setAlignmentBlue(newData.value);
-    } else if (newData.string === "gold") {
-      setAlignmentGold(newData.value);
-    } else {
-      setAlignmentRed(newData.value);
-    }
     updateAlignmentNum(newData.string, newData.value);
   };
 
@@ -30,9 +23,6 @@ export function CalcFunc() {
     blue: 2,
     gold: 3,
   });
-  const [alignmentRed, setAlignmentRed] = useState(0);
-  const [alignmentBlue, setAlignmentBlue] = useState(0);
-  const [alignmentGold, setAlignmentGold] = useState(0);
   const [selectCastleKind, setSelectCastleKind] = useState("red");
 
   const updateAlignmentNum = (castleKind: string, number: number): void => {
@@ -47,24 +37,9 @@ export function CalcFunc() {
     event: React.MouseEvent<HTMLElement>,
     newCastelAlignment: string
   ): void => {
-    castleKindsSwitch(newCastelAlignment);
     // console.log("setSelectCastleKind: ", newCastelAlignment);
     setSelectCastleKind(newCastelAlignment);
     calculator();
-  };
-
-  // どの城種別を選択したかによって、デッキ数を取得
-  const castleKindsSwitch = (item: string): void => {
-    switch (item) {
-      case "blue":
-        updateAlignmentNum(item, alignmentBlue);
-        break;
-      case "gold":
-        updateAlignmentNum(item, alignmentGold);
-        break;
-      default:
-        updateAlignmentNum(item, alignmentRed);
-    }
   };
 
   // 計算機能

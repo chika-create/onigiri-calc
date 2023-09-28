@@ -21,7 +21,7 @@ export function CalcFunc() {
     } else {
       setAlignmentRed(newData.value);
     }
-    updateAlignmentNum2(newData.string, newData.value);
+    updateAlignmentNum(newData.string, newData.value);
   };
 
   // 城種別ごとのデッキ数
@@ -35,7 +35,7 @@ export function CalcFunc() {
   const [alignmentGold, setAlignmentGold] = useState(0);
   const [selectCastleKind, setSelectCastleKind] = useState("red");
 
-  const updateAlignmentNum2 = (castleKind: string, number: number): void => {
+  const updateAlignmentNum = (castleKind: string, number: number): void => {
     setAlignmentNum2((prevAlignmentNum) => ({
       ...prevAlignmentNum,
       [castleKind]: number,
@@ -57,13 +57,13 @@ export function CalcFunc() {
   const castleKindsSwitch = (item: string): void => {
     switch (item) {
       case "blue":
-        updateAlignmentNum2(item, alignmentBlue);
+        updateAlignmentNum(item, alignmentBlue);
         break;
       case "gold":
-        updateAlignmentNum2(item, alignmentGold);
+        updateAlignmentNum(item, alignmentGold);
         break;
       default:
-        updateAlignmentNum2(item, alignmentRed);
+        updateAlignmentNum(item, alignmentRed);
     }
   };
 

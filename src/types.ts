@@ -1,3 +1,6 @@
+type AlignmentNum = number;
+type CastleColorEn = string;
+
 // タブ切り替え管理
 export interface TabPanelProps {
   children?: React.ReactNode;
@@ -29,5 +32,5 @@ export interface LocalDate {
 export interface AlignmentNumProps {
   castleColorJa: string;
   castleColorEn: string;
-  castleChange: (alignmentNum: number, castleColorEn: string) => void;
+  castleChange: (alignmentNum: AlignmentNum, castleColorEn: CastleColorEn) => void;
 }

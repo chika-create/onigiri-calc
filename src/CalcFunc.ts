@@ -5,7 +5,6 @@ import { CalcFormInput } from "./types";
 
 export function CalcFunc() {
   // 計算機能用
-  const [numNumber, setNumNumber] = useState(0);
   const { register, getValues } = useForm<CalcFormInput>();
 
   // 城種別ごとのデッキ数の取得
@@ -17,13 +16,14 @@ export function CalcFunc() {
     updateAlignmentNum(newData.string, newData.value);
   };
 
+
+
   // 城種別ごとのデッキ数
   const [alignmentNum, setAlignmentNum] = useState({
     red: 1,
     blue: 2,
     gold: 3,
   });
-  const [selectCastleKind, setSelectCastleKind] = useState("red");
 
   const updateAlignmentNum = (castleKind: string, number: number): void => {
     setAlignmentNum((prevAlignmentNum) => ({
@@ -31,6 +31,10 @@ export function CalcFunc() {
       [castleKind]: number,
     }));
   };
+
+
+
+  const [selectCastleKind, setSelectCastleKind] = useState("red");
 
   // どの城種別で計算するか
   const castleKinds = (
@@ -40,6 +44,10 @@ export function CalcFunc() {
     setSelectCastleKind(newCastelAlignment);
     calculator();
   };
+
+
+
+  const [numNumber, setNumNumber] = useState(0);
 
   // 計算機能
   const calculator = (): void => {

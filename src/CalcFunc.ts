@@ -9,13 +9,21 @@ export function CalcFunc() {
 
 
 
-  // 受け取ったデータを城種別ごとのデッキ数を登録関数に流す
+  // 受け取ったデータを「城種別ごとのデッキ数を登録」関数に流す
   const castleChange = (value: number, string: string): void => {
     const newData = {
       value: value,
       string: string,
     };
     updateAlignmentNum(newData.string, newData.value);
+
+    // 城種別ごとのデッキ数を登録
+    const updateAlignmentNum2 = (castleKind: string, number: number): void => {
+      setAlignmentNum((prevAlignmentNum) => ({
+        ...prevAlignmentNum,
+        [castleKind]: number,
+      }));
+    };
   };
 
 

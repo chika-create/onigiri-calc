@@ -18,12 +18,10 @@ export function CalcFunc() {
     updateAlignmentNum(newData.string, newData.value);
 
     // 城種別ごとのデッキ数を登録
-    const updateAlignmentNum2 = (castleKind: string, number: number): void => {
-      setAlignmentNum((prevAlignmentNum) => ({
-        ...prevAlignmentNum,
-        [castleKind]: number,
-      }));
-    };
+    setAlignmentNum((prevAlignmentNum) => ({
+      ...prevAlignmentNum,
+      [newData.value]:  newData.value,
+    }));
   };
 
 

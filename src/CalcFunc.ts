@@ -9,23 +9,6 @@ export function CalcFunc() {
 
 
 
-  // 受け取ったデータを「城種別ごとのデッキ数を登録」関数に流す
-  const castleChange = (value: number, string: string): void => {
-    const newData = {
-      value: value,
-      string: string,
-    };
-    updateAlignmentNum(newData.string, newData.value);
-
-    // 城種別ごとのデッキ数を登録
-    setAlignmentNum((prevAlignmentNum) => ({
-      ...prevAlignmentNum,
-      [newData.value]:  newData.value,
-    }));
-  };
-
-
-
   // 城種別ごとのデッキ数
   const [alignmentNum, setAlignmentNum] = useState({
     red: 1,
@@ -33,11 +16,16 @@ export function CalcFunc() {
     gold: 3,
   });
 
-  // 城種別ごとのデッキ数を登録
-  const updateAlignmentNum = (castleKind: string, number: number): void => {
+  // 受け取ったデータを「城種別ごとのデッキ数を登録」に流す
+  const castleChange = (value: number, string: string): void => {
+    const newData = {
+      value: value,
+      string: string,
+    };
+    // 城種別ごとのデッキ数を登録
     setAlignmentNum((prevAlignmentNum) => ({
       ...prevAlignmentNum,
-      [castleKind]: number,
+      [newData.value]:  newData.value,
     }));
   };
 

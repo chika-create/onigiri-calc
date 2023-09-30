@@ -1,4 +1,4 @@
-import Breadcrumbs from "@mui/material/Breadcrumbs";
+import { Breadcrumbs, Box } from "@mui/material";
 
 import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 import { AppContent } from "../../App";
@@ -14,24 +14,28 @@ export default function FooterNav() {
         <Route path="/term" element={<Term />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
       </Routes>
-
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link to="/" style={{ color: grayColor[300], textDecoration: "none" }}>
-          ホーム
-        </Link>
-        <Link
-          to="/term"
-          style={{ color: grayColor[300], textDecoration: "none" }}
-        >
-          利用規約
-        </Link>
-        <Link
-          to="/privacypolicy"
-          style={{ color: grayColor[300], textDecoration: "none" }}
-        >
-          プライバシーポリシー
-        </Link>
-      </Breadcrumbs>
+      <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link
+            to="/"
+            style={{ color: grayColor[300], textDecoration: "none" }}
+          >
+            ホーム
+          </Link>
+          <Link
+            to="/term"
+            style={{ color: grayColor[300], textDecoration: "none" }}
+          >
+            利用規約
+          </Link>
+          <Link
+            to="/privacypolicy"
+            style={{ color: grayColor[300], textDecoration: "none" }}
+          >
+            プライバシーポリシー
+          </Link>
+        </Breadcrumbs>
+      </Box>
     </BrowserRouter>
   );
 }

@@ -1,3 +1,6 @@
+type AlignmentNum = number;
+type CastleColorEn = string;
+
 // タブ切り替え管理
 export interface TabPanelProps {
   children?: React.ReactNode;
@@ -24,4 +27,10 @@ export interface DeckData {
 export interface LocalDate {
   castleNum: CastleData[];
   minDeckNum: DeckData;
+}
+
+export interface AlignmentNumProps {
+  castleColorJa: string;
+  castleColorEn: string;
+  castleChange: (alignmentNum: AlignmentNum, castleColorEn: CastleColorEn) => void;
 }

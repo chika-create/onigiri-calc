@@ -6,9 +6,8 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import AlignmentNumRed from "../parts/initialSetting/AlignmentNumRed";
-import AlignmentNumBlue from "../parts/initialSetting/AlignmentNumBlue";
-import AlignmentNumGold from "../parts/initialSetting/AlignmentNumGold";
+import { castelColors } from "../../constants/constants";
+import AlignmentNum from "../parts/initialSetting/AlignmentNum";
 import MinDeckNum from "../parts/initialSetting/MinDeckNum";
 
 export default function InitialSetting(props: any) {
@@ -25,9 +24,15 @@ export default function InitialSetting(props: any) {
         <Typography>初期設定</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <AlignmentNumRed castleChange={castleChange} />
-        <AlignmentNumBlue castleChange={castleChange} />
-        <AlignmentNumGold castleChange={castleChange} />
+        {castelColors.map((castleColor) => {
+          return (
+            <AlignmentNum
+              castleColorJa={castleColor.ja}
+              castleColorEn={castleColor.en}
+              castleChange={castleChange}
+            />
+          );
+        })}
         <MinDeckNum register={register} />
       </AccordionDetails>
     </Accordion>

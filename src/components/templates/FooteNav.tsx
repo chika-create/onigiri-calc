@@ -1,7 +1,10 @@
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+
 import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 import { AppContent } from "../../App";
 import Term from "../../components/pages/Term";
 import PrivacyPolicy from "../../components/pages/PrivacyPolicy";
+import { grayColor } from "../../color";
 
 export default function FooterNav() {
   return (
@@ -12,10 +15,23 @@ export default function FooterNav() {
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
       </Routes>
 
-      <nav>
-        <Link to="/">ホーム</Link> / <Link to="/term">利用規約</Link> /
-        <Link to="/privacypolicy">プライバシーポリシー</Link>
-      </nav>
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link to="/" style={{ color: grayColor[300], textDecoration: "none" }}>
+          ホーム
+        </Link>
+        <Link
+          to="/term"
+          style={{ color: grayColor[300], textDecoration: "none" }}
+        >
+          利用規約
+        </Link>
+        <Link
+          to="/privacypolicy"
+          style={{ color: grayColor[300], textDecoration: "none" }}
+        >
+          プライバシーポリシー
+        </Link>
+      </Breadcrumbs>
     </BrowserRouter>
   );
 }

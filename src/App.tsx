@@ -61,7 +61,7 @@ function App() {
   );
 }
 
-function AppContent() {
+export function AppContent() {
   // タブ管理
   const [tabValue, setTabValue] = React.useState(0);
   const tabChange = (event: React.SyntheticEvent, newValue: number): void => {

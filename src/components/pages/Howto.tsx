@@ -1,5 +1,12 @@
 import Container from "@mui/material/Container";
+import InitialSetting from "../templates/InitialSetting";
 
 export default function Howto() {
-  return <Container maxWidth="sm">使い方エリア</Container>;
+  function castleChange() {}
+  const register = "";
+  return (
+    <Container maxWidth="sm">
+      <InitialSetting castleChange={castleChange} register={register} />
+    </Container>
+  );
 }

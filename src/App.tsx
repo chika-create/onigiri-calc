@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
+import FooterNav from "./components/templates/FooteNav";
 import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 import Term from "./components/pages/Term";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
@@ -45,20 +46,7 @@ function TabPanel(props: TabPanelProps): any {
 }
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<AppContent />} />
-        <Route path="/term" element={<Term />} />
-        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-      </Routes>
-
-      <nav>
-        <Link to="/">ホーム</Link> / <Link to="/term">利用規約</Link> /
-        <Link to="/privacypolicy">プライバシーポリシー</Link>
-      </nav>
-    </BrowserRouter>
-  );
+  return <FooterNav />;
 }
 
 export function AppContent() {
@@ -105,9 +93,7 @@ export function AppContent() {
         <numNumberContext.Provider value={numNumber}>
           <selectCastleKindContext.Provider value={selectCastleKind}>
             <alignmentNumbersContext.Provider value={alignmentNum}>
-              <CountOutput
-                numNumber={numNumber}
-              />
+              <CountOutput numNumber={numNumber} />
             </alignmentNumbersContext.Provider>
           </selectCastleKindContext.Provider>
         </numNumberContext.Provider>

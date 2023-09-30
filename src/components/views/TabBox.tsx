@@ -20,8 +20,8 @@ export default function TabBox(props: any) {
         aria-label="basic tabs example"
       >
         <Tab label="城戦" {...tabMenu(0)} />
-        <Tab label="test" {...tabMenu(1)} disabled />
-        <Tab label="おにぎり表" {...tabMenu(2)} disabled />
+        <Tab label="使い方" {...tabMenu(1)} />
+        {/* <Tab label="おにぎり表" {...tabMenu(2)} disabled /> */}
       </Tabs>
     </Box>
   );

@@ -3,9 +3,6 @@ import React from "react";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
 import FooterNav from "./components/templates/FooteNav";
-import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
-import Term from "./components/pages/Term";
-import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 
 import { TabPanelProps } from "./types";
 import {

@@ -99,15 +99,13 @@ function AppContent() {
         <TabPanel value={tabValue} index={1}>
           <UniversalCastel />
         </TabPanel>
-        <TabPanel value={tabValue} index={2}>
+        {/* <TabPanel value={tabValue} index={2}>
           <OnigiriTable />
-        </TabPanel>
+        </TabPanel> */}
         <numNumberContext.Provider value={numNumber}>
           <selectCastleKindContext.Provider value={selectCastleKind}>
             <alignmentNumbersContext.Provider value={alignmentNum}>
-              <CountOutput
-                numNumber={numNumber}
-              />
+              <CountOutput numNumber={numNumber} />
             </alignmentNumbersContext.Provider>
           </selectCastleKindContext.Provider>
         </numNumberContext.Provider>

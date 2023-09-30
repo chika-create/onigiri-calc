@@ -15,7 +15,7 @@ import {
 import { CalcFunc } from "./CalcFunc";
 
 import ServerCastel from "./components/pages/ServerCastel";
-import UniversalCastel from "./components/pages/UniversalCastel";
+import Howto from "./components/pages/Howto";
 import OnigiriTable from "./components/pages/OnigiriTable";
 import InitialSetting from "./components/templates/InitialSetting";
 import CastelKinds from "./components/parts/CastelKinds";
@@ -105,7 +105,7 @@ function AppContent() {
           </numNumberContext.Provider>
         </TabPanel>
         <TabPanel value={tabValue} index={1}>
-          <UniversalCastel />
+          <Howto />
         </TabPanel>
         {/* <TabPanel value={tabValue} index={2}>
           <OnigiriTable />

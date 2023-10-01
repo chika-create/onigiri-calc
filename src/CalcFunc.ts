@@ -2,7 +2,6 @@ import "./App.css";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { CalcFormInput } from "./types";
-import { LensTwoTone } from "@mui/icons-material";
 
 export function CalcFunc() {
   // 計算機能用

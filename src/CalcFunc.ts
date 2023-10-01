@@ -46,13 +46,14 @@ export function CalcFunc() {
     const minNum = Number(getValues(["minNum"]));
     let secNum = Number(getValues(["secNum"]));
     let totalNum = 0;
+    let oneDeckSec = 0;
     let deckNum = Number(localStorage.getItem("deckNum"));
 
     secNum = secNum / 60;
     totalNum = minNum + secNum;
-    deckNum = 60 / deckNum;
+    oneDeckSec = 60 / deckNum;
 
-    setNumNumber(Math.ceil((totalNum * 60) / deckNum));
+    setNumNumber(Math.ceil((totalNum * 60) / oneDeckSec));
   };
   return {
     alignmentNum,

@@ -47,8 +47,8 @@ export function CalcFunc() {
     let deckNum2 = 0;
     let totalNum = 0;
 
-    const deckNum = localStorage.getItem("deckNum");
-    deckNum2 = Number(deckNum);
+    const deckNum = Number(localStorage.getItem("deckNum"));
+    deckNum2 = deckNum;
 
     secNum = secNum / 60;
     totalNum = minNum + secNum;

@@ -71,7 +71,7 @@ function AppContent() {
   const {
     alignmentNum,
     castleChange,
-    castleKinds,
+    updateSelectCastleKind,
     selectCastleKind,
     numNumber,
     register,
@@ -88,7 +88,7 @@ function AppContent() {
           <ServerCastel />
 
           <CalcTime register={register} />
-          <CastelKinds onClick={castleKinds} />
+          <CastelKinds onClick={updateSelectCastleKind} />
           {/* <Box>
             <FormControlLabel
               control={<Checkbox />}
@@ -105,9 +105,7 @@ function AppContent() {
         <numNumberContext.Provider value={numNumber}>
           <selectCastleKindContext.Provider value={selectCastleKind}>
             <alignmentNumbersContext.Provider value={alignmentNum}>
-              <CountOutput
-                numNumber={numNumber}
-              />
+              <CountOutput numNumber={numNumber} />
             </alignmentNumbersContext.Provider>
           </selectCastleKindContext.Provider>
         </numNumberContext.Provider>

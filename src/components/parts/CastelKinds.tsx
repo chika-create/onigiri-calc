@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 
 export default function CastelKinds(props: any) {
-  const castleKinds = props.onClick;
+  const updateSelectCastleKind = props.onClick;
   const [toggleStr, setToggleStr] = React.useState<string | null>("left");
 
   const toggleChange = (
@@ -42,7 +42,7 @@ export default function CastelKinds(props: any) {
       >
         <ToggleButton
           value="red"
-          onClick={castleKinds}
+          onClick={updateSelectCastleKind}
           aria-label="left aligned"
           sx={{
             width: 1 / 3,
@@ -52,7 +52,7 @@ export default function CastelKinds(props: any) {
         </ToggleButton>
         <ToggleButton
           value="blue"
-          onClick={castleKinds}
+          onClick={updateSelectCastleKind}
           aria-label="left aligned"
           sx={{
             width: 1 / 3,
@@ -62,7 +62,7 @@ export default function CastelKinds(props: any) {
         </ToggleButton>
         <ToggleButton
           value="gold"
-          onClick={castleKinds}
+          onClick={updateSelectCastleKind}
           aria-label="left aligned"
           sx={{
             width: 1 / 3,

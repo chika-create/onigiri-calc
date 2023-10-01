@@ -7,8 +7,6 @@ export function CalcFunc() {
   // 計算機能用
   const { register, getValues } = useForm<CalcFormInput>();
 
-
-
   // 城種別ごとのデッキ数
   const [alignmentNum, setAlignmentNum] = useState({
     red: 1,
@@ -25,24 +23,20 @@ export function CalcFunc() {
     // 城種別ごとのデッキ数を登録
     setAlignmentNum((prevAlignmentNum) => ({
       ...prevAlignmentNum,
-      [newData.value]:  newData.value,
+      [newData.value]: newData.value,
     }));
   };
-
-
 
   const [selectCastleKind, setSelectCastleKind] = useState("red");
 
   // 選択された城種別を登録し、計算機能を実行
-  const castleKinds = (
+  const updateSelectCastleKind = (
     event: React.MouseEvent<HTMLElement>,
     newCastelAlignment: string
   ): void => {
     setSelectCastleKind(newCastelAlignment);
     calculator();
   };
-
-
 
   const [numNumber, setNumNumber] = useState(0);
 
@@ -65,7 +59,7 @@ export function CalcFunc() {
   return {
     alignmentNum,
     castleChange,
-    castleKinds,
+    updateSelectCastleKind,
     selectCastleKind,
     numNumber,
     register,

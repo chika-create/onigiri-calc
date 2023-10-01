@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { CalcFormInput } from "./types";
+import { LensTwoTone } from "@mui/icons-material";
 
 export function CalcFunc() {
   // 計算機能用
@@ -44,17 +45,14 @@ export function CalcFunc() {
   const calculator = (): void => {
     const minNum = Number(getValues(["minNum"]));
     let secNum = Number(getValues(["secNum"]));
-    let deckNum2 = 0;
     let totalNum = 0;
-
-    const deckNum = Number(localStorage.getItem("deckNum"));
-    deckNum2 = deckNum;
+    let deckNum = Number(localStorage.getItem("deckNum"));
 
     secNum = secNum / 60;
     totalNum = minNum + secNum;
-    deckNum2 = 60 / deckNum2;
+    deckNum = 60 / deckNum;
 
-    setNumNumber(Math.ceil((totalNum * 60) / deckNum2));
+    setNumNumber(Math.ceil((totalNum * 60) / deckNum));
   };
   return {
     alignmentNum,

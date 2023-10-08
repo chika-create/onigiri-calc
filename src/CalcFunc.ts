@@ -7,8 +7,6 @@ export function CalcFunc() {
   // 計算機能用
   const { register, getValues } = useForm<CalcFormInput>();
 
-
-
   // 城種別ごとのデッキ数
   const [alignmentNum, setAlignmentNum] = useState({
     red: 1,
@@ -25,16 +23,14 @@ export function CalcFunc() {
     // 城種別ごとのデッキ数を登録
     setAlignmentNum((prevAlignmentNum) => ({
       ...prevAlignmentNum,
-      [newData.value]:  newData.value,
+      [newData.string]: newData.value,
     }));
   };
-
-
 
   const [selectCastleKind, setSelectCastleKind] = useState("red");
 
   // 選択された城種別を登録し、計算機能を実行
-  const castleKinds = (
+  const updateSelectCastleKind = (
     event: React.MouseEvent<HTMLElement>,
     newCastelAlignment: string
   ): void => {
@@ -42,30 +38,26 @@ export function CalcFunc() {
     calculator();
   };
 
-
-
   const [numNumber, setNumNumber] = useState(0);
 
   // 計算機能
   const calculator = (): void => {
     const minNum = Number(getValues(["minNum"]));
     let secNum = Number(getValues(["secNum"]));
-    let deckNum2 = 0;
     let totalNum = 0;
-
-    const deckNum = localStorage.getItem("deckNum");
-    deckNum2 = Number(deckNum);
+    let oneDeckSec = 0;
+    let deckNum = Number(localStorage.getItem("deckNum"));
 
     secNum = secNum / 60;
     totalNum = minNum + secNum;
-    deckNum2 = 60 / deckNum2;
+    oneDeckSec = 60 / deckNum;
 
-    setNumNumber(Math.ceil((totalNum * 60) / deckNum2));
+    setNumNumber(Math.ceil((totalNum * 60) / oneDeckSec));
   };
   return {
     alignmentNum,
     castleChange,
-    castleKinds,
+    updateSelectCastleKind,
     selectCastleKind,
     numNumber,
     register,

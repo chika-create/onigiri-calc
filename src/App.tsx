@@ -2,9 +2,7 @@ import "./App.css";
 import React from "react";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
-import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
-import Term from "./components/pages/Term";
-import PrivacyPolicy from "./components/pages/PrivacyPolicy";
+import FooterNav from "./components/templates/FooteNav";
 
 import { TabPanelProps } from "./types";
 import {
@@ -45,23 +43,10 @@ function TabPanel(props: TabPanelProps): any {
 }
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<AppContent />} />
-        <Route path="/term" element={<Term />} />
-        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-      </Routes>
-
-      <nav>
-        <Link to="/">ホーム</Link> / <Link to="/term">利用規約</Link> /
-        <Link to="/privacypolicy">プライバシーポリシー</Link>
-      </nav>
-    </BrowserRouter>
-  );
+  return <FooterNav />;
 }
 
-function AppContent() {
+export function AppContent() {
   // タブ管理
   const [tabValue, setTabValue] = React.useState(0);
   const tabChange = (event: React.SyntheticEvent, newValue: number): void => {

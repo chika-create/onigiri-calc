@@ -5,8 +5,8 @@ import {
   ToggleButtonGroup,
   ToggleButton,
 } from "@mui/material";
-import { castleNumber } from "../../../constants/constants";
-import { AlignmentNumProps } from "../../../types";
+import { castleNumber } from "../../../../constants/constants";
+import { AlignmentNumProps } from "../../../../types";
 
 export default function AlignmentNum({
   castleColorJa,

@@ -23,7 +23,7 @@ export function CalcFunc() {
     // 城種別ごとのデッキ数を登録
     setAlignmentNum((prevAlignmentNum) => ({
       ...prevAlignmentNum,
-      [newData.value]: newData.value,
+      [newData.string]: newData.value,
     }));
   };
 

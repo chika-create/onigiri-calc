@@ -76,7 +76,6 @@ function AppContent() {
     numNumber,
     register,
   } = CalcFunc();
-  console.log("App selectCastleKind: ", selectCastleKind);
 
   return (
     <>

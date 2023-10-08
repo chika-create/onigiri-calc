@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { CalcFormInput } from "../../types";
 
 import Container from "@mui/material/Container";
-import InitialSetting from "../templates/InitialSetting";
+import InitialSetting from "../templates/howto/InitialSetting";
 import CalcTime from "../parts/CalcTime";
 import CastelKinds from "../parts/CastelKinds";
 

@@ -56,12 +56,11 @@ export function AppContent() {
   const {
     alignmentNum,
     castleChange,
-    castleKinds,
+    updateSelectCastleKind,
     selectCastleKind,
     numNumber,
     register,
   } = CalcFunc();
-  console.log("App selectCastleKind: ", selectCastleKind);
 
   return (
     <>
@@ -73,7 +72,7 @@ export function AppContent() {
           <ServerCastel />
 
           <CalcTime register={register} />
-          <CastelKinds onClick={castleKinds} />
+          <CastelKinds onClick={updateSelectCastleKind} />
           {/* <Box>
             <FormControlLabel
               control={<Checkbox />}

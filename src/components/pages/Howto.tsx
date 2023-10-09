@@ -13,7 +13,6 @@ import MinDeckNum from "../parts/howto/initialSetting/MinDeckNum";
 import Text from "../parts/typography/Text";
 
 export default function Howto() {
-  function castleChange() {}
   const { register } = useForm<CalcFormInput>();
   return (
     <Container maxWidth="sm">
@@ -22,13 +21,7 @@ export default function Howto() {
 
       <Text>② 各城の最低駐屯数を設定します</Text>
       {castelColors.map((castleColor) => {
-        return (
-          <AlignmentNum
-            castleColorJa={castleColor.ja}
-            castleColorEn={castleColor.en}
-            castleChange={castleChange}
-          />
-        );
+        return <AlignmentNum castleColorJa={castleColor.ja} />;
       })}
 
       <Text>

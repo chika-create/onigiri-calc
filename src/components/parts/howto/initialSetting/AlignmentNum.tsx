@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -10,18 +10,9 @@ import { castleNumber } from "../../../../constants/constants";
 
 interface AlignmentNumProps {
   castleColorJa: string;
-  castleColorEn: string;
-  castleChange: (
-    alignmentNum: AlignmentNum,
-    castleColorEn: CastleColorEn
-  ) => void;
 }
 
-export default function AlignmentNum({
-  castleColorJa,
-  castleColorEn,
-  castleChange,
-}: AlignmentNumProps) {
+export default function AlignmentNum({ castleColorJa }: AlignmentNumProps) {
   const [selectedNumber, setSelectedNumber] = useState(1);
 
   return (

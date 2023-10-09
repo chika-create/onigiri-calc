@@ -6,14 +6,7 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import { castelColors } from "../../../constants/constants";
-import AlignmentNum from "../../parts/howto/initialSetting/AlignmentNum";
-import MinDeckNum from "../../parts/howto/initialSetting/MinDeckNum";
-
-export default function InitialSetting(props: any) {
-  const castleChange = props.castleChange;
-  const register = props.register;
-
+export default function InitialSetting() {
   return (
     <Accordion>
       <AccordionSummary

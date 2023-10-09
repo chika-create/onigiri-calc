@@ -15,7 +15,7 @@ export default function Howto() {
   const { register } = useForm<CalcFormInput>();
   return (
     <Container maxWidth="sm">
-      <InitialSetting castleChange={castleChange} register={register} />
+      <InitialSetting />
       <div>
         {castelColors.map((castleColor) => {
           return (

@@ -1,24 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Box, Typography, TextField } from "@mui/material";
 
 export default function MinDeckNum() {
   const [deckNum, setDeckNum] = useState(0);
-
-  useEffect(() => {
-    // コンポーネントがマウントされた時にlocalStorageから値を読み込む
-    const savedDeckNum = localStorage.getItem("deckNum");
-    if (savedDeckNum) {
-      setDeckNum(Number(savedDeckNum));
-    }
-  }, []);
-
-  const handleDeckNumChange = (event: any) => {
-    const value = event.target.value;
-    setDeckNum(value);
-    // 値が変更されるたびにlocalStorageに保存する
-    localStorage.setItem("deckNum", value);
-  };
-
   return (
     <Box
       sx={{
@@ -38,7 +22,6 @@ export default function MinDeckNum() {
         type="number"
         variant="outlined"
         value={deckNum}
-        onChange={handleDeckNumChange}
         sx={{
           ml: 2,
         }}

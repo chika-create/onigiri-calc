@@ -23,18 +23,7 @@ export default function InitialSetting(props: any) {
       >
         <Typography>初期設定</Typography>
       </AccordionSummary>
-      <AccordionDetails>
-        {castelColors.map((castleColor) => {
-          return (
-            <AlignmentNum
-              castleColorJa={castleColor.ja}
-              castleColorEn={castleColor.en}
-              castleChange={castleChange}
-            />
-          );
-        })}
-        <MinDeckNum register={register} />
-      </AccordionDetails>
+      <AccordionDetails>hoge</AccordionDetails>
     </Accordion>
   );
 }

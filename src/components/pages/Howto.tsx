@@ -20,6 +20,7 @@ export default function Howto() {
 
       <Text>② 各城の最低駐屯数を設定します</Text>
       {castelColors.map((castleColor, i) => {
+        i++;
         return (
           <AlignmentNum selectedNumber={i} castleColorJa={castleColor.ja} />
         );

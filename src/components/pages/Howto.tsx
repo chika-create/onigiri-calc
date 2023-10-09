@@ -1,16 +1,15 @@
 import { useForm } from "react-hook-form";
-import { CalcFormInput } from "../../types";
-
 import Container from "@mui/material/Container";
-import InitialSetting from "../templates/howto/InitialSetting";
-import CalcTime from "../parts/CalcTime";
-import CastelKinds from "../parts/CastelKinds";
 
+import { CalcFormInput } from "../../types";
 import { castelColors } from "../../constants/constants";
-import AlignmentNum from "../parts/howto/initialSetting/AlignmentNum";
-import MinDeckNum from "../parts/howto/initialSetting/MinDeckNum";
 
 import Text from "../parts/typography/Text";
+import InitialSetting from "../templates/howto/InitialSetting";
+import AlignmentNum from "../parts/howto/initialSetting/AlignmentNum";
+import MinDeckNum from "../parts/howto/initialSetting/MinDeckNum";
+import CalcTime from "../parts/CalcTime";
+import CastelKinds from "../parts/CastelKinds";
 
 export default function Howto() {
   const { register } = useForm<CalcFormInput>();

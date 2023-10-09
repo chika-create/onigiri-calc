@@ -16,7 +16,7 @@ export default function InitialSetting() {
       >
         <Typography>初期設定</Typography>
       </AccordionSummary>
-      <AccordionDetails>hoge</AccordionDetails>
+      <AccordionDetails>②をご確認ください</AccordionDetails>
     </Accordion>
   );
 }

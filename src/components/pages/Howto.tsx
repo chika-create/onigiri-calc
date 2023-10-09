@@ -10,12 +10,17 @@ import { castelColors } from "../../constants/constants";
 import AlignmentNum from "../parts/howto/initialSetting/AlignmentNum";
 import MinDeckNum from "../parts/howto/initialSetting/MinDeckNum";
 
+import Text from "../parts/typography/Text";
+
 export default function Howto() {
   function castleChange() {}
   const { register } = useForm<CalcFormInput>();
   return (
     <Container maxWidth="sm">
+      <Text>① 初期設定のアコーディオンを開きます</Text>
       <InitialSetting />
+
+      <Text>② 各城の最低駐屯数を設定します</Text>
       <div>
         {castelColors.map((castleColor) => {
           return (

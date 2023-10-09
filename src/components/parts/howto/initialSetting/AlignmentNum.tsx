@@ -15,21 +15,6 @@ export default function AlignmentNum({
 }: AlignmentNumProps) {
   const [selectedNumber, setSelectedNumber] = useState(1);
 
-  useEffect(() => {
-    const savedAlignmentNum = localStorage.getItem(castleColorEn);
-    if (savedAlignmentNum) {
-      const alignmentNum = JSON.parse(savedAlignmentNum);
-      setSelectedNumber(alignmentNum);
-      castleChange(alignmentNum, castleColorEn);
-    }
-  }, []);
-
-  const handleButtonClick = (value: number) => {
-    setSelectedNumber(value);
-    castleChange(value, castleColorEn);
-    localStorage.setItem(castleColorEn, JSON.stringify(value));
-  };
-
   return (
     <Box
       sx={{
@@ -56,7 +41,6 @@ export default function AlignmentNum({
             <ToggleButton
               value={item}
               selected={selectedNumber === item}
-              onClick={() => handleButtonClick(item)}
               aria-label="left aligned"
               sx={{
                 width: 1 / 5,

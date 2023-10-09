@@ -32,7 +32,7 @@ export default function Howto() {
         （例：38、42）
       </Text>
 
-      <MinDeckNum register={register} />
+      <MinDeckNum />
 
       <Text>④ 守る時間を設定します</Text>
       <CalcTime register={register} />

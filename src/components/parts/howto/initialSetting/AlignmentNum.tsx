@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { castleNumber } from "../../../../constants/constants";
 
-export default function AlignmentNum(castleColorJa: any) {
+export default function AlignmentNum(props: { castleColorJa: string }) {
   const [selectedNumber, setSelectedNumber] = useState(1);
 
   return (
@@ -23,7 +23,7 @@ export default function AlignmentNum(castleColorJa: any) {
           alignSelf: "center",
         }}
       >
-        {castleColorJa}城
+        {props.castleColorJa}城
       </Typography>
       <ToggleButtonGroup
         exclusive

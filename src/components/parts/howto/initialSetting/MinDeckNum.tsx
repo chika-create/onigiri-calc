@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { Box, Typography, TextField } from "@mui/material";
 
 export default function MinDeckNum() {
-  const [deckNum, setDeckNum] = useState(0);
   return (
     <Box
       sx={{
@@ -21,7 +19,7 @@ export default function MinDeckNum() {
         id="outlined-basic"
         type="number"
         variant="outlined"
-        value={deckNum}
+        value={38}
         sx={{
           ml: 2,
         }}

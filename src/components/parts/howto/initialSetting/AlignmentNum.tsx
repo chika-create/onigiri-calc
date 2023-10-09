@@ -7,9 +7,10 @@ import {
 } from "@mui/material";
 import { castleNumber } from "../../../../constants/constants";
 
-export default function AlignmentNum(props: { castleColorJa: string }) {
-  const [selectedNumber, setSelectedNumber] = useState(1);
-
+export default function AlignmentNum(props: {
+  selectedNumber: number;
+  castleColorJa: string;
+}) {
   return (
     <Box
       sx={{
@@ -35,7 +36,7 @@ export default function AlignmentNum(props: { castleColorJa: string }) {
           return (
             <ToggleButton
               value={item}
-              selected={selectedNumber === item}
+              selected={props.selectedNumber === item}
               aria-label="left aligned"
               sx={{
                 width: 1 / 5,

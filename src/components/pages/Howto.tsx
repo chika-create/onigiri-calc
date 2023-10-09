@@ -21,20 +21,35 @@ export default function Howto() {
       <InitialSetting />
 
       <Text>② 各城の最低駐屯数を設定します</Text>
-      <div>
-        {castelColors.map((castleColor) => {
-          return (
-            <AlignmentNum
-              castleColorJa={castleColor.ja}
-              castleColorEn={castleColor.en}
-              castleChange={castleChange}
-            />
-          );
-        })}
-        <MinDeckNum register={register} />
-      </div>
+      {castelColors.map((castleColor) => {
+        return (
+          <AlignmentNum
+            castleColorJa={castleColor.ja}
+            castleColorEn={castleColor.en}
+            castleChange={castleChange}
+          />
+        );
+      })}
+
+      <Text>
+        ③ 一分で消費する駐屯数を設定します
+        <br />
+        （例：38、42）
+      </Text>
+
+      <MinDeckNum register={register} />
+
+      <Text>④ 守る時間を設定します</Text>
       <CalcTime register={register} />
+
+      <Text>⑤ 計算したい城の種類を選択します</Text>
       <CastelKinds />
+
+      <Text>
+        ⑥ 設定した城を守るのに必要な駐屯数・おにぎり数が算出されます
+        <br />
+        （小数点を扱う結果は切り上げで計算されます。）
+      </Text>
     </Container>
   );
 }

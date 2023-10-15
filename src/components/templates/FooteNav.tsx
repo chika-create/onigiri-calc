@@ -1,7 +1,7 @@
 import { Breadcrumbs, Box } from "@mui/material";
 
 import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
-import AppContent from "../../AppContent";
+import AppContent from "../views/AppContent";
 import Term from "../../components/pages/Term";
 import PrivacyPolicy from "../../components/pages/PrivacyPolicy";
 import { grayColor } from "../../color";

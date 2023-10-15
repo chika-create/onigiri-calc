@@ -1,22 +1,22 @@
 import { useState, SyntheticEvent } from "react";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
-import { TabPanelProps } from "./types";
+import { TabPanelProps } from "../../types";
 import {
   numNumberContext,
   alignmentNumbersContext,
   selectCastleKindContext,
-} from "./SettingUseContext";
-import { CalcFunc } from "./CalcFunc";
+} from "../../SettingUseContext";
+import { CalcFunc } from "../../CalcFunc";
 
-import ServerCastle from "./components/pages/ServerCastle";
-import UniversalCastle from "./components/pages/UniversalCastle";
-import OnigiriTable from "./components/pages/OnigiriTable";
-import InitialSetting from "./components/templates/InitialSetting";
-import CastleKinds from "./components/parts/CastleKinds";
-import CalcTime from "./components/parts/CalcTime";
-import CountOutput from "./components/templates/CountOutput";
-import TabBox from "./components/views/TabBox";
+import ServerCastle from "../pages/ServerCastle";
+import UniversalCastle from "../pages/UniversalCastle";
+import OnigiriTable from "../pages/OnigiriTable";
+import InitialSetting from "../templates/InitialSetting";
+import CastleKinds from "../parts/CastleKinds";
+import CalcTime from "../parts/CalcTime";
+import CountOutput from "../templates/CountOutput";
+import TabBox from "./TabBox";
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;

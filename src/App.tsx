@@ -23,7 +23,7 @@ import TabBox from "./components/views/TabBox";
 
 import usePageTracking from "./useTracking";
 
-function TabPanel(props: TabPanelProps): any {
+function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
   return (
     <Box

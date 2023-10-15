@@ -1,8 +1,5 @@
-import "./App.css";
 import React from "react";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
-
-import FooterNav from "./components/templates/FooteNav";
 
 import { TabPanelProps } from "./types";
 import {
@@ -20,8 +17,6 @@ import CastelKinds from "./components/parts/CastelKinds";
 import CalcTime from "./components/parts/CalcTime";
 import CountOutput from "./components/templates/CountOutput";
 import TabBox from "./components/views/TabBox";
-
-import usePageTracking from "./useTracking";
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
@@ -42,11 +37,7 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-function App() {
-  return <FooterNav />;
-}
-
-export function AppContent() {
+function AppContent() {
   // タブ管理
   const [tabValue, setTabValue] = React.useState(0);
   const tabChange = (event: React.SyntheticEvent, newValue: number): void => {
@@ -98,4 +89,4 @@ export function AppContent() {
   );
 }
 
-export default App;
+export default AppContent;

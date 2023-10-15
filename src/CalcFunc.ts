@@ -43,13 +43,14 @@ export function CalcFunc() {
   // 計算機能
   const calculator = (): void => {
     const minNum = Number(getValues(["minNum"]));
-    let secNum = Number(getValues(["secNum"]));
+    const secNum = Number(getValues(["secNum"]));
+    let convertSecToMin = 0;
     let totalNum = 0;
     let oneDeckSec = 0;
     let deckNum = Number(localStorage.getItem("deckNum"));
 
-    secNum = secNum / 60;
-    totalNum = minNum + secNum;
+    convertSecToMin = secNum / 60;
+    totalNum = minNum + convertSecToMin;
     oneDeckSec = 60 / deckNum;
 
     setNumNumber(Math.ceil((totalNum * 60) / oneDeckSec));

@@ -9,11 +9,11 @@ import {
 } from "./SettingUseContext";
 import { CalcFunc } from "./CalcFunc";
 
-import ServerCastel from "./components/pages/ServerCastel";
-import UniversalCastel from "./components/pages/UniversalCastel";
+import ServerCastle from "./components/pages/ServerCastle";
+import UniversalCastle from "./components/pages/UniversalCastle";
 import OnigiriTable from "./components/pages/OnigiriTable";
 import InitialSetting from "./components/templates/InitialSetting";
-import CastelKinds from "./components/parts/CastelKinds";
+import CastleKinds from "./components/parts/CastleKinds";
 import CalcTime from "./components/parts/CalcTime";
 import CountOutput from "./components/templates/CountOutput";
 import TabBox from "./components/views/TabBox";
@@ -60,10 +60,10 @@ function AppContent() {
         <InitialSetting castleChange={castleChange} register={register} />
 
         <TabPanel value={tabValue} index={0}>
-          <ServerCastel />
+          <ServerCastle />
 
           <CalcTime register={register} />
-          <CastelKinds onClick={updateSelectCastleKind} />
+          <CastleKinds onClick={updateSelectCastleKind} />
           {/* <Box>
             <FormControlLabel
               control={<Checkbox />}
@@ -72,7 +72,7 @@ function AppContent() {
           </Box> */}
         </TabPanel>
         <TabPanel value={tabValue} index={1}>
-          <UniversalCastel />
+          <UniversalCastle />
         </TabPanel>
         <TabPanel value={tabValue} index={2}>
           <OnigiriTable />

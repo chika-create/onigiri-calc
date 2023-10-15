@@ -32,9 +32,9 @@ export function CalcFunc() {
   // 選択された城種別を登録し、計算機能を実行
   const updateSelectCastleKind = (
     event: MouseEvent<HTMLElement>,
-    newCastelAlignment: string
+    newCastleAlignment: string
   ): void => {
-    setSelectCastleKind(newCastelAlignment);
+    setSelectCastleKind(newCastleAlignment);
     calculator();
   };
 

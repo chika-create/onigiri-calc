@@ -6,7 +6,7 @@ import {
   ToggleButton,
 } from "@mui/material";
 
-export default function CastelKinds(props: any) {
+export default function CastleKinds(props: any) {
   const updateSelectCastleKind = props.onClick;
   const [toggleStr, setToggleStr] = useState<string | null>("left");
 

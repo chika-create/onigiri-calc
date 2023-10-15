@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, SyntheticEvent } from "react";
 import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
 
 import { TabPanelProps } from "./types";
@@ -39,8 +39,8 @@ function TabPanel(props: TabPanelProps) {
 
 function AppContent() {
   // タブ管理
-  const [tabValue, setTabValue] = React.useState(0);
-  const tabChange = (event: React.SyntheticEvent, newValue: number): void => {
+  const [tabValue, setTabValue] = useState(0);
+  const tabChange = (event: SyntheticEvent, newValue: number): void => {
     setTabValue(newValue);
   };
 

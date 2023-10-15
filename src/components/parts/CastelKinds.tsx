@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, MouseEvent } from "react";
 import {
   Box,
   Typography,
@@ -8,10 +8,10 @@ import {
 
 export default function CastelKinds(props: any) {
   const updateSelectCastleKind = props.onClick;
-  const [toggleStr, setToggleStr] = React.useState<string | null>("left");
+  const [toggleStr, setToggleStr] = useState<string | null>("left");
 
   const toggleChange = (
-    event: React.MouseEvent<HTMLElement>,
+    event: MouseEvent<HTMLElement>,
     newAlignment: string | null
   ) => {
     setToggleStr(newAlignment);

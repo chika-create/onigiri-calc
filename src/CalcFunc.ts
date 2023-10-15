@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import { useState, MouseEvent } from "react";
 import { useForm } from "react-hook-form";
 import { CalcFormInput } from "./types";
 
@@ -31,7 +31,7 @@ export function CalcFunc() {
 
   // 選択された城種別を登録し、計算機能を実行
   const updateSelectCastleKind = (
-    event: React.MouseEvent<HTMLElement>,
+    event: MouseEvent<HTMLElement>,
     newCastelAlignment: string
   ): void => {
     setSelectCastleKind(newCastelAlignment);

@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import { useState, MouseEvent } from "react";
 import { useForm } from "react-hook-form";
 import { CalcFormInput } from "./types";
 
@@ -31,10 +31,10 @@ export function CalcFunc() {
 
   // 選択された城種別を登録し、計算機能を実行
   const updateSelectCastleKind = (
-    event: React.MouseEvent<HTMLElement>,
-    newCastelAlignment: string
+    event: MouseEvent<HTMLElement>,
+    newCastleAlignment: string
   ): void => {
-    setSelectCastleKind(newCastelAlignment);
+    setSelectCastleKind(newCastleAlignment);
     calculator();
   };
 
@@ -43,14 +43,12 @@ export function CalcFunc() {
   // 計算機能
   const calculator = (): void => {
     const minNum = Number(getValues(["minNum"]));
-    let secNum = Number(getValues(["secNum"]));
-    let totalNum = 0;
-    let oneDeckSec = 0;
-    let deckNum = Number(localStorage.getItem("deckNum"));
+    const secNum = Number(getValues(["secNum"]));
+    const deckNum = Number(localStorage.getItem("deckNum"));
 
-    secNum = secNum / 60;
-    totalNum = minNum + secNum;
-    oneDeckSec = 60 / deckNum;
+    const convertSecToMin = secNum / 60;
+    const totalNum = minNum + convertSecToMin;
+    const oneDeckSec = 60 / deckNum;
 
     setNumNumber(Math.ceil((totalNum * 60) / oneDeckSec));
   };

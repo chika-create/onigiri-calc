@@ -1,11 +1,11 @@
-import React from "react";
+import { createContext } from "react";
 
-export const numNumberContext = React.createContext<number>(0);
-export const alignmentNumContext = React.createContext<number>(0);
-export const alignmentNumbersContext = React.createContext({
+export const numNumberContext = createContext<number>(0);
+export const alignmentNumContext = createContext<number>(0);
+export const alignmentNumbersContext = createContext({
   red: 1,
   blue: 2,
   gold: 3,
 });
 
-export const selectCastleKindContext = React.createContext<string>("red");
+export const selectCastleKindContext = createContext<string>("red");

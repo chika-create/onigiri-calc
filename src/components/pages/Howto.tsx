@@ -9,7 +9,7 @@ import InitialSetting from "../templates/howto/InitialSetting";
 import AlignmentNum from "../parts/howto/initialSetting/AlignmentNum";
 import MinDeckNum from "../parts/howto/initialSetting/MinDeckNum";
 import CalcTime from "../parts/CalcTime";
-import CastelKinds from "../parts/CastelKinds";
+import CastelKinds from "../parts/CastleKinds";
 
 export default function Howto() {
   const { register } = useForm<CalcFormInput>();

@@ -15,6 +15,7 @@ import OnigiriTable from "../pages/OnigiriTable";
 import InitialSetting from "../templates/InitialSetting";
 import CastleKinds from "../parts/CastleKinds";
 import CalcTime from "../parts/CalcTime";
+import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 import TabBox from "./TabBox";
 
@@ -64,6 +65,7 @@ function AppContent() {
 
           <CalcTime register={register} />
           <CastleKinds onClick={updateSelectCastleKind} />
+          <CalcButton />
           {/* <Box>
             <FormControlLabel
               control={<Checkbox />}

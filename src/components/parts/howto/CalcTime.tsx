@@ -23,7 +23,7 @@ export default function CalcTime(props: any) {
         type="number"
         variant="outlined"
         label="min"
-        {...register("minNum")}
+        value={10}
         sx={{
           ml: 2,
         }}
@@ -41,7 +41,7 @@ export default function CalcTime(props: any) {
         type="number"
         label="sec"
         variant="outlined"
-        {...register("secNum")}
+        value={30}
         sx={{
           ml: 2,
         }}

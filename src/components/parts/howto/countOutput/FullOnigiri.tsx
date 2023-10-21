@@ -25,7 +25,7 @@ export default function FullStack() {
           textAlign: "center",
         }}
       >
-        400
+        796
       </Typography>
       <Tooltip title="ContentCopyIcon">
         <IconButton>

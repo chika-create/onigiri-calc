@@ -8,7 +8,6 @@ export default function CalcTime(props: any) {
       sx={{
         display: "grid",
         gridTemplateColumns: "auto 1fr auto 1fr auto",
-        mb: 5,
       }}
     >
       <Typography

@@ -14,7 +14,7 @@ import CountOutput from "../templates/howto/CountOutput";
 
 export default function Howto() {
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" sx={{ p: 3 }}>
       <Box
         sx={{
           mb: 3,

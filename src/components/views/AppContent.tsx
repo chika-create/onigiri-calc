@@ -28,10 +28,10 @@ import CountOutput from "../templates/CountOutput";
 import TabBox from "./TabBox";
 
 function AppContent() {
-  const [value, setValue] = useState("1");
+  const [tabSelectNo, setTabSelectNo] = useState("1");
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
+  const tabToChange = (event: SyntheticEvent, newValue: string) => {
+    setTabSelectNo(newValue);
   };
 
   const {
@@ -47,14 +47,8 @@ function AppContent() {
   return (
     <>
       <Box sx={{ width: "100%" }}>
-        <TabContext value={value}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <TabList onChange={handleChange} aria-label="lab API tabs example">
-              <Tab label="城戦" value="1" />
-              <Tab label="test" value="2" />
-              <Tab label="おにぎり表" value="3" />
-            </TabList>
-          </Box>
+        <TabContext value={tabSelectNo}>
+          <TabBox tabToChange={tabToChange} />
 
           <TabPanel value="1" sx={{ p: 0 }}>
             <InitialSetting castleChange={castleChange} register={register} />
@@ -84,8 +78,6 @@ function AppContent() {
             <OnigiriTable />
           </TabPanel>
         </TabContext>
-
-        <TabBox />
       </Box>
     </>
   );

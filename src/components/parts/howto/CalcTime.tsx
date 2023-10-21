@@ -6,7 +6,7 @@ export default function CalcTime() {
       sx={{
         display: "grid",
         gridTemplateColumns: "auto 1fr auto 1fr auto",
-        mb: 5,
+        mb: 3,
       }}
     >
       <Typography

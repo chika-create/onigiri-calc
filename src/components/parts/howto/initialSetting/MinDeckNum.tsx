@@ -6,7 +6,7 @@ export default function MinDeckNum() {
       sx={{
         display: "grid",
         gridTemplateColumns: "repeat(2, auto 1fr)",
-        mb: 5,
+        mb: 3,
       }}
     >
       <Typography

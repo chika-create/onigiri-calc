@@ -1,13 +1,6 @@
 type AlignmentNum = number;
 type CastleColorEn = string;
 
-// タブ切り替え管理
-export interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
-}
-
 // フォームの型
 export interface CalcFormInput {
   minNum: number;
@@ -32,5 +25,8 @@ export interface LocalDate {
 export interface AlignmentNumProps {
   castleColorJa: string;
   castleColorEn: string;
-  castleChange: (alignmentNum: AlignmentNum, castleColorEn: CastleColorEn) => void;
+  castleChange: (
+    alignmentNum: AlignmentNum,
+    castleColorEn: CastleColorEn
+  ) => void;
 }

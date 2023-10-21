@@ -1,15 +1,7 @@
 import { useState, SyntheticEvent } from "react";
-import {
-  Box,
-  Tab,
-  Typography,
-  FormControlLabel,
-  Checkbox,
-} from "@mui/material";
+import { Box, FormControlLabel, Checkbox } from "@mui/material";
 
-import { TabContext, TabList, TabPanel } from "@mui/lab";
-
-import { TabPanelProps } from "../../types";
+import { TabContext, TabPanel } from "@mui/lab";
 import {
   numNumberContext,
   alignmentNumbersContext,

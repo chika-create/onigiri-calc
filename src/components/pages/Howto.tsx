@@ -31,7 +31,8 @@ export default function Howto() {
       <Text>
         ③ 一分で消費する駐屯数を設定します
         <br />
-        （例：38、42）
+        （1 駐屯にかかる時間が約 1.5 秒の場合は「38」駐屯、 約 1.4
+        秒の場合は「42」駐屯）
       </Text>
       <MinDeckNum />
 
@@ -41,7 +42,7 @@ export default function Howto() {
       <Text>⑤ 計算したい城の種類を選択します</Text>
       <CastelKinds />
 
-      <Text>⑥ 「計算する」ボタンを押します</Text>
+      <Text>⑥「計算する」ボタンを押します</Text>
       <CalcButton />
 
       <Text>

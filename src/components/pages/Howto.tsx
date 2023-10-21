@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
-import { Box } from "@mui/material";
-import Container from "@mui/material/Container";
+import { Container, Box, IconButton } from "@mui/material";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 import { CalcFormInput } from "../../types";
 import { castelColors } from "../../constants/constants";
@@ -52,6 +52,12 @@ export default function Howto() {
         <br />
         （小数点を扱う結果は切り上げで計算されます。メモ：ここは切り捨てに変更予定）
       </Text>
+      <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+        <IconButton sx={{ mr: 1, p: 0 }}>
+          <ContentCopyIcon sx={{ width: "0.8em" }} />
+        </IconButton>
+        <Text>アイコンをクリックして計算結果をコピーできます</Text>
+      </Box>
       <CountOutput />
     </Container>
   );

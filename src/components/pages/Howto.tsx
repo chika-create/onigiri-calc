@@ -9,8 +9,8 @@ import Text from "../parts/typography/Text";
 import InitialSetting from "../templates/howto/InitialSetting";
 import AlignmentNum from "../parts/howto/initialSetting/AlignmentNum";
 import MinDeckNum from "../parts/howto/initialSetting/MinDeckNum";
-import CalcTime from "../parts/CalcTime";
-import CastelKinds from "../parts/CastleKinds";
+import CalcTime from "../parts/howto/CalcTime";
+import CastelKinds from "../parts/howto/CastleKinds";
 import CalcButton from "../parts/howto/CalcButton";
 
 export default function Howto() {

@@ -19,8 +19,8 @@ export default function CountOutput(props: any) {
         p: 3,
       }}
     >
-      <FullStack copyToClipboard={copyToClipboard} />
       <FullOnigiri copyToClipboard={copyToClipboard} />
+      <FullStack copyToClipboard={copyToClipboard} />
     </Box>
   );
 }

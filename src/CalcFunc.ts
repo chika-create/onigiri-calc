@@ -59,5 +59,6 @@ export function CalcFunc() {
     selectCastleKind,
     numNumber,
     register,
+    calculator,
   };
 }

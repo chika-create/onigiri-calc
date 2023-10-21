@@ -52,6 +52,7 @@ function AppContent() {
     selectCastleKind,
     numNumber,
     register,
+    calculator,
   } = CalcFunc();
 
   return (
@@ -65,7 +66,7 @@ function AppContent() {
 
           <CalcTime register={register} />
           <CastleKinds onClick={updateSelectCastleKind} />
-          <CalcButton />
+          <CalcButton calculator={calculator} />
           {/* <Box>
             <FormControlLabel
               control={<Checkbox />}

@@ -44,24 +44,9 @@ function AppContent() {
 
           <TabPanel value="1" sx={{ p: 0 }}>
             <InitialSetting castleChange={castleChange} register={register} />
-            <ServerCastle />
-
-            <CalcTime register={register} />
-            <CastleKinds onClick={updateSelectCastleKind} />
-            <CalcButton calculator={calculator} />
-            {/* <Box>
-            <FormControlLabel
-              control={<Checkbox />}
-              label="今から終了まで（まだ使えません）"
-            />
-            </Box> */}
-            <numNumberContext.Provider value={numNumber}>
-              <selectCastleKindContext.Provider value={selectCastleKind}>
-                <alignmentNumbersContext.Provider value={alignmentNum}>
-                  <CountOutput numNumber={numNumber} />
-                </alignmentNumbersContext.Provider>
-              </selectCastleKindContext.Provider>
-            </numNumberContext.Provider>
+            <Box sx={{ p: 2 }}>
+              <ServerCastle />
+            </Box>
           </TabPanel>
           <TabPanel value="2">
             <UniversalCastle />

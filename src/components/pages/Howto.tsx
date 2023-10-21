@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { Box } from "@mui/material";
 import Container from "@mui/material/Container";
 
 import { CalcFormInput } from "../../types";
@@ -20,19 +21,20 @@ export default function Howto() {
       <InitialSetting />
 
       <Text>② 各城の最低駐屯数を設定します</Text>
-      {castelColors.map((castleColor, i) => {
-        i++;
-        return (
-          <AlignmentNum selectedNumber={i} castleColorJa={castleColor.ja} />
-        );
-      })}
+      <Box sx={{ mb: 5 }}>
+        {castelColors.map((castleColor, i) => {
+          i++;
+          return (
+            <AlignmentNum selectedNumber={i} castleColorJa={castleColor.ja} />
+          );
+        })}
+      </Box>
 
       <Text>
         ③ 一分で消費する駐屯数を設定します
         <br />
         （例：38、42）
       </Text>
-
       <MinDeckNum />
 
       <Text>④ 守る時間を設定します</Text>

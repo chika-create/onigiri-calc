@@ -15,7 +15,7 @@ export default function AlignmentNum(props: {
       sx={{
         display: "grid",
         gridTemplateColumns: "auto 1fr",
-        mb: 3,
+        mb: 2,
       }}
     >
       <Typography

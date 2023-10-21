@@ -22,7 +22,7 @@ export default function CastleKinds(props: any) {
       sx={{
         display: "grid",
         gridTemplateColumns: "auto 1fr",
-        p: 3,
+        mb: 5,
       }}
     >
       <Typography

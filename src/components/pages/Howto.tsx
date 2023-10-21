@@ -1,8 +1,6 @@
-import { useForm } from "react-hook-form";
 import { Container, Box, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
-import { CalcFormInput } from "../../types";
 import { castelColors } from "../../constants/constants";
 
 import Text from "../parts/typography/Text";
@@ -15,7 +13,6 @@ import CalcButton from "../parts/howto/CalcButton";
 import CountOutput from "../templates/howto/CountOutput";
 
 export default function Howto() {
-  const { register } = useForm<CalcFormInput>();
   return (
     <Container maxWidth="sm">
       <Text>① 初期設定のアコーディオンを開きます</Text>
@@ -39,7 +36,7 @@ export default function Howto() {
       <MinDeckNum />
 
       <Text>④ 守る時間を設定します</Text>
-      <CalcTime register={register} />
+      <CalcTime />
 
       <Text>⑤ 計算したい城の種類を選択します</Text>
       <CastelKinds />

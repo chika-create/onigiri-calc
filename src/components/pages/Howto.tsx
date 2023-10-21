@@ -12,6 +12,7 @@ import MinDeckNum from "../parts/howto/initialSetting/MinDeckNum";
 import CalcTime from "../parts/howto/CalcTime";
 import CastelKinds from "../parts/howto/CastleKinds";
 import CalcButton from "../parts/howto/CalcButton";
+import CountOutput from "../templates/howto/CountOutput";
 
 export default function Howto() {
   const { register } = useForm<CalcFormInput>();
@@ -51,6 +52,7 @@ export default function Howto() {
         <br />
         （小数点を扱う結果は切り上げで計算されます。メモ：ここは切り捨てに変更予定）
       </Text>
+      <CountOutput />
     </Container>
   );
 }

@@ -1,37 +1,9 @@
 import { useState, useContext } from "react";
-import {
-  numNumberContext,
-  alignmentNumbersContext,
-  selectCastleKindContext,
-} from "../../../SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
-// alignmentNumbers の型をアノテーション
-type AlignmentNumbersType = {
-  red: number;
-  blue: number;
-  gold: number;
-};
-
-export default function FullStack(props: any) {
-  const numNumber = useContext(numNumberContext);
-  const alignmentNumbers: AlignmentNumbersType = useContext(
-    alignmentNumbersContext
-  );
-  const selectCastleKind: string = useContext(selectCastleKindContext);
-  const copyToClipboard = props.copyToClipboard;
-  const [openTip, setOpenTip] = useState<boolean>(false);
-
-  const castleAlignmentNumber: number =
-    alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];
-
-  const handleClickButtonFullOnigiri = (): void => {
-    setOpenTip(true);
-    copyToClipboard(numNumber * castleAlignmentNumber);
-  };
-
+export default function FullStack() {
   return (
     <Box
       sx={{
@@ -53,9 +25,9 @@ export default function FullStack(props: any) {
           textAlign: "center",
         }}
       >
-        {numNumber * castleAlignmentNumber}
+        400
       </Typography>
-      <Tooltip title="ContentCopyIcon" onClick={handleClickButtonFullOnigiri}>
+      <Tooltip title="ContentCopyIcon">
         <IconButton>
           <ContentCopyIcon
             sx={{

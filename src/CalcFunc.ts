@@ -35,7 +35,6 @@ export function CalcFunc() {
     newCastleAlignment: string
   ): void => {
     setSelectCastleKind(newCastleAlignment);
-    calculator();
   };
 
   const [numNumber, setNumNumber] = useState(0);
@@ -59,5 +58,6 @@ export function CalcFunc() {
     selectCastleKind,
     numNumber,
     register,
+    calculator,
   };
 }

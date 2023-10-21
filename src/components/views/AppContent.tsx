@@ -1,5 +1,13 @@
 import { useState, SyntheticEvent } from "react";
-import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
+import {
+  Box,
+  Tab,
+  Typography,
+  FormControlLabel,
+  Checkbox,
+} from "@mui/material";
+
+import { TabContext, TabList, TabPanel } from "@mui/lab";
 
 import { TabPanelProps } from "../../types";
 import {
@@ -19,7 +27,7 @@ import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 import TabBox from "./TabBox";
 
-function TabPanel(props: TabPanelProps) {
+function TabPanel2(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
   return (
     <Box
@@ -39,6 +47,12 @@ function TabPanel(props: TabPanelProps) {
 }
 
 function AppContent() {
+  const [value, setValue] = React.useState("1");
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
+
   // タブ管理
   const [tabValue, setTabValue] = useState(0);
   const tabChange = (event: SyntheticEvent, newValue: number): void => {
@@ -58,6 +72,19 @@ function AppContent() {
   return (
     <>
       <Box sx={{ width: "100%" }}>
+        <TabContext value={value}>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <TabList onChange={handleChange} aria-label="lab API tabs example">
+              <Tab label="Item One" value="1" />
+              <Tab label="Item Two" value="2" />
+              <Tab label="Item Three" value="3" />
+            </TabList>
+          </Box>
+          <TabPanel value="1">Item One</TabPanel>
+          <TabPanel value="2">Item Two</TabPanel>
+          <TabPanel value="3">Item Three</TabPanel>
+        </TabContext>
+
         <TabBox tabValue={tabValue} tabChange={tabChange} />
 
         <TabPanel value={tabValue} index={0}>

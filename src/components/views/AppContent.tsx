@@ -10,7 +10,6 @@ import {
 import { CalcFunc } from "../../CalcFunc";
 
 import ServerCastle from "../pages/ServerCastle";
-import UniversalCastle from "../pages/UniversalCastle";
 import OnigiriTable from "../pages/OnigiriTable";
 import InitialSetting from "../templates/InitialSetting";
 import CastleKinds from "../parts/CastleKinds";

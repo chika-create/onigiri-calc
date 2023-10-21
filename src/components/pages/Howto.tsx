@@ -10,6 +10,7 @@ import AlignmentNum from "../parts/howto/initialSetting/AlignmentNum";
 import MinDeckNum from "../parts/howto/initialSetting/MinDeckNum";
 import CalcTime from "../parts/CalcTime";
 import CastelKinds from "../parts/CastleKinds";
+import CalcButton from "../parts/howto/CalcButton";
 
 export default function Howto() {
   const { register } = useForm<CalcFormInput>();
@@ -40,8 +41,11 @@ export default function Howto() {
       <Text>⑤ 計算したい城の種類を選択します</Text>
       <CastelKinds />
 
+      <Text>⑥ 「計算する」ボタンを押します</Text>
+      <CalcButton />
+
       <Text>
-        ⑥ 設定した城を守るのに必要な駐屯数・おにぎり数が算出されます
+        ⑦ 設定した城を守るのに必要な駐屯数・おにぎり数が算出されます
         <br />
         （小数点を扱う結果は切り上げで計算されます。）
       </Text>

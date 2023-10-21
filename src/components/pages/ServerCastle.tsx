@@ -15,7 +15,6 @@ import CountOutput from "../templates/CountOutput";
 export default function ServerCastle() {
   const {
     alignmentNum,
-    castleChange,
     updateSelectCastleKind,
     selectCastleKind,
     numNumber,

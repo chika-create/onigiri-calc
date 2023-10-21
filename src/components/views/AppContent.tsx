@@ -1,5 +1,13 @@
 import { useState, SyntheticEvent } from "react";
-import { Box, Typography, FormControlLabel, Checkbox } from "@mui/material";
+import {
+  Box,
+  Tab,
+  Typography,
+  FormControlLabel,
+  Checkbox,
+} from "@mui/material";
+
+import { TabContext, TabList, TabPanel } from "@mui/lab";
 
 import { TabPanelProps } from "../../types";
 import {
@@ -19,30 +27,11 @@ import CountOutput from "../templates/CountOutput";
 import TabBox from "./TabBox";
 import Howto from "../pages/Howto";
 
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-  return (
-    <Box
-      role="tabpanel"
-      hidden={value !== index}
-      id={`tabpanel-${index}`}
-      aria-labelledby={`tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </Box>
-  );
-}
-
 function AppContent() {
-  // タブ管理
-  const [tabValue, setTabValue] = useState(0);
-  const tabChange = (event: SyntheticEvent, newValue: number): void => {
-    setTabValue(newValue);
+  const [tabSelectNo, setTabSelectNo] = useState("1");
+
+  const tabToChange = (event: SyntheticEvent, newValue: string) => {
+    setTabSelectNo(newValue);
   };
 
   const {
@@ -58,35 +47,37 @@ function AppContent() {
   return (
     <>
       <Box sx={{ width: "100%" }}>
-        <TabBox tabValue={tabValue} tabChange={tabChange} />
+        <TabContext value={tabSelectNo}>
+          <TabBox tabToChange={tabToChange} />
 
-        <TabPanel value={tabValue} index={0}>
-          <InitialSetting castleChange={castleChange} register={register} />
-          <ServerCastle />
+          <TabPanel value="1" sx={{ p: 0 }}>
+            <InitialSetting castleChange={castleChange} register={register} />
+            <ServerCastle />
 
-          <CalcTime register={register} />
-          <CastleKinds onClick={updateSelectCastleKind} />
-          <CalcButton calculator={calculator} />
-          {/* <Box>
+            <CalcTime register={register} />
+            <CastleKinds onClick={updateSelectCastleKind} />
+            <CalcButton calculator={calculator} />
+            {/* <Box>
             <FormControlLabel
               control={<Checkbox />}
               label="今から終了まで（まだ使えません）"
             />
-          </Box> */}
-          <numNumberContext.Provider value={numNumber}>
-            <selectCastleKindContext.Provider value={selectCastleKind}>
-              <alignmentNumbersContext.Provider value={alignmentNum}>
-                <CountOutput numNumber={numNumber} />
-              </alignmentNumbersContext.Provider>
-            </selectCastleKindContext.Provider>
-          </numNumberContext.Provider>
-        </TabPanel>
-        <TabPanel value={tabValue} index={1}>
-          <Howto />
-        </TabPanel>
-        <TabPanel value={tabValue} index={2}>
-          <OnigiriTable />
-        </TabPanel>
+            </Box> */}
+            <numNumberContext.Provider value={numNumber}>
+              <selectCastleKindContext.Provider value={selectCastleKind}>
+                <alignmentNumbersContext.Provider value={alignmentNum}>
+                  <CountOutput numNumber={numNumber} />
+                </alignmentNumbersContext.Provider>
+              </selectCastleKindContext.Provider>
+            </numNumberContext.Provider>
+          </TabPanel>
+          <TabPanel value="2">
+            <Howto />
+          </TabPanel>
+          <TabPanel value="3">
+            <OnigiriTable />
+          </TabPanel>
+        </TabContext>
       </Box>
     </>
   );

@@ -17,7 +17,7 @@ function AppContent() {
     setTabSelectNo(newValue);
   };
 
-  const { castleChange, register } = CalcFunc();
+  const { castleChange } = CalcFunc();
 
   return (
     <>
@@ -26,14 +26,16 @@ function AppContent() {
           <TabBox tabToChange={tabToChange} />
 
           <TabPanel value="1" sx={{ p: 0 }}>
-            <InitialSetting castleChange={castleChange} register={register} />
+            <InitialSetting castleChange={castleChange} />
             <Box sx={{ p: 2 }}>
               <ServerCastle />
             </Box>
           </TabPanel>
+
           <TabPanel value="2">
             <UniversalCastle />
           </TabPanel>
+
           <TabPanel value="3">
             <OnigiriTable />
           </TabPanel>

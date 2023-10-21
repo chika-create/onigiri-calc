@@ -12,7 +12,6 @@ import MinDeckNum from "../parts/initialSetting/MinDeckNum";
 
 export default function InitialSetting(props: any) {
   const castleChange = props.castleChange;
-  const register = props.register;
 
   return (
     <Accordion>
@@ -33,7 +32,7 @@ export default function InitialSetting(props: any) {
             />
           );
         })}
-        <MinDeckNum register={register} />
+        <MinDeckNum />
       </AccordionDetails>
     </Accordion>
   );

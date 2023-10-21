@@ -32,11 +32,11 @@ function AppContent() {
             </Box>
           </TabPanel>
 
-          <TabPanel value="2">
+          <TabPanel value="2" sx={{ p: 0 }}>
             <UniversalCastle />
           </TabPanel>
 
-          <TabPanel value="3">
+          <TabPanel value="3" sx={{ p: 0 }}>
             <OnigiriTable />
           </TabPanel>
         </TabContext>

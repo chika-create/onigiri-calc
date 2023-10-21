@@ -6,17 +6,7 @@ import {
   ToggleButton,
 } from "@mui/material";
 
-export default function CastleKinds(props: any) {
-  const updateSelectCastleKind = props.onClick;
-  const [toggleStr, setToggleStr] = useState<string | null>("left");
-
-  const toggleChange = (
-    event: MouseEvent<HTMLElement>,
-    newAlignment: string | null
-  ) => {
-    setToggleStr(newAlignment);
-  };
-
+export default function CastleKinds() {
   return (
     <Box
       sx={{
@@ -34,15 +24,9 @@ export default function CastleKinds(props: any) {
         城種別
       </Typography>
 
-      <ToggleButtonGroup
-        value={toggleStr}
-        exclusive
-        onChange={toggleChange}
-        aria-label="text alignment"
-      >
+      <ToggleButtonGroup exclusive aria-label="text alignment">
         <ToggleButton
           value="red"
-          onClick={updateSelectCastleKind}
           aria-label="left aligned"
           sx={{
             width: 1 / 3,
@@ -52,8 +36,8 @@ export default function CastleKinds(props: any) {
         </ToggleButton>
         <ToggleButton
           value="blue"
-          onClick={updateSelectCastleKind}
           aria-label="left aligned"
+          selected={true}
           sx={{
             width: 1 / 3,
           }}
@@ -62,7 +46,6 @@ export default function CastleKinds(props: any) {
         </ToggleButton>
         <ToggleButton
           value="gold"
-          onClick={updateSelectCastleKind}
           aria-label="left aligned"
           sx={{
             width: 1 / 3,

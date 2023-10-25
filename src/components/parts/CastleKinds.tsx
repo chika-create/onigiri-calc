@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 
 export default function CastleKinds(props: any) {
-  const updateSelectCastleKind = props.onClick;
+  const updateSelectCastleKind = props.updateSelectCastleKind;
   const [toggleStr, setToggleStr] = useState<string | null>("left");
 
   const toggleChange = (

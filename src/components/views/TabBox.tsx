@@ -1,7 +1,9 @@
 import { Box, Tab } from "@mui/material";
 import { TabList } from "@mui/lab";
 
-export default function TabBox(props: any) {
+import { TabBoxProps } from "../../types";
+
+export default function TabBox(props: TabBoxProps) {
   const tabToChange = props.tabToChange;
 
   return (

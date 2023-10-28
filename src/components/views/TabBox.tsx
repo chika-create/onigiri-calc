@@ -8,7 +8,7 @@ export default function TabBox(props: TabBoxProps) {
 
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-      <TabList onChange={tabToChange} aria-label="lab API tabs example">
+      <TabList onChange={tabToChange}>
         <Tab label="城戦" value="1" />
         <Tab label="test" value="2" />
         <Tab label="おにぎり表" value="3" />

@@ -57,7 +57,6 @@ export default function AlignmentNum({
               value={item}
               selected={selectedNumber === item}
               onClick={() => handleButtonClick(item)}
-              aria-label="left aligned"
               sx={{
                 width: 1 / 5,
               }}

@@ -1,3 +1,5 @@
+import { SyntheticEvent } from "react";
+
 type AlignmentNum = number;
 type CastleColorEn = string;
 
@@ -30,3 +32,7 @@ export interface AlignmentNumProps {
     castleColorEn: CastleColorEn
   ) => void;
 }
+
+export type TabBoxProps = {
+  tabToChange: (event: SyntheticEvent, newValue: string) => void;
+};

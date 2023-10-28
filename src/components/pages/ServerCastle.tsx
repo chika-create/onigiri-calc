@@ -25,7 +25,7 @@ export default function ServerCastle() {
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
       <CalcTime register={register} />
-      <CastleKinds onClick={updateSelectCastleKind} />
+      <CastleKinds updateSelectCastleKind={updateSelectCastleKind} />
       <CalcButton calculator={calculator} />
       {/* <Box>
               <FormControlLabel

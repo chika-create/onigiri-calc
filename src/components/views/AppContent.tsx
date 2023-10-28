@@ -1,7 +1,7 @@
 import { useState, SyntheticEvent } from "react";
 import { Box } from "@mui/material";
-
 import { TabContext, TabPanel } from "@mui/lab";
+
 import { CalcFunc } from "../../CalcFunc";
 
 import ServerCastle from "../pages/ServerCastle";

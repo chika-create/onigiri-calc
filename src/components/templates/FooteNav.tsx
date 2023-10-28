@@ -4,7 +4,7 @@ import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 import AppContent from "../views/AppContent";
 import Term from "../../components/pages/Term";
 import PrivacyPolicy from "../../components/pages/PrivacyPolicy";
-import { grayColor } from "../../color";
+import { grayColor } from "../../constants/color";
 
 export default function FooterNav() {
   return (

@@ -1,9 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".", // プロジェクトのルートディレクトリに基づく
-    "paths": {
-      "@src/*": ["src/*"]
-    },
     "target": "es5",
     "lib": [
       "dom",

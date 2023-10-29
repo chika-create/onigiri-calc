@@ -8,13 +8,15 @@ import {
 
 export default function CastleKinds(props: any) {
   const updateSelectCastleKind = props.updateSelectCastleKind;
-  const [toggleStr, setToggleStr] = useState<string | null>("left");
+  const [selectedToggleButton, setSelectedToggleButton] = useState<
+    string | null
+  >("left");
 
   const toggleChange = (
     event: MouseEvent<HTMLElement>,
     newAlignment: string | null
   ) => {
-    setToggleStr(newAlignment);
+    setSelectedToggleButton(newAlignment);
   };
 
   return (
@@ -34,7 +36,11 @@ export default function CastleKinds(props: any) {
         城種別
       </Typography>
 
-      <ToggleButtonGroup value={toggleStr} exclusive onChange={toggleChange}>
+      <ToggleButtonGroup
+        value={selectedToggleButton}
+        exclusive
+        onChange={toggleChange}
+      >
         <ToggleButton
           value="red"
           onClick={updateSelectCastleKind}

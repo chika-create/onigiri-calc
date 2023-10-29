@@ -4,7 +4,7 @@ import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 import AppContent from "../views/AppContent";
 import Term from "../../components/pages/Term";
 import PrivacyPolicy from "../../components/pages/PrivacyPolicy";
-import { grayColor } from "../../constants/color";
+import { grayColors } from "../../constants/colors";
 
 export default function FooterNav() {
   return (
@@ -18,19 +18,19 @@ export default function FooterNav() {
         <Breadcrumbs aria-label="breadcrumb">
           <Link
             to="/"
-            style={{ color: grayColor[300], textDecoration: "none" }}
+            style={{ color: grayColors[300], textDecoration: "none" }}
           >
             ホーム
           </Link>
           <Link
             to="/term"
-            style={{ color: grayColor[300], textDecoration: "none" }}
+            style={{ color: grayColors[300], textDecoration: "none" }}
           >
             利用規約
           </Link>
           <Link
             to="/privacypolicy"
-            style={{ color: grayColor[300], textDecoration: "none" }}
+            style={{ color: grayColors[300], textDecoration: "none" }}
           >
             プライバシーポリシー
           </Link>

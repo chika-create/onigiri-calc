@@ -5,9 +5,9 @@ import FullOnigiri from "../parts/countOutput/FullOnigiri";
 
 export default function CountOutput(props: any) {
   // クリップボードにコピー
-  async function copyToClipboard(num: any) {
+  async function copyToClipboard(num: number | string) {
     try {
-      await navigator.clipboard.writeText(num);
+      await navigator.clipboard.writeText(num.toString());
     } catch (error) {
       console.log(error || "コピーに失敗しました");
     }

@@ -15,13 +15,12 @@ type AlignmentNumbersType = {
   gold: number;
 };
 
-export default function FullStack(props: any) {
+export default function FullStack({ copyToClipboard }: any) {
   const numNumber = useContext(numNumberContext);
   const alignmentNumbers: AlignmentNumbersType = useContext(
     alignmentNumbersContext
   );
   const selectCastleKind: string = useContext(selectCastleKindContext);
-  const copyToClipboard = props.copyToClipboard;
   const [openTip, setOpenTip] = useState<boolean>(false);
 
   const castleAlignmentNumber: number =

@@ -6,6 +6,7 @@ import {
   selectCastleKindContext,
 } from "../../SettingUseContext";
 import { CalcFunc } from "../../CalcFunc";
+import useUpdateSelectCastleKind from "../../hooks/useUpdateSelectCastleKind";
 
 import CastleKinds from "../parts/CastleKinds";
 import CalcTime from "../parts/CalcTime";
@@ -25,7 +26,10 @@ export default function ServerCastle() {
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
       <CalcTime register={register} />
-      <CastleKinds updateSelectCastleKind={updateSelectCastleKind} />
+      <CastleKinds
+        updateSelectCastleKind={updateSelectCastleKind}
+        useUpdateSelectCastleKind={useUpdateSelectCastleKind}
+      />
       <CalcButton calculator={calculator} />
       {/* <Box>
               <FormControlLabel

@@ -8,6 +8,7 @@ import {
 
 export default function CastleKinds(props: any) {
   const updateSelectCastleKind = props.updateSelectCastleKind;
+  const useUpdateSelectCastleKind = props.useUpdateSelectCastleKind;
   const [selectedToggleButton, setSelectedToggleButton] = useState<
     string | null
   >("left");

@@ -1,16 +1,16 @@
 import { useState, useContext } from "react";
-import { numNumberContext } from "../../../SettingUseContext";
+import { stackNumberContext } from "../../../SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 export default function FullStack({ copyToClipboard }: any) {
-  const numNumber = useContext(numNumberContext);
+  const stackNumber = useContext(stackNumberContext);
   const [openTip, setOpenTip] = useState<boolean>(false);
 
   const handleClickButtonFullStack = (): void => {
     setOpenTip(true);
-    copyToClipboard(numNumber);
+    copyToClipboard(stackNumber);
   };
 
   return (
@@ -34,7 +34,7 @@ export default function FullStack({ copyToClipboard }: any) {
           textAlign: "center",
         }}
       >
-        {numNumber}
+        {stackNumber}
       </Typography>
       <Tooltip title="ContentCopyIcon" onClick={handleClickButtonFullStack}>
         <IconButton>

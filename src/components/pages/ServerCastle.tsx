@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 
 import {
-  numNumberContext,
+  stackNumberContext,
   alignmentNumbersContext,
   selectCastleKindContext,
 } from "../../SettingUseContext";
@@ -17,7 +17,7 @@ export default function ServerCastle() {
     alignmentNum,
     updateSelectCastleKind,
     selectCastleKind,
-    numNumber,
+    stackNumber,
     register,
     calculator,
   } = CalcFunc();
@@ -33,13 +33,13 @@ export default function ServerCastle() {
                 label="今から終了まで（まだ使えません）"
               />
               </Box> */}
-      <numNumberContext.Provider value={numNumber}>
+      <stackNumberContext.Provider value={stackNumber}>
         <selectCastleKindContext.Provider value={selectCastleKind}>
           <alignmentNumbersContext.Provider value={alignmentNum}>
-            <CountOutput numNumber={numNumber} />
+            <CountOutput stackNumber={stackNumber} />
           </alignmentNumbersContext.Provider>
         </selectCastleKindContext.Provider>
-      </numNumberContext.Provider>
+      </stackNumberContext.Provider>
     </Box>
   );
 }

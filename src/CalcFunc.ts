@@ -37,7 +37,7 @@ export function CalcFunc() {
     setSelectCastleKind(newCastleAlignment);
   };
 
-  const [numNumber, setNumNumber] = useState(0);
+  const [stackNumber, setStackNumber] = useState(0);
 
   // 計算機能
   const calculator = (): void => {
@@ -49,14 +49,14 @@ export function CalcFunc() {
     const totalNum = minNum + convertSecToMin;
     const oneDeckSec = 60 / deckNum;
 
-    setNumNumber(Math.ceil((totalNum * 60) / oneDeckSec));
+    setStackNumber(Math.ceil((totalNum * 60) / oneDeckSec));
   };
   return {
     alignmentNum,
     castleChange,
     updateSelectCastleKind,
     selectCastleKind,
-    numNumber,
+    stackNumber,
     register,
     calculator,
   };

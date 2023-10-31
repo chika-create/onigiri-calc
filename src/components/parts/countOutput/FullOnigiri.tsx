@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import {
-  numNumberContext,
+  stackNumberContext,
   alignmentNumbersContext,
   selectCastleKindContext,
 } from "../../../SettingUseContext";
@@ -16,7 +16,7 @@ type AlignmentNumbersType = {
 };
 
 export default function FullStack({ copyToClipboard }: any) {
-  const numNumber = useContext(numNumberContext);
+  const stackNumber = useContext(stackNumberContext);
   const alignmentNumbers: AlignmentNumbersType = useContext(
     alignmentNumbersContext
   );
@@ -24,7 +24,7 @@ export default function FullStack({ copyToClipboard }: any) {
   const [openTip, setOpenTip] = useState<boolean>(false);
   const castleAlignmentNumber: number =
     alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];
-  const fullOnigiriNumber = numNumber * castleAlignmentNumber;
+  const fullOnigiriNumber = stackNumber * castleAlignmentNumber;
 
   const handleClickButtonFullOnigiri = (): void => {
     setOpenTip(true);

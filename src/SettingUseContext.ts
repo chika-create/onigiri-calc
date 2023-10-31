@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-export const numNumberContext = createContext<number>(0);
+export const stackNumberContext = createContext<number>(0);
 export const alignmentNumContext = createContext<number>(0);
 export const alignmentNumbersContext = createContext({
   red: 1,

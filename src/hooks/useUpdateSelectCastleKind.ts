@@ -1,16 +1,25 @@
 import { useState, MouseEvent } from "react";
 
-function useUpdateSelectCastleKind(): void {
-  const [selectCastleKind, setSelectCastleKind] = useState("red");
-
-  // 選択された城種別を登録し、計算機能を実行
-  const updateSelectCastleKind2 = (
+type typeUpdateSelectCastleKind = {
+  selectCastleKind: string;
+  updateSelectCastleKind: (
     event: MouseEvent<HTMLElement>,
     newCastleAlignment: string
-  ): void => {
-    setSelectCastleKind(newCastleAlignment);
+  ) => void;
+};
+
+export function useUpdateSelectCastleKind(): typeUpdateSelectCastleKind {
+  const [selectCastleKind, setSelectCastleKind] = useState("red");
+
+  const updateSelectCastleKind: typeUpdateSelectCastleKind["updateSelectCastleKind"] =
+    (event, newCastleAlignment) => {
+      setSelectCastleKind(newCastleAlignment);
+    };
+
+  return {
+    selectCastleKind,
+    updateSelectCastleKind,
   };
-  // return null;
 }
 
 export default useUpdateSelectCastleKind;

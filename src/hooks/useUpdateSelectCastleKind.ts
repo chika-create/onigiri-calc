@@ -1,6 +1,6 @@
 import { useState, MouseEvent } from "react";
 
-function UpdateSelectCastleKind():void {
+function useUpdateSelectCastleKind(): void {
   const [selectCastleKind, setSelectCastleKind] = useState("red");
 
   // 選択された城種別を登録し、計算機能を実行
@@ -13,4 +13,4 @@ function UpdateSelectCastleKind():void {
   // return null;
 }
 
-export default UpdateSelectCastleKind;
+export default useUpdateSelectCastleKind;

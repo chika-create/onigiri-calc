@@ -22,7 +22,6 @@ export default function FullStack({ copyToClipboard }: any) {
   );
   const selectCastleKind: string = useContext(selectCastleKindContext);
   const [openTip, setOpenTip] = useState<boolean>(false);
-
   const castleAlignmentNumber: number =
     alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];
 

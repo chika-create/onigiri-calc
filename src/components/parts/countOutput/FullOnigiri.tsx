@@ -24,10 +24,11 @@ export default function FullStack({ copyToClipboard }: any) {
   const [openTip, setOpenTip] = useState<boolean>(false);
   const castleAlignmentNumber: number =
     alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];
+  const fullOnigiriNumber = numNumber * castleAlignmentNumber;
 
   const handleClickButtonFullOnigiri = (): void => {
     setOpenTip(true);
-    copyToClipboard(numNumber * castleAlignmentNumber);
+    copyToClipboard(fullOnigiriNumber);
   };
 
   return (
@@ -51,7 +52,7 @@ export default function FullStack({ copyToClipboard }: any) {
           textAlign: "center",
         }}
       >
-        {numNumber * castleAlignmentNumber}
+        {fullOnigiriNumber}
       </Typography>
       <Tooltip title="ContentCopyIcon" onClick={handleClickButtonFullOnigiri}>
         <IconButton>

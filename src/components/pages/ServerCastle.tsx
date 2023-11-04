@@ -4,7 +4,7 @@ import {
   stackNumberContext,
   alignmentNumbersContext,
   selectCastleKindContext,
-} from "../../SettingUseContext";
+} from "../../context/SettingUseContext";
 import { CalcFunc } from "../../CalcFunc";
 import useUpdateSelectCastleKind from "../../hooks/useUpdateSelectCastleKind";
 

@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { stackNumberContext } from "../../../SettingUseContext";
+import { stackNumberContext } from "../../../context/SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";

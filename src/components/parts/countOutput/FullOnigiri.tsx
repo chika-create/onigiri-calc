@@ -3,7 +3,7 @@ import {
   stackNumberContext,
   alignmentNumbersContext,
   selectCastleKindContext,
-} from "../../../SettingUseContext";
+} from "../../../context/SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";

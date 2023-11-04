@@ -8,12 +8,19 @@ import {
 import { useUpdateSelectCastleKind } from "../../hooks/useUpdateSelectCastleKind";
 
 export default function CastleKinds(props: any) {
-  const { selectCastleKind, updateSelectCastleKind } = useUpdateSelectCastleKind();
-  const [selectedToggleButton, setSelectedToggleButton] = useState<string | null>("left");
+  const { selectCastleKind, updateSelectCastleKind } =
+    useUpdateSelectCastleKind();
+  const [selectedToggleButton, setSelectedToggleButton] = useState<
+    string | null
+  >("left");
 
-  const toggleChange = (event: MouseEvent<HTMLElement>, newAlignment: string) => {
+  const toggleChange = (
+    event: MouseEvent<HTMLElement>,
+    newAlignment: string
+  ) => {
     setSelectedToggleButton(newAlignment);
     updateSelectCastleKind(event, newAlignment);
+    console.log("selectCastleKind_Kind: ", selectCastleKind);
   };
 
   return (

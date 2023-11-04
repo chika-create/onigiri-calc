@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Box from "@mui/material/Box";
 
 import {
@@ -16,18 +17,20 @@ import CountOutput from "../templates/CountOutput";
 export default function ServerCastle() {
   const {
     alignmentNum,
-    updateSelectCastleKind,
+    // updateSelectCastleKind,
     selectCastleKind,
     stackNumber,
     register,
     calculator,
   } = CalcFunc();
 
+  const [selectCastleKind2, setSelectCastleKind2] = useState("gold");
+
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
       <CalcTime register={register} />
       <CastleKinds
-        updateSelectCastleKind={updateSelectCastleKind}
+        // updateSelectCastleKind={updateSelectCastleKind}
         useUpdateSelectCastleKind={useUpdateSelectCastleKind}
       />
       <CalcButton calculator={calculator} />
@@ -40,7 +43,10 @@ export default function ServerCastle() {
       <stackNumberContext.Provider value={stackNumber}>
         <selectCastleKindContext.Provider value={selectCastleKind}>
           <alignmentNumbersContext.Provider value={alignmentNum}>
-            <CountOutput stackNumber={stackNumber} />
+            <CountOutput
+              stackNumber={stackNumber}
+              selectCastleKind2={selectCastleKind2}
+            />
           </alignmentNumbersContext.Provider>
         </selectCastleKindContext.Provider>
       </stackNumberContext.Provider>

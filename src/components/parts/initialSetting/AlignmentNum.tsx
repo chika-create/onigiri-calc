@@ -6,7 +6,7 @@ import {
   ToggleButton,
 } from "@mui/material";
 import { castleNumber } from "../../../constants/constants";
-import { AlignmentNumProps } from "../../../types";
+import { AlignmentNumProps } from "../../../types/types";
 
 export default function AlignmentNum({
   castleColorJa,

@@ -32,6 +32,7 @@ export default function ServerCastle() {
       <CastleKinds
         // updateSelectCastleKind={updateSelectCastleKind}
         useUpdateSelectCastleKind={useUpdateSelectCastleKind}
+        setSelectCastleKind2={setSelectCastleKind2}
       />
       <CalcButton calculator={calculator} />
       {/* <Box>

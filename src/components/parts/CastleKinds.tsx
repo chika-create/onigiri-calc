@@ -14,13 +14,17 @@ export default function CastleKinds(props: any) {
     string | null
   >("left");
 
+  let setSelectCastleKind2 = props.setSelectCastleKind2;
+
   const toggleChange = (
     event: MouseEvent<HTMLElement>,
     newAlignment: string
   ) => {
     setSelectedToggleButton(newAlignment);
     updateSelectCastleKind(event, newAlignment);
-    console.log("selectCastleKind_Kind: ", selectCastleKind);
+
+    setSelectCastleKind2(newAlignment);
+    console.log("selectCastleKind_Kind: ", newAlignment);
   };
 
   return (

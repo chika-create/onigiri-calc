@@ -22,29 +22,16 @@ export default function FullStack({ copyToClipboard, selectCastleKind2 }: any) {
   );
 
   const selectCastleKind: string = useContext(selectCastleKindContext);
-  const castleAlignmentNumber: number =
-    alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];
-  console.log("castleAlignmentNumber: ", castleAlignmentNumber);
-
-  const fullOnigiriNumber = stackNumber * castleAlignmentNumber;
 
   const [openTip, setOpenTip] = useState<boolean>(false);
   const handleClickButtonFullOnigiri = (): void => {
     setOpenTip(true);
-    copyToClipboard(fullOnigiriNumber);
+    copyToClipboard(fullOnigiriNumber2);
   };
 
   const castleAlignmentNumber2: number =
     alignmentNumbers[selectCastleKind2 as keyof AlignmentNumbersType];
 
-  // let selectCastleKindNumber2 = 0;
-  // if (selectCastleKind2 == "gold") {
-  //   selectCastleKindNumber2 = 3;
-  // } else if (selectCastleKind2 == "blue") {
-  //   selectCastleKindNumber2 = 2;
-  // } else {
-  //   selectCastleKindNumber2 = 1;
-  // }
   const fullOnigiriNumber2 = stackNumber * castleAlignmentNumber2;
 
   return (
@@ -68,8 +55,6 @@ export default function FullStack({ copyToClipboard, selectCastleKind2 }: any) {
           textAlign: "center",
         }}
       >
-        {fullOnigiriNumber}
-        <br />
         {fullOnigiriNumber2}
       </Typography>
       <Tooltip title="ContentCopyIcon" onClick={handleClickButtonFullOnigiri}>

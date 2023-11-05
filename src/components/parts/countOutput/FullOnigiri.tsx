@@ -34,15 +34,18 @@ export default function FullStack({ copyToClipboard, selectCastleKind2 }: any) {
     copyToClipboard(fullOnigiriNumber);
   };
 
-  let selectCastleKindNumber2 = 0;
-  if (selectCastleKind2 == "gold") {
-    selectCastleKindNumber2 = 3;
-  } else if (selectCastleKind2 == "blue") {
-    selectCastleKindNumber2 = 2;
-  } else {
-    selectCastleKindNumber2 = 1;
-  }
-  const fullOnigiriNumber2 = stackNumber * selectCastleKindNumber2;
+  const castleAlignmentNumber2: number =
+    alignmentNumbers[selectCastleKind2 as keyof AlignmentNumbersType];
+
+  // let selectCastleKindNumber2 = 0;
+  // if (selectCastleKind2 == "gold") {
+  //   selectCastleKindNumber2 = 3;
+  // } else if (selectCastleKind2 == "blue") {
+  //   selectCastleKindNumber2 = 2;
+  // } else {
+  //   selectCastleKindNumber2 = 1;
+  // }
+  const fullOnigiriNumber2 = stackNumber * castleAlignmentNumber2;
 
   return (
     <Box

@@ -55,7 +55,7 @@ export function CalcFunc() {
     alignmentNum,
     castleChange,
     updateSelectCastleKind,
-    selectCastleKind,
+    // selectCastleKind,
     stackNumber,
     register,
     calculator,

@@ -18,12 +18,13 @@ export default function ServerCastle() {
   const {
     alignmentNum,
     // updateSelectCastleKind,
-    selectCastleKind,
+    // selectCastleKind,
     stackNumber,
     register,
     calculator,
   } = CalcFunc();
 
+  const [selectCastleKind, setSelectCastleKind] = useState("red");
   const [selectCastleKind2, setSelectCastleKind2] = useState("gold");
 
   return (

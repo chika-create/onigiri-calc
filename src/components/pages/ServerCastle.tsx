@@ -15,15 +15,15 @@ import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
 export default function ServerCastle() {
-  const { selectCastleKind2 } = useUpdateSelectCastleKind();
-  const [selectCastleKind, setSelectCastleKind] = useState("red");
+  const { selectCastleKind, setSelectCastleKind } = useUpdateSelectCastleKind();
+  // const [selectCastleKind, setSelectCastleKind] = useState("red");
   const { alignmentNum, stackNumber, register, calculator } = CalcFunc();
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
       <CalcTime register={register} />
       <CastleKinds
-        selectCastleKind2={selectCastleKind2}
+        selectCastleKind={selectCastleKind}
         setSelectCastleKind={setSelectCastleKind}
       />
       <CalcButton calculator={calculator} />

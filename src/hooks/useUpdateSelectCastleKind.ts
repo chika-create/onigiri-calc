@@ -1,7 +1,7 @@
 import { useState, MouseEvent } from "react";
 
 type typeUpdateSelectCastleKind = {
-  selectCastleKind: string;
+  selectCastleKind2: string;
   updateSelectCastleKind: (
     event: MouseEvent<HTMLElement>,
     newCastleAlignment: string
@@ -9,15 +9,15 @@ type typeUpdateSelectCastleKind = {
 };
 
 export function useUpdateSelectCastleKind(): typeUpdateSelectCastleKind {
-  const [selectCastleKind, setSelectCastleKind] = useState("red");
+  const [selectCastleKind2, setSelectCastleKind2] = useState("red");
 
   const updateSelectCastleKind: typeUpdateSelectCastleKind["updateSelectCastleKind"] =
     (event, newCastleAlignment) => {
-      setSelectCastleKind(newCastleAlignment);
+      setSelectCastleKind2(newCastleAlignment);
     };
 
   return {
-    selectCastleKind,
+    selectCastleKind2,
     updateSelectCastleKind,
   };
 }

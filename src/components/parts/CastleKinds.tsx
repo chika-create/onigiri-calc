@@ -8,8 +8,7 @@ import {
 import { useUpdateSelectCastleKind } from "../../hooks/useUpdateSelectCastleKind";
 
 export default function CastleKinds(props: any) {
-  const { selectCastleKind, updateSelectCastleKind } =
-    useUpdateSelectCastleKind();
+  const { updateSelectCastleKind } = useUpdateSelectCastleKind();
   const [selectedToggleButton, setSelectedToggleButton] = useState<
     string | null
   >("left");
@@ -24,7 +23,6 @@ export default function CastleKinds(props: any) {
     updateSelectCastleKind(event, newAlignment);
 
     setSelectCastleKind(newAlignment);
-    console.log("selectCastleKind_Kind: ", newAlignment);
   };
 
   return (

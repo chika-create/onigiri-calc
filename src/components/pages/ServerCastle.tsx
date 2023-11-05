@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Box from "@mui/material/Box";
 
 import {
@@ -16,16 +15,12 @@ import CountOutput from "../templates/CountOutput";
 
 export default function ServerCastle() {
   const { selectCastleKind, setSelectCastleKind } = useUpdateSelectCastleKind();
-  // const [selectCastleKind, setSelectCastleKind] = useState("red");
   const { alignmentNum, stackNumber, register, calculator } = CalcFunc();
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
       <CalcTime register={register} />
-      <CastleKinds
-        selectCastleKind={selectCastleKind}
-        setSelectCastleKind={setSelectCastleKind}
-      />
+      <CastleKinds setSelectCastleKind={setSelectCastleKind} />
       <CalcButton calculator={calculator} />
       {/* <Box>
               <FormControlLabel

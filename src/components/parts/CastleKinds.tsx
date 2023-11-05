@@ -14,7 +14,7 @@ export default function CastleKinds(props: any) {
     string | null
   >("left");
 
-  let setSelectCastleKind2 = props.setSelectCastleKind2;
+  let setSelectCastleKind = props.setSelectCastleKind;
 
   const toggleChange = (
     event: MouseEvent<HTMLElement>,
@@ -23,7 +23,7 @@ export default function CastleKinds(props: any) {
     setSelectedToggleButton(newAlignment);
     updateSelectCastleKind(event, newAlignment);
 
-    setSelectCastleKind2(newAlignment);
+    setSelectCastleKind(newAlignment);
     console.log("selectCastleKind_Kind: ", newAlignment);
   };
 

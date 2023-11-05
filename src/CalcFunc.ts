@@ -27,15 +27,15 @@ export function CalcFunc() {
     }));
   };
 
-  const [selectCastleKind, setSelectCastleKind] = useState("red");
+  // const [selectCastleKind, setSelectCastleKind] = useState("red");
 
-  // 選択された城種別を登録し、計算機能を実行
-  const updateSelectCastleKind = (
-    event: MouseEvent<HTMLElement>,
-    newCastleAlignment: string
-  ): void => {
-    setSelectCastleKind(newCastleAlignment);
-  };
+  // // 選択された城種別を登録し、計算機能を実行
+  // const updateSelectCastleKind = (
+  //   event: MouseEvent<HTMLElement>,
+  //   newCastleAlignment: string
+  // ): void => {
+  //   setSelectCastleKind(newCastleAlignment);
+  // };
 
   const [stackNumber, setStackNumber] = useState(0);
 
@@ -54,7 +54,7 @@ export function CalcFunc() {
   return {
     alignmentNum,
     castleChange,
-    updateSelectCastleKind,
+    // updateSelectCastleKind,
     // selectCastleKind,
     stackNumber,
     register,

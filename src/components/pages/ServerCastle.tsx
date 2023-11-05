@@ -25,7 +25,7 @@ export default function ServerCastle() {
   } = CalcFunc();
 
   const [selectCastleKind, setSelectCastleKind] = useState("red");
-  const [selectCastleKind2, setSelectCastleKind2] = useState("gold");
+  // const [selectCastleKind2, setSelectCastleKind2] = useState("gold");
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
@@ -33,7 +33,7 @@ export default function ServerCastle() {
       <CastleKinds
         // updateSelectCastleKind={updateSelectCastleKind}
         useUpdateSelectCastleKind={useUpdateSelectCastleKind}
-        setSelectCastleKind2={setSelectCastleKind2}
+        setSelectCastleKind={setSelectCastleKind}
       />
       <CalcButton calculator={calculator} />
       {/* <Box>
@@ -47,7 +47,7 @@ export default function ServerCastle() {
           <alignmentNumbersContext.Provider value={alignmentNum}>
             <CountOutput
               stackNumber={stackNumber}
-              selectCastleKind2={selectCastleKind2}
+              // selectCastleKind2={selectCastleKind2}
             />
           </alignmentNumbersContext.Provider>
         </selectCastleKindContext.Provider>

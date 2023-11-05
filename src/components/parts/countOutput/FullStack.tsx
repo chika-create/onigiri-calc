@@ -5,8 +5,8 @@ import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 export default function FullStack({ copyToClipboard }: any) {
-  const stackNumber = useContext(stackNumberContext);
   const [openTip, setOpenTip] = useState<boolean>(false);
+  const stackNumber = useContext(stackNumberContext);
 
   const handleClickButtonFullStack = (): void => {
     setOpenTip(true);

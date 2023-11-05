@@ -19,10 +19,7 @@ export default function CountOutput(props: any) {
         p: 3,
       }}
     >
-      <FullOnigiri
-        copyToClipboard={copyToClipboard}
-        // selectCastleKind2={props.selectCastleKind2}
-      />
+      <FullOnigiri copyToClipboard={copyToClipboard} />
       <FullStack copyToClipboard={copyToClipboard} />
     </Box>
   );

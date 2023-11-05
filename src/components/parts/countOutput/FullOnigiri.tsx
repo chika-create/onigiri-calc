@@ -16,23 +16,21 @@ type AlignmentNumbersType = {
 };
 
 export default function FullStack({ copyToClipboard }: any) {
+  const [openTip, setOpenTip] = useState<boolean>(false);
   const stackNumber = useContext(stackNumberContext);
+  const selectCastleKind: string = useContext(selectCastleKindContext);
   const alignmentNumbers: AlignmentNumbersType = useContext(
     alignmentNumbersContext
   );
 
-  const selectCastleKind: string = useContext(selectCastleKindContext);
+  const castleAlignmentNumber: number =
+    alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];
+  const fullOnigiriNumber = stackNumber * castleAlignmentNumber;
 
-  const [openTip, setOpenTip] = useState<boolean>(false);
   const handleClickButtonFullOnigiri = (): void => {
     setOpenTip(true);
     copyToClipboard(fullOnigiriNumber);
   };
-
-  const castleAlignmentNumber: number =
-    alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];
-
-  const fullOnigiriNumber = stackNumber * castleAlignmentNumber;
 
   return (
     <Box

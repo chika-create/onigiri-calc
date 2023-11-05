@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
 import {
-  numNumberContext,
+  stackNumberContext,
   alignmentNumbersContext,
   selectCastleKindContext,
-} from "../../../SettingUseContext";
+} from "../../../context/SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
@@ -16,19 +16,20 @@ type AlignmentNumbersType = {
 };
 
 export default function FullStack({ copyToClipboard }: any) {
-  const numNumber = useContext(numNumberContext);
+  const [openTip, setOpenTip] = useState<boolean>(false);
+  const stackNumber = useContext(stackNumberContext);
+  const selectCastleKind: string = useContext(selectCastleKindContext);
   const alignmentNumbers: AlignmentNumbersType = useContext(
     alignmentNumbersContext
   );
-  const selectCastleKind: string = useContext(selectCastleKindContext);
-  const [openTip, setOpenTip] = useState<boolean>(false);
 
   const castleAlignmentNumber: number =
     alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];
+  const fullOnigiriNumber = stackNumber * castleAlignmentNumber;
 
   const handleClickButtonFullOnigiri = (): void => {
     setOpenTip(true);
-    copyToClipboard(numNumber * castleAlignmentNumber);
+    copyToClipboard(fullOnigiriNumber);
   };
 
   return (
@@ -52,7 +53,7 @@ export default function FullStack({ copyToClipboard }: any) {
           textAlign: "center",
         }}
       >
-        {numNumber * castleAlignmentNumber}
+        {fullOnigiriNumber}
       </Typography>
       <Tooltip title="ContentCopyIcon" onClick={handleClickButtonFullOnigiri}>
         <IconButton>

@@ -1,11 +1,12 @@
 import Box from "@mui/material/Box";
 
 import {
-  numNumberContext,
+  stackNumberContext,
   alignmentNumbersContext,
   selectCastleKindContext,
-} from "../../SettingUseContext";
+} from "../../context/SettingUseContext";
 import { CalcFunc } from "../../CalcFunc";
+import useUpdateSelectCastleKind from "../../hooks/useUpdateSelectCastleKind";
 
 import CastleKinds from "../parts/CastleKinds";
 import CalcTime from "../parts/CalcTime";
@@ -13,19 +14,13 @@ import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
 export default function ServerCastle() {
-  const {
-    alignmentNum,
-    updateSelectCastleKind,
-    selectCastleKind,
-    numNumber,
-    register,
-    calculator,
-  } = CalcFunc();
+  const { selectCastleKind, setSelectCastleKind } = useUpdateSelectCastleKind();
+  const { alignmentNum, stackNumber, register, calculator } = CalcFunc();
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
       <CalcTime register={register} />
-      <CastleKinds updateSelectCastleKind={updateSelectCastleKind} />
+      <CastleKinds setSelectCastleKind={setSelectCastleKind} />
       <CalcButton calculator={calculator} />
       {/* <Box>
               <FormControlLabel
@@ -33,13 +28,13 @@ export default function ServerCastle() {
                 label="今から終了まで（まだ使えません）"
               />
               </Box> */}
-      <numNumberContext.Provider value={numNumber}>
+      <stackNumberContext.Provider value={stackNumber}>
         <selectCastleKindContext.Provider value={selectCastleKind}>
           <alignmentNumbersContext.Provider value={alignmentNum}>
-            <CountOutput numNumber={numNumber} />
+            <CountOutput stackNumber={stackNumber} />
           </alignmentNumbersContext.Provider>
         </selectCastleKindContext.Provider>
-      </numNumberContext.Provider>
+      </stackNumberContext.Provider>
     </Box>
   );
 }

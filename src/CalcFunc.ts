@@ -1,7 +1,7 @@
 import "./App.css";
-import { useState, MouseEvent } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { CalcFormInput } from "./types";
+import { CalcFormInput } from "./types/types";
 
 export function CalcFunc() {
   // 計算機能用
@@ -27,17 +27,7 @@ export function CalcFunc() {
     }));
   };
 
-  const [selectCastleKind, setSelectCastleKind] = useState("red");
-
-  // 選択された城種別を登録し、計算機能を実行
-  const updateSelectCastleKind = (
-    event: MouseEvent<HTMLElement>,
-    newCastleAlignment: string
-  ): void => {
-    setSelectCastleKind(newCastleAlignment);
-  };
-
-  const [numNumber, setNumNumber] = useState(0);
+  const [stackNumber, setStackNumber] = useState(0);
 
   // 計算機能
   const calculator = (): void => {
@@ -49,14 +39,12 @@ export function CalcFunc() {
     const totalNum = minNum + convertSecToMin;
     const oneDeckSec = 60 / deckNum;
 
-    setNumNumber(Math.ceil((totalNum * 60) / oneDeckSec));
+    setStackNumber(Math.ceil((totalNum * 60) / oneDeckSec));
   };
   return {
     alignmentNum,
     castleChange,
-    updateSelectCastleKind,
-    selectCastleKind,
-    numNumber,
+    stackNumber,
     register,
     calculator,
   };

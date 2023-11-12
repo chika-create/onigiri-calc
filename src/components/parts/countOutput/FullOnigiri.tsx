@@ -15,13 +15,14 @@ type AlignmentNumbersType = {
   gold: number;
 };
 
-export default function FullStack({ copyToClipboard }: any) {
+export default function FullOnigiri({ copyToClipboard }: any) {
   const [openTip, setOpenTip] = useState<boolean>(false);
   const stackNumber = useContext(stackNumberContext);
   const selectCastleKind: string = useContext(selectCastleKindContext);
   const alignmentNumbers: AlignmentNumbersType = useContext(
     alignmentNumbersContext
   );
+  console.log("FullOnigiri_alignmentNumbers: ", alignmentNumbers);
 
   const castleAlignmentNumber: number =
     alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];

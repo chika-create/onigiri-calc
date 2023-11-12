@@ -7,6 +7,30 @@ import {
 } from "@mui/material";
 import { useUpdateSelectCastleKind } from "../../hooks/useUpdateSelectCastleKind";
 
+type typeUpdateSelectCastleKind2 = {
+  selectCastleKind2: string;
+  setSelectCastleKind2: (newCastleKind: string) => void;
+  updateSelectCastleKind2: (
+    event: MouseEvent<HTMLElement>,
+    newCastleAlignment: string
+  ) => void;
+};
+
+export function useUpdateSelectCastleKind2(): typeUpdateSelectCastleKind2 {
+  const [selectCastleKind2, setSelectCastleKind2] = useState("red");
+
+  const updateSelectCastleKind2: typeUpdateSelectCastleKind2["updateSelectCastleKind2"] =
+    (event, newCastleAlignment) => {
+      setSelectCastleKind2(newCastleAlignment);
+    };
+
+  return {
+    selectCastleKind2,
+    setSelectCastleKind2,
+    updateSelectCastleKind2,
+  };
+}
+
 export default function CastleKinds(props: any) {
   const { updateSelectCastleKind } = useUpdateSelectCastleKind();
   const [selectedToggleButton, setSelectedToggleButton] = useState<

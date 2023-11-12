@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Box from "@mui/material/Box";
 
 import {
@@ -6,7 +7,6 @@ import {
   selectCastleKindContext,
 } from "../../context/SettingUseContext";
 import { CalcFunc } from "../../CalcFunc";
-import useUpdateSelectCastleKind from "../../hooks/useUpdateSelectCastleKind";
 
 import CastleKinds from "../parts/CastleKinds";
 import CalcTime from "../parts/CalcTime";
@@ -14,7 +14,7 @@ import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
 export default function ServerCastle() {
-  const { selectCastleKind, setSelectCastleKind } = useUpdateSelectCastleKind();
+  const [selectCastleKind, setSelectCastleKind] = useState("red");
   const { alignmentNum, stackNumber, register, calculator } = CalcFunc();
 
   return (

@@ -16,21 +16,6 @@ type typeUpdateSelectCastleKind2 = {
   ) => void;
 };
 
-export function useUpdateSelectCastleKind2(): typeUpdateSelectCastleKind2 {
-  const [selectCastleKind2, setSelectCastleKind2] = useState("red");
-
-  const updateSelectCastleKind2: typeUpdateSelectCastleKind2["updateSelectCastleKind2"] =
-    (event, newCastleAlignment) => {
-      setSelectCastleKind2(newCastleAlignment);
-    };
-
-  return {
-    selectCastleKind2,
-    setSelectCastleKind2,
-    updateSelectCastleKind2,
-  };
-}
-
 export default function CastleKinds(props: any) {
   const { updateSelectCastleKind } = useUpdateSelectCastleKind();
   const [selectedToggleButton, setSelectedToggleButton] = useState<
@@ -38,6 +23,12 @@ export default function CastleKinds(props: any) {
   >("left");
 
   let setSelectCastleKind = props.setSelectCastleKind;
+
+  const [selectCastleKind2, setSelectCastleKind2] = useState("red");
+  const updateSelectCastleKind2: typeUpdateSelectCastleKind2["updateSelectCastleKind2"] =
+    (event, newCastleAlignment) => {
+      setSelectCastleKind2(newCastleAlignment);
+    };
 
   const toggleChange = (
     event: MouseEvent<HTMLElement>,

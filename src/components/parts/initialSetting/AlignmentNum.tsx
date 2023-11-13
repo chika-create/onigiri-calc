@@ -6,24 +6,13 @@ import {
   ToggleButton,
 } from "@mui/material";
 import { castleNumber } from "../../../constants/constants";
-// import { AlignmentNumProps } from "../../../types/types";
+import { AlignmentNumProps } from "../../../types/types";
 
 export default function AlignmentNum({
   castleColorEn,
   castleColorJa,
   setAlignmentNum,
-}: {
-  castleColorJa: string;
-  castleColorEn: string;
-  setAlignmentNum: any;
-}) {
-  //   {
-  //     castleColorJa,
-  //     castleColorEn,
-  //   }:
-  //   setAlignmentNum,
-  //   AlignmentNumProps
-  // ) {
+}: AlignmentNumProps) {
   const [selectedNumber, setSelectedNumber] = useState(1);
 
   // 受け取ったデータを「城種別ごとのデッキ数を登録」に流す

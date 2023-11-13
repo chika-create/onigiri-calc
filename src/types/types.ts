@@ -33,7 +33,6 @@ export interface AlignmentNumProps {
   castleColorJa: string;
   castleColorEn: string;
   setAlignmentNum: any;
-  // castleChange: castleChange;
 }
 
 export type TabBoxProps = {

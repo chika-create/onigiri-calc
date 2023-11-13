@@ -2,8 +2,6 @@ import { useState, SyntheticEvent } from "react";
 import { Box } from "@mui/material";
 import { TabContext, TabPanel } from "@mui/lab";
 
-import { CalcFunc } from "../../CalcFunc";
-
 import ServerCastle from "../pages/ServerCastle";
 import OnigiriTable from "../pages/OnigiriTable";
 import InitialSetting from "../templates/InitialSetting";
@@ -17,7 +15,12 @@ function AppContent() {
     setTabSelectNo(newValue);
   };
 
-  const { castleChange } = CalcFunc();
+  // 城種別ごとのデッキ数
+  const [alignmentNum, setAlignmentNum] = useState({
+    red: 1,
+    blue: 2,
+    gold: 3,
+  });
 
   return (
     <>
@@ -26,9 +29,9 @@ function AppContent() {
           <TabBox tabToChange={tabToChange} />
 
           <TabPanel value="1" sx={{ p: 0 }}>
-            <InitialSetting castleChange={castleChange} />
+            <InitialSetting setAlignmentNum={setAlignmentNum} />
             <Box sx={{ p: 2 }}>
-              <ServerCastle />
+              <ServerCastle alignmentNum={alignmentNum} />
             </Box>
           </TabPanel>
 

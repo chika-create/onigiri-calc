@@ -3,9 +3,7 @@ import { TabList } from "@mui/lab";
 
 import { TabBoxProps } from "../../types/types";
 
-export default function TabBox(props: TabBoxProps) {
-  const tabToChange = props.tabToChange;
-
+export default function TabBox({ tabToChange }: TabBoxProps) {
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
       <TabList onChange={tabToChange}>

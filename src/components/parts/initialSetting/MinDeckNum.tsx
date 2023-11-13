@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Box, Typography, TextField } from "@mui/material";
 
-export default function MinDeckNum(props: any) {
+export default function MinDeckNum() {
   const [deckNum, setDeckNum] = useState(0);
 
   useEffect(() => {

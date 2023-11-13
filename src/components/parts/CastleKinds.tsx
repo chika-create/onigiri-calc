@@ -5,15 +5,25 @@ import {
   ToggleButtonGroup,
   ToggleButton,
 } from "@mui/material";
-import { useUpdateSelectCastleKind } from "../../hooks/useUpdateSelectCastleKind";
 
-export default function CastleKinds(props: any) {
-  const { updateSelectCastleKind } = useUpdateSelectCastleKind();
+type typeUpdateSelectCastleKind = {
+  selectCastleKind: string;
+  setSelectCastleKind: (newCastleKind: string) => void;
+  updateSelectCastleKind: (
+    event: MouseEvent<HTMLElement>,
+    newCastleAlignment: string
+  ) => void;
+};
+
+export default function CastleKinds({ setSelectCastleKind }: any) {
   const [selectedToggleButton, setSelectedToggleButton] = useState<
     string | null
   >("left");
 
-  let setSelectCastleKind = props.setSelectCastleKind;
+  const updateSelectCastleKind: typeUpdateSelectCastleKind["updateSelectCastleKind"] =
+    (event, newCastleAlignment) => {
+      setSelectCastleKind(newCastleAlignment);
+    };
 
   const toggleChange = (
     event: MouseEvent<HTMLElement>,
@@ -21,6 +31,7 @@ export default function CastleKinds(props: any) {
   ) => {
     setSelectedToggleButton(newAlignment);
     updateSelectCastleKind(event, newAlignment);
+    console.log("CastleKinds_newAlignment: ", newAlignment);
 
     setSelectCastleKind(newAlignment);
   };

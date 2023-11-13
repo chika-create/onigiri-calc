@@ -1,6 +1,6 @@
 import { SyntheticEvent } from "react";
 
-type AlignmentNum = number;
+export type AlignmentNum = number;
 type CastleColorEn = string;
 
 // フォームの型
@@ -24,13 +24,15 @@ export interface LocalDate {
   minDeckNum: DeckData;
 }
 
+interface castleChange {
+  alignmentNum: AlignmentNum;
+  castleColorEn: CastleColorEn;
+}
+
 export interface AlignmentNumProps {
   castleColorJa: string;
   castleColorEn: string;
-  castleChange: (
-    alignmentNum: AlignmentNum,
-    castleColorEn: CastleColorEn
-  ) => void;
+  setAlignmentNum: any;
 }
 
 export type TabBoxProps = {

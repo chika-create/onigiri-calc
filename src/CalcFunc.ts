@@ -6,27 +6,6 @@ import { CalcFormInput } from "./types/types";
 export function CalcFunc() {
   // 計算機能用
   const { register, getValues } = useForm<CalcFormInput>();
-
-  // 城種別ごとのデッキ数
-  const [alignmentNum, setAlignmentNum] = useState({
-    red: 1,
-    blue: 2,
-    gold: 3,
-  });
-
-  // 受け取ったデータを「城種別ごとのデッキ数を登録」に流す
-  const castleChange = (value: number, string: string): void => {
-    const newData = {
-      value: value,
-      string: string,
-    };
-    // 城種別ごとのデッキ数を登録
-    setAlignmentNum((prevAlignmentNum) => ({
-      ...prevAlignmentNum,
-      [newData.string]: newData.value,
-    }));
-  };
-
   const [stackNumber, setStackNumber] = useState(0);
 
   // 計算機能
@@ -42,8 +21,6 @@ export function CalcFunc() {
     setStackNumber(Math.ceil((totalNum * 60) / oneDeckSec));
   };
   return {
-    alignmentNum,
-    castleChange,
     stackNumber,
     register,
     calculator,

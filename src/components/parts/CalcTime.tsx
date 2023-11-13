@@ -1,8 +1,6 @@
 import { Box, Typography, TextField } from "@mui/material";
 
-export default function CalcTime(props: any) {
-  const register = props.register;
-
+export default function CalcTime({ register }: any) {
   return (
     <Box
       sx={{

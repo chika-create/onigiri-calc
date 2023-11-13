@@ -7,16 +7,16 @@ import {
   selectCastleKindContext,
 } from "../../context/SettingUseContext";
 import { CalcFunc } from "../../CalcFunc";
+// import { AlignmentNum } from "../../types/types";
 
 import CastleKinds from "../parts/CastleKinds";
 import CalcTime from "../parts/CalcTime";
 import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
-export default function ServerCastle(props: any) {
+export default function ServerCastle({ alignmentNum }: any) {
   const [selectCastleKind, setSelectCastleKind] = useState("red");
   const { stackNumber, register, calculator } = CalcFunc();
-  let alignmentNum = props.alignmentNum;
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>

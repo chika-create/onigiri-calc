@@ -1,6 +1,6 @@
 import { SyntheticEvent } from "react";
 
-type AlignmentNum = number;
+export type AlignmentNum = number;
 type CastleColorEn = string;
 
 // フォームの型
@@ -33,7 +33,7 @@ export interface AlignmentNumProps {
   castleColorJa: string;
   castleColorEn: string;
   setAlignmentNum: any;
-  castleChange: castleChange;
+  // castleChange: castleChange;
 }
 
 export type TabBoxProps = {

@@ -15,12 +15,10 @@ type typeUpdateSelectCastleKind = {
   ) => void;
 };
 
-export default function CastleKinds(props: any) {
+export default function CastleKinds({ setSelectCastleKind }: any) {
   const [selectedToggleButton, setSelectedToggleButton] = useState<
     string | null
   >("left");
-
-  let setSelectCastleKind = props.setSelectCastleKind;
 
   const updateSelectCastleKind: typeUpdateSelectCastleKind["updateSelectCastleKind"] =
     (event, newCastleAlignment) => {

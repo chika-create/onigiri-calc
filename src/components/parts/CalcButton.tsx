@@ -1,8 +1,6 @@
 import { Box, Button } from "@mui/material";
 
-export default function CalcButton(props: any) {
-  const calculator = props.calculator;
-
+export default function CalcButton({ calculator }: any) {
   return (
     <Box sx={{ textAlign: "center" }}>
       <Button variant="contained" onClick={calculator}>

@@ -11,7 +11,7 @@ import AlignmentNum from "../parts/initialSetting/AlignmentNum";
 import MinDeckNum from "../parts/initialSetting/MinDeckNum";
 
 export default function InitialSetting(props: any) {
-  const castleChange = props.castleChange;
+  // const castleChange = props.castleChange;
 
   return (
     <Accordion>
@@ -28,7 +28,8 @@ export default function InitialSetting(props: any) {
             <AlignmentNum
               castleColorJa={castleColor.ja}
               castleColorEn={castleColor.en}
-              castleChange={castleChange}
+              setAlignmentNum={props.setAlignmentNum}
+              // castleChange={castleChange}
             />
           );
         })}

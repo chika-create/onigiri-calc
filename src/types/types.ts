@@ -27,10 +27,11 @@ export interface LocalDate {
 export interface AlignmentNumProps {
   castleColorJa: string;
   castleColorEn: string;
-  castleChange: (
-    alignmentNum: AlignmentNum,
-    castleColorEn: CastleColorEn
-  ) => void;
+  setAlignmentNum: any;
+  // castleChange: (
+  //   alignmentNum: AlignmentNum,
+  //   castleColorEn: CastleColorEn
+  // ) => void;
 }
 
 export type TabBoxProps = {

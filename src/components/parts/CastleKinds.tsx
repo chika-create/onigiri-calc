@@ -33,6 +33,7 @@ export default function CastleKinds(props: any) {
   ) => {
     setSelectedToggleButton(newAlignment);
     updateSelectCastleKind(event, newAlignment);
+    console.log("CastleKinds_newAlignment: ", newAlignment);
 
     setSelectCastleKind(newAlignment);
   };

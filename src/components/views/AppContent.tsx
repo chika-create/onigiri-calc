@@ -17,7 +17,14 @@ function AppContent() {
     setTabSelectNo(newValue);
   };
 
-  const { castleChange } = CalcFunc();
+  // 城種別ごとのデッキ数
+  const [alignmentNum, setAlignmentNum] = useState({
+    red: 1,
+    blue: 2,
+    gold: 3,
+  });
+
+  // const { castleChange } = CalcFunc();
 
   return (
     <>
@@ -26,9 +33,9 @@ function AppContent() {
           <TabBox tabToChange={tabToChange} />
 
           <TabPanel value="1" sx={{ p: 0 }}>
-            <InitialSetting castleChange={castleChange} />
+            <InitialSetting setAlignmentNum={setAlignmentNum} />
             <Box sx={{ p: 2 }}>
-              <ServerCastle />
+              <ServerCastle alignmentNum={alignmentNum} />
             </Box>
           </TabPanel>
 

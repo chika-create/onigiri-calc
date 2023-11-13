@@ -8,12 +8,31 @@ import {
 import { castleNumber } from "../../../constants/constants";
 import { AlignmentNumProps } from "../../../types/types";
 
-export default function AlignmentNum({
-  castleColorJa,
-  castleColorEn,
-  castleChange,
-}: AlignmentNumProps) {
+export default function AlignmentNum(props: any) {
+  //   {
+  //     castleColorJa,
+  //     castleColorEn,
+  //   }: // castleChange,
+  //   setAlignmentNum,
+  //   AlignmentNumProps
+  // ) {
+  const castleColorEn = props.castleColorEn;
+  const castleColorJa = props.castleColorJa;
   const [selectedNumber, setSelectedNumber] = useState(1);
+  let setAlignmentNum = props.setAlignmentNum;
+
+  // 受け取ったデータを「城種別ごとのデッキ数を登録」に流す
+  const castleChange = (value: number, string: string): void => {
+    const newData = {
+      value: value,
+      string: string,
+    };
+    // 城種別ごとのデッキ数を登録
+    setAlignmentNum((prevAlignmentNum: any) => ({
+      ...prevAlignmentNum,
+      [newData.string]: newData.value,
+    }));
+  };
 
   useEffect(() => {
     const savedAlignmentNum = localStorage.getItem(castleColorEn);
@@ -26,7 +45,9 @@ export default function AlignmentNum({
 
   const handleButtonClick = (value: number) => {
     setSelectedNumber(value);
-    console.log("value: " + value + "   / castleColorEn: " + castleColorEn);
+    console.log(
+      "AlignmentNum_value: " + value + "   / castleColorEn: " + castleColorEn
+    );
     castleChange(value, castleColorEn);
     localStorage.setItem(castleColorEn, JSON.stringify(value));
   };

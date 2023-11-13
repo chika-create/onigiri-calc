@@ -13,9 +13,12 @@ import CalcTime from "../parts/CalcTime";
 import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
-export default function ServerCastle() {
+export default function ServerCastle(props: any) {
   const [selectCastleKind, setSelectCastleKind] = useState("red");
-  const { alignmentNum, stackNumber, register, calculator } = CalcFunc();
+  const { stackNumber, register, calculator } = CalcFunc();
+  let alignmentNum = props.alignmentNum;
+  // console.log("ServerCastle_alignmentNum: ", alignmentNum);
+  // ここの alignmentNum がおかしい！！！！
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>

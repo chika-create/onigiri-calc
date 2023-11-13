@@ -24,14 +24,16 @@ export interface LocalDate {
   minDeckNum: DeckData;
 }
 
+interface castleChange {
+  alignmentNum: AlignmentNum;
+  castleColorEn: CastleColorEn;
+}
+
 export interface AlignmentNumProps {
   castleColorJa: string;
   castleColorEn: string;
   setAlignmentNum: any;
-  // castleChange: (
-  //   alignmentNum: AlignmentNum,
-  //   castleColorEn: CastleColorEn
-  // ) => void;
+  castleChange: castleChange;
 }
 
 export type TabBoxProps = {

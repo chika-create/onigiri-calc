@@ -17,8 +17,6 @@ export default function ServerCastle(props: any) {
   const [selectCastleKind, setSelectCastleKind] = useState("red");
   const { stackNumber, register, calculator } = CalcFunc();
   let alignmentNum = props.alignmentNum;
-  // console.log("ServerCastle_alignmentNum: ", alignmentNum);
-  // ここの alignmentNum がおかしい！！！！
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>

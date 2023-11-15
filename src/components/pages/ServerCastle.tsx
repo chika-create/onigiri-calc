@@ -20,24 +20,11 @@ export default function ServerCastle({ alignmentNum }: any) {
   const { register, getValues } = useForm<CalcFormInput>();
   const [stackNumber, setStackNumber] = useState(0);
 
-  // 計算機能
-  const calculator = (): void => {
-    const minNum = Number(getValues(["minNum"]));
-    const secNum = Number(getValues(["secNum"]));
-    const deckNum = Number(localStorage.getItem("deckNum"));
-
-    const convertSecToMin = secNum / 60;
-    const totalNum = minNum + convertSecToMin;
-    const oneDeckSec = 60 / deckNum;
-
-    setStackNumber(Math.ceil((totalNum * 60) / oneDeckSec));
-  };
-
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
       <CalcTime register={register} />
       <CastleKinds setSelectCastleKind={setSelectCastleKind} />
-      <CalcButton calculator={calculator} />
+      <CalcButton getValues={getValues} setStackNumber={setStackNumber} />
       {/* <Box>
               <FormControlLabel
                 control={<Checkbox />}

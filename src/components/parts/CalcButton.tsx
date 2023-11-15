@@ -1,6 +1,19 @@
 import { Box, Button } from "@mui/material";
 
-export default function CalcButton({ calculator }: any) {
+export default function CalcButton({getValues, setStackNumber}: any) {
+
+  // 計算機能
+  const calculator = (): void => {
+    const minNum = Number(getValues(["minNum"]));
+    const secNum = Number(getValues(["secNum"]));
+    const deckNum = Number(localStorage.getItem("deckNum"));
+
+    const convertSecToMin = secNum / 60;
+    const totalNum = minNum + convertSecToMin;
+    const oneDeckSec = 60 / deckNum;
+
+    setStackNumber(Math.ceil((totalNum * 60) / oneDeckSec));
+  };
   return (
     <Box sx={{ textAlign: "center" }}>
       <Button variant="contained" onClick={calculator}>

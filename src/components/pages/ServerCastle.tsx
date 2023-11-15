@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import Box from "@mui/material/Box";
 
 import {
@@ -6,8 +7,7 @@ import {
   alignmentNumbersContext,
   selectCastleKindContext,
 } from "../../context/SettingUseContext";
-import { CalcFunc } from "../../CalcFunc";
-// import { AlignmentNum } from "../../types/types";
+import { CalcFormInput } from "../../types/types";
 
 import CastleKinds from "../parts/CastleKinds";
 import CalcTime from "../parts/CalcTime";
@@ -16,7 +16,22 @@ import CountOutput from "../templates/CountOutput";
 
 export default function ServerCastle({ alignmentNum }: any) {
   const [selectCastleKind, setSelectCastleKind] = useState("red");
-  const { stackNumber, register, calculator } = CalcFunc();
+  // 計算機能用
+  const { register, getValues } = useForm<CalcFormInput>();
+  const [stackNumber, setStackNumber] = useState(0);
+
+  // 計算機能
+  const calculator = (): void => {
+    const minNum = Number(getValues(["minNum"]));
+    const secNum = Number(getValues(["secNum"]));
+    const deckNum = Number(localStorage.getItem("deckNum"));
+
+    const convertSecToMin = secNum / 60;
+    const totalNum = minNum + convertSecToMin;
+    const oneDeckSec = 60 / deckNum;
+
+    setStackNumber(Math.ceil((totalNum * 60) / oneDeckSec));
+  };
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>

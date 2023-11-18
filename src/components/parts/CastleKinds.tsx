@@ -29,7 +29,7 @@ export default function CastleKinds({
       <ToggleButtonGroup
         value={selectedToggleButton}
         exclusive
-        onChange={toggleChange}
+        onChange={(event, value) => toggleChange(value as string)}
       >
         <ToggleButton
           value="red"

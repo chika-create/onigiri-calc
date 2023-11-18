@@ -1,4 +1,4 @@
-import { useState, MouseEvent } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Box from "@mui/material/Box";
 
@@ -15,23 +15,22 @@ import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
 export default function ServerCastle({ alignmentNum }: any) {
+  // 選択した城種別（赤など）
   const [selectCastleKind, setSelectCastleKind] = useState("red");
-  // 計算機能用
-  const { register, getValues } = useForm<CalcFormInput>();
-  const [stackNumber, setStackNumber] = useState(0);
 
+  // 城種別を変更した場合、どのトグルボタンがアクティブかを管理する State
   const [selectedToggleButton, setSelectedToggleButton] = useState<
     string | null
   >("left");
 
-  const toggleChange = (
-    event: MouseEvent<HTMLElement>,
-    newAlignment: string
-  ) => {
-    setSelectedToggleButton(newAlignment);
-    console.log("CastleKinds_newAlignment: ", newAlignment);
-    setSelectCastleKind(newAlignment);
+  const toggleChange = (value: string) => {
+    setSelectedToggleButton(value);
+    setSelectCastleKind(value);
   };
+
+  // 計算機能用
+  const { register, getValues } = useForm<CalcFormInput>();
+  const [stackNumber, setStackNumber] = useState(0);
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>

@@ -1,4 +1,3 @@
-import { useState, MouseEvent } from "react";
 import {
   Box,
   Typography,
@@ -6,20 +5,10 @@ import {
   ToggleButton,
 } from "@mui/material";
 
-export default function CastleKinds({ setSelectCastleKind }: any) {
-  const [selectedToggleButton, setSelectedToggleButton] = useState<
-    string | null
-  >("left");
-
-  const toggleChange = (
-    event: MouseEvent<HTMLElement>,
-    newAlignment: string
-  ) => {
-    setSelectedToggleButton(newAlignment);
-    console.log("CastleKinds_newAlignment: ", newAlignment);
-    setSelectCastleKind(newAlignment);
-  };
-
+export default function CastleKinds({
+  selectedToggleButton,
+  toggleChange,
+}: any) {
   return (
     <Box
       sx={{

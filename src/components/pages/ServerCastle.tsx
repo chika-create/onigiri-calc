@@ -31,6 +31,7 @@ export default function ServerCastle({ alignmentNum }: any) {
   // 計算機能用
   const { register, getValues } = useForm<CalcFormInput>();
   const [stackNumber, setStackNumber] = useState(0);
+  const setStackNumberFunction = (arg: any) => setStackNumber(arg);
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
@@ -39,7 +40,11 @@ export default function ServerCastle({ alignmentNum }: any) {
         selectedToggleButton={selectedToggleButton}
         toggleChange={toggleChange}
       />
-      <CalcButton getValues={getValues} setStackNumber={setStackNumber} />
+      <CalcButton
+        getValues={getValues}
+        setStackNumber={setStackNumber}
+        setStackNumberFunction={setStackNumberFunction}
+      />
       {/* <Box>
               <FormControlLabel
                 control={<Checkbox />}

@@ -1,7 +1,10 @@
 import { Box, Button } from "@mui/material";
 
-export default function CalcButton({getValues, setStackNumber}: any) {
-
+export default function CalcButton({
+  getValues,
+  setStackNumber,
+  setStackNumberFunction,
+}: any) {
   // 計算機能
   const calculator = (): void => {
     const minNum = Number(getValues(["minNum"]));
@@ -12,6 +15,7 @@ export default function CalcButton({getValues, setStackNumber}: any) {
     const totalNum = minNum + convertSecToMin;
     const oneDeckSec = 60 / deckNum;
 
+    setStackNumberFunction(Math.ceil((totalNum * 60) / oneDeckSec));
     setStackNumber(Math.ceil((totalNum * 60) / oneDeckSec));
   };
   return (

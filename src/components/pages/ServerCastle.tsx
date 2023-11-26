@@ -31,7 +31,8 @@ export default function ServerCastle({ alignmentNum }: any) {
   // 計算機能用
   const { register, getValues } = useForm<CalcFormInput>();
   const [stackNumber, setStackNumber] = useState(0);
-  const setStackNumberFunction = (arg: any) => setStackNumber(arg);
+  const setStackNumberFunction = (requireStackNum: number) =>
+    setStackNumber(requireStackNum);
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>

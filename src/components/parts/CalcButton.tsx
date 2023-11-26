@@ -18,7 +18,7 @@ export default function CalcButton({ getValues, setStackNumberFunction }: any) {
     const oneDeckSec = 60 / deckNum;
 
     // 必要な駐屯数を切り上げ計算
-    const requireStackNum = Math.ceil((totalNum * 60) / oneDeckSec);
+    const requireStackNum = Math.floor((totalNum * 60) / oneDeckSec);
 
     setStackNumberFunction(requireStackNum);
   };

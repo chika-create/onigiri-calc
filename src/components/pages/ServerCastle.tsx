@@ -42,7 +42,6 @@ export default function ServerCastle({ alignmentNum }: any) {
       />
       <CalcButton
         getValues={getValues}
-        setStackNumber={setStackNumber}
         setStackNumberFunction={setStackNumberFunction}
       />
       {/* <Box>

@@ -7,13 +7,15 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import { castelColors } from "../../constants/constants";
+
 import AlignmentNum from "../parts/initialSetting/AlignmentNum";
 import MinDeckNum from "../parts/initialSetting/MinDeckNum";
 
-export default function InitialSetting(props: any) {
-  const castleChange = props.castleChange;
-  const register = props.register;
+// interface InitialSettingProps {
+//   setAlignmentNum: (newAlignmentNum: number, castleColor: string) => void;
+// }
 
+export default function InitialSetting({ setAlignmentNum }: any) {
   return (
     <Accordion>
       <AccordionSummary
@@ -29,11 +31,11 @@ export default function InitialSetting(props: any) {
             <AlignmentNum
               castleColorJa={castleColor.ja}
               castleColorEn={castleColor.en}
-              castleChange={castleChange}
+              setAlignmentNum={setAlignmentNum}
             />
           );
         })}
-        <MinDeckNum register={register} />
+        <MinDeckNum />
       </AccordionDetails>
     </Accordion>
   );

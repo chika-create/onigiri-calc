@@ -1,12 +1,7 @@
-type AlignmentNum = number;
-type CastleColorEn = string;
+import { SyntheticEvent } from "react";
 
-// タブ切り替え管理
-export interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
-}
+export type AlignmentNum = number;
+type CastleColorEn = string;
 
 // フォームの型
 export interface CalcFormInput {
@@ -29,8 +24,17 @@ export interface LocalDate {
   minDeckNum: DeckData;
 }
 
+interface castleChange {
+  alignmentNum: AlignmentNum;
+  castleColorEn: CastleColorEn;
+}
+
 export interface AlignmentNumProps {
   castleColorJa: string;
   castleColorEn: string;
-  castleChange: (alignmentNum: AlignmentNum, castleColorEn: CastleColorEn) => void;
+  setAlignmentNum: any;
 }
+
+export type TabBoxProps = {
+  tabToChange: (event: SyntheticEvent, newValue: string) => void;
+};

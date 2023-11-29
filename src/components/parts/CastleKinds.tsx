@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Typography,
@@ -6,17 +5,10 @@ import {
   ToggleButton,
 } from "@mui/material";
 
-export default function CastelKinds(props: any) {
-  const castleKinds = props.onClick;
-  const [toggleStr, setToggleStr] = React.useState<string | null>("left");
-
-  const toggleChange = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: string | null
-  ) => {
-    setToggleStr(newAlignment);
-  };
-
+export default function CastleKinds({
+  selectedToggleButton,
+  toggleChange,
+}: any) {
   return (
     <Box
       sx={{
@@ -35,15 +27,12 @@ export default function CastelKinds(props: any) {
       </Typography>
 
       <ToggleButtonGroup
-        value={toggleStr}
+        value={selectedToggleButton}
         exclusive
-        onChange={toggleChange}
-        aria-label="text alignment"
+        onChange={(event, value) => toggleChange(value as string)}
       >
         <ToggleButton
           value="red"
-          onClick={castleKinds}
-          aria-label="left aligned"
           sx={{
             width: 1 / 3,
           }}
@@ -52,8 +41,6 @@ export default function CastelKinds(props: any) {
         </ToggleButton>
         <ToggleButton
           value="blue"
-          onClick={castleKinds}
-          aria-label="left aligned"
           sx={{
             width: 1 / 3,
           }}
@@ -62,8 +49,6 @@ export default function CastelKinds(props: any) {
         </ToggleButton>
         <ToggleButton
           value="gold"
-          onClick={castleKinds}
-          aria-label="left aligned"
           sx={{
             width: 1 / 3,
           }}

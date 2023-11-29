@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Box, Typography, TextField } from "@mui/material";
 
-export default function MinDeckNum(props: any) {
-  const register = props.register;
+export default function MinDeckNum() {
   const [deckNum, setDeckNum] = useState(0);
 
   useEffect(() => {
@@ -40,7 +39,6 @@ export default function MinDeckNum(props: any) {
         variant="outlined"
         value={deckNum}
         onChange={handleDeckNumChange}
-        // {...register("deckNum")}
         sx={{
           ml: 2,
         }}

@@ -6,14 +6,27 @@ import {
   ToggleButton,
 } from "@mui/material";
 import { castleNumber } from "../../../constants/constants";
-import { AlignmentNumProps } from "../../../types";
+import { AlignmentNumProps } from "../../../types/types";
 
 export default function AlignmentNum({
-  castleColorJa,
   castleColorEn,
-  castleChange,
+  castleColorJa,
+  setAlignmentNum,
 }: AlignmentNumProps) {
   const [selectedNumber, setSelectedNumber] = useState(1);
+
+  // 受け取ったデータを「城種別ごとのデッキ数を登録」に流す
+  const castleChange = (value: number, string: string): void => {
+    const newData = {
+      value: value,
+      string: string,
+    };
+    // 城種別ごとのデッキ数を登録
+    setAlignmentNum((prevAlignmentNum: any) => ({
+      ...prevAlignmentNum,
+      [newData.string]: newData.value,
+    }));
+  };
 
   useEffect(() => {
     const savedAlignmentNum = localStorage.getItem(castleColorEn);
@@ -26,6 +39,9 @@ export default function AlignmentNum({
 
   const handleButtonClick = (value: number) => {
     setSelectedNumber(value);
+    console.log(
+      "AlignmentNum_value: " + value + "   / castleColorEn: " + castleColorEn
+    );
     castleChange(value, castleColorEn);
     localStorage.setItem(castleColorEn, JSON.stringify(value));
   };
@@ -57,7 +73,6 @@ export default function AlignmentNum({
               value={item}
               selected={selectedNumber === item}
               onClick={() => handleButtonClick(item)}
-              aria-label="left aligned"
               sx={{
                 width: 1 / 5,
               }}

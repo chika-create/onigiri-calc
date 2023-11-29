@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import Box from "@mui/material/Box";
 
 import {
@@ -6,8 +7,7 @@ import {
   alignmentNumbersContext,
   selectCastleKindContext,
 } from "../../context/SettingUseContext";
-import { CalcFunc } from "../../CalcFunc";
-// import { AlignmentNum } from "../../types/types";
+import { CalcFormInput } from "../../types/types";
 
 import CastleKinds from "../parts/CastleKinds";
 import CalcTime from "../parts/CalcTime";
@@ -15,14 +15,36 @@ import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
 export default function ServerCastle({ alignmentNum }: any) {
+  // 選択した城種別（赤など）
   const [selectCastleKind, setSelectCastleKind] = useState("red");
-  const { stackNumber, register, calculator } = CalcFunc();
+
+  // 城種別を変更した場合、どのトグルボタンがアクティブかを管理する State
+  const [selectedToggleButton, setSelectedToggleButton] = useState<
+    string | null
+  >("left");
+
+  const toggleChange = (value: string) => {
+    setSelectedToggleButton(value);
+    setSelectCastleKind(value);
+  };
+
+  // 計算機能用
+  const { register, getValues } = useForm<CalcFormInput>();
+  const [stackNumber, setStackNumber] = useState(0);
+  const setStackNumberFunction = (requireStackNum: number) =>
+    setStackNumber(requireStackNum);
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
       <CalcTime register={register} />
-      <CastleKinds setSelectCastleKind={setSelectCastleKind} />
-      <CalcButton calculator={calculator} />
+      <CastleKinds
+        selectedToggleButton={selectedToggleButton}
+        toggleChange={toggleChange}
+      />
+      <CalcButton
+        getValues={getValues}
+        setStackNumberFunction={setStackNumberFunction}
+      />
       {/* <Box>
               <FormControlLabel
                 control={<Checkbox />}

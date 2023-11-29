@@ -11,16 +11,9 @@ import { castelColors } from "../../constants/constants";
 import AlignmentNum from "../parts/initialSetting/AlignmentNum";
 import MinDeckNum from "../parts/initialSetting/MinDeckNum";
 
-// この interface を any の代わりに型宣言で設定してもエラーになる
-// ServerCastle の any も同様
-
-// ERROR in src/components/views/AppContent.tsx:32:29
-// TS2322: Type 'Dispatch<SetStateAction<{ red: number; blue: number; gold: number; }>>' is not assignable to type '(newAlignmentNum: number, castleColor: string) => void'.
-//   Types of parameters 'value' and 'newAlignmentNum' are incompatible.
-//     Type 'number' is not assignable to type 'SetStateAction<{ red: number; blue: number; gold: number; }>'.
-interface InitialSettingProps {
-  setAlignmentNum: (newAlignmentNum: number, castleColor: string) => void;
-}
+// interface InitialSettingProps {
+//   setAlignmentNum: (newAlignmentNum: number, castleColor: string) => void;
+// }
 
 export default function InitialSetting({ setAlignmentNum }: any) {
   return (

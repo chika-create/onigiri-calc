@@ -70,7 +70,12 @@
     "@storybook/react": "^7.0.4",
     "@storybook/react-webpack5": "^7.0.4",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "@types/eslint": "^8",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint": "^8.54.0",
+    "eslint-plugin-react": "^7.33.2",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.4",
     "webpack": "^5.79.0"

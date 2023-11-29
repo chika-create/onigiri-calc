@@ -17,7 +17,7 @@ export default function CalcButton({ getValues, setStackNumberFunction }: any) {
     //一駐屯にかかる秒数
     const oneDeckSec = 60 / deckNum;
 
-    // 必要な駐屯数を切り上げ計算
+    // 必要な駐屯数を切り捨て計算
     const requireStackNum = Math.floor((totalNum * 60) / oneDeckSec);
 
     setStackNumberFunction(requireStackNum);

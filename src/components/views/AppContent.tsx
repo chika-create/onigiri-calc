@@ -3,10 +3,10 @@ import { Box } from "@mui/material";
 import { TabContext, TabPanel } from "@mui/lab";
 
 import ServerCastle from "../pages/ServerCastle";
-import UniversalCastle from "../pages/UniversalCastle";
 import OnigiriTable from "../pages/OnigiriTable";
 import InitialSetting from "../templates/InitialSetting";
 import TabBox from "./TabBox";
+import Howto from "../pages/Howto";
 
 function AppContent() {
   const [tabSelectNo, setTabSelectNo] = useState("1");
@@ -36,7 +36,7 @@ function AppContent() {
           </TabPanel>
 
           <TabPanel value="2" sx={{ p: 0 }}>
-            <UniversalCastle />
+            <Howto />
           </TabPanel>
 
           <TabPanel value="3" sx={{ p: 0 }}>

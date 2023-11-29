@@ -8,8 +8,8 @@ export default function TabBox({ tabToChange }: TabBoxProps) {
     <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
       <TabList onChange={tabToChange}>
         <Tab label="城戦" value="1" />
-        <Tab label="test" value="2" />
-        <Tab label="おにぎり表" value="3" />
+        <Tab label="使い方" value="2" />
+        {/* <Tab label="おにぎり表" value="3" /> */}
       </TabList>
     </Box>
   );

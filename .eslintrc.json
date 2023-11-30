@@ -1,22 +1,22 @@
+// Linter。フォーマットの不揃いや最適でないコードを静的に解析・検知
 {
     "env": {
-        "browser": true,
-        "es2021": true
+        "browser": true, // ブラウザのグローバル環境変数
+        "es2021": true // すべての ECMAScript2021 をグローバルに追加
     },
     "extends": [
-        "eslint:recommended",
+        "eslint:recommended", // ESLintが推奨するチェック項目でまとめてチェック
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended"
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
+    "parser": "@typescript-eslint/parser", // ECMAScriptの特定のバージョンやTSなどに対応するためのツール
+    "parserOptions": { // コードの解析をカスタマイズするための
         "ecmaVersion": "latest",
-        "sourceType": "module"
+        "sourceType": "module" // コードのタイプ：ECMAScriptモジュールを使用
     },
     "plugins": [
         "@typescript-eslint",
         "react"
     ],
-    "rules": {
-    }
+    "rules": {}
 }

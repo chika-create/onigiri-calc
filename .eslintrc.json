@@ -10,13 +10,11 @@
         "plugin:react/recommended",
         "airbnb",
         "airbnb/hooks",
-        "prettier",
-        "prettier/react",
-        "prettier/@typescript-eslint"
+        "prettier"
     ],
     "parser": "@typescript-eslint/parser", // ECMAScriptの特定のバージョンやTSなどに対応するためのツール
     "parserOptions": {           // コードの解析をカスタマイズするための
-        "ecmaVersion": "latest",
+        "ecmaVersion": 2021,     // latestではなく、直接のバージョン指定が推奨されている
         "sourceType": "module"   // コードのタイプ：ECMAScriptモジュールを使用
     },
     "plugins": [
@@ -29,5 +27,13 @@
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
         "prettier/prettier": "error"
-    }
+    },
+    "overrides": [
+        {
+            "files": ["*.tsx"],
+            "rules": {
+                "react/prop-types": "off" // TypeScriptの場合、PropTypesのチェックは不要
+            }
+        }
+    ]
 }

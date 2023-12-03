@@ -8,9 +8,7 @@ import Term from "./components/pages/Term";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 import { grayColors } from "./constants/colors";
 
-// import usePageTracking from "./useTracking";
-
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>

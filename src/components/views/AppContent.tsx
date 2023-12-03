@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, SyntheticEvent } from "react";
 import { Box } from "@mui/material";
 import { TabContext, TabPanel } from "@mui/lab";
@@ -7,6 +8,8 @@ import OnigiriTable from "../pages/OnigiriTable";
 import InitialSetting from "../templates/InitialSetting";
 import TabBox from "./TabBox";
 import Howto from "../pages/Howto";
+
+import usePageTracking from "../../useTracking";
 
 function AppContent() {
   const [tabSelectNo, setTabSelectNo] = useState("1");
@@ -21,6 +24,8 @@ function AppContent() {
     blue: 2,
     gold: 3,
   });
+
+  usePageTracking();
 
   return (
     <>

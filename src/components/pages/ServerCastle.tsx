@@ -14,7 +14,11 @@ import CalcTime from "../parts/CalcTime";
 import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
-export default function ServerCastle({ alignmentNum }: any) {
+interface AlignmentNumProps {
+  alignmentNum: Record<string, number>;
+}
+
+export default function ServerCastle({ alignmentNum }: AlignmentNumProps) {
   // 選択した城種別（赤など）
   const [selectCastleKind, setSelectCastleKind] = useState("red");
 

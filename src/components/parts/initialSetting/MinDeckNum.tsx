@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography, TextField } from "@mui/material";
 
 export default function MinDeckNum() {

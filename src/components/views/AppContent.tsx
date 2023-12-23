@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, SyntheticEvent } from "react";
+import React, { useState, SyntheticEvent } from "react";
 import { Box } from "@mui/material";
 import { TabContext, TabPanel } from "@mui/lab";
 

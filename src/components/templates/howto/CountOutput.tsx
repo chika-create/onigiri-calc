@@ -1,3 +1,4 @@
+import React from "react";
 import FullStack from "../../parts/howto/countOutput/FullStack";
 import FullOnigiri from "../../parts/howto/countOutput/FullOnigiri";
 

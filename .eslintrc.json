@@ -1,7 +1,6 @@
 {
     "env": {
-        "browser": true,
-        "es2021": true
+        "es2023": true
     },
     "extends": [
         "eslint:recommended",
@@ -17,6 +16,5 @@
         "@typescript-eslint",
         "react"
     ],
-    "rules": {
-    }
+    "rules": {}
 }

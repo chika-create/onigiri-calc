@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Box from "@mui/material/Box";
 
@@ -15,7 +14,11 @@ import CalcTime from "../parts/CalcTime";
 import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
-export default function ServerCastle({ alignmentNum }: any) {
+interface ServerCastleProps {
+  alignmentNum: Record<string, number>;
+}
+
+export default function ServerCastle({ alignmentNum }: ServerCastleProps) {
   // 選択した城種別（赤など）
   const [selectCastleKind, setSelectCastleKind] = useState("red");
 

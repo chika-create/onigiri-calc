@@ -1,7 +1,15 @@
 import React from "react";
 import { Box, Button } from "@mui/material";
 
-export default function CalcButton({ getValues, setStackNumberFunction }: any) {
+interface CalcButtonProps {
+  getValues: number;
+  setStackNumberFunction: void;
+}
+
+export default function CalcButton({
+  getValues,
+  setStackNumberFunction,
+}: CalcButtonProps) {
   // 計算機能
   const calculator = (): void => {
     // 守る時間：分
@@ -15,7 +23,8 @@ export default function CalcButton({ getValues, setStackNumberFunction }: any) {
 
     // 一分の駐屯数
     const deckNum = Number(localStorage.getItem("deckNum"));
-    //一駐屯にかかる秒数
+
+    // 一駐屯にかかる秒数
     const oneDeckSec = 60 / deckNum;
 
     // 必要な駐屯数を切り捨て計算

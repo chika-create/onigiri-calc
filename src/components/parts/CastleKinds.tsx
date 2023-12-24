@@ -6,10 +6,15 @@ import {
   ToggleButton,
 } from "@mui/material";
 
+interface CastleKindsProps {
+  selectedToggleButton: number;
+  toggleChange: void;
+}
+
 export default function CastleKinds({
   selectedToggleButton,
   toggleChange,
-}: any) {
+}: CastleKindsProps) {
   return (
     <Box
       sx={{

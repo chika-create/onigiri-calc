@@ -21,7 +21,8 @@ export default function CalcButton({ getValues, setStackNumberFunction }: CalcBu
 
     // 一分の駐屯数
     const deckNum = Number(localStorage.getItem("deckNum"));
-    //一駐屯にかかる秒数
+
+    // 一駐屯にかかる秒数
     const oneDeckSec = 60 / deckNum;
 
     // 必要な駐屯数を切り捨て計算

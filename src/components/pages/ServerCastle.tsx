@@ -15,7 +15,11 @@ import CalcTime from "../parts/CalcTime";
 import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
-export default function ServerCastle({ alignmentNum }: any) {
+interface AlignmentNumProps {
+  alignmentNum: Record<string, number>;
+}
+
+export default function ServerCastle({ alignmentNum }: AlignmentNumProps) {
   // 選択した城種別（赤など）
   const [selectCastleKind, setSelectCastleKind] = useState("red");
 
@@ -55,7 +59,7 @@ export default function ServerCastle({ alignmentNum }: any) {
       <stackNumberContext.Provider value={stackNumber}>
         <selectCastleKindContext.Provider value={selectCastleKind}>
           <alignmentNumbersContext.Provider value={alignmentNum}>
-            <CountOutput stackNumber={stackNumber} />
+            <CountOutput />
           </alignmentNumbersContext.Provider>
         </selectCastleKindContext.Provider>
       </stackNumberContext.Provider>

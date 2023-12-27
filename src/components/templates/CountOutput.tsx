@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import FullStack from "../parts/countOutput/FullStack";
 import FullOnigiri from "../parts/countOutput/FullOnigiri";
 
-export default function CountOutput(props: any) {
+export default function CountOutput() {
   // クリップボードにコピー
   async function copyToClipboard(num: number | string) {
     try {

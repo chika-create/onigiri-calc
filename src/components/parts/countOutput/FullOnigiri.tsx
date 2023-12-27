@@ -23,12 +23,9 @@ export default function FullOnigiri({ copyToClipboard }: any) {
   const alignmentNumbers: AlignmentNumbersType = useContext(
     alignmentNumbersContext
   );
-  // console.log("FullOnigiri_alignmentNumbers: ", alignmentNumbers);
 
   const castleAlignmentNumber: number =
     alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];
-  // console.log("stackNumber : ", stackNumber);
-  // console.log("castleAlignmentNumber: ", castleAlignmentNumber);
   const fullOnigiriNumber = stackNumber * castleAlignmentNumber;
 
   const handleClickButtonFullOnigiri = (): void => {

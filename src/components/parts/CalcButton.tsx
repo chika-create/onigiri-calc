@@ -1,13 +1,19 @@
 import React from "react";
 import { Box, Button } from "@mui/material";
+import { CalcFormInput } from "../../types/types";
 
-export default function CalcButton({ getValues, setStackNumberFunction }: any) {
+interface CalcButtonProps {
+  getValues: () => CalcFormInput;
+  setStackNumberFunction: (requireStackNum: number) => void;
+}
+
+export default function CalcButton({ getValues, setStackNumberFunction }: CalcButtonProps) {
   // 計算機能
   const calculator = (): void => {
     // 守る時間：分
-    const minNum = Number(getValues(["minNum"]));
+    const minNum = Number(getValues().minNum);
     // 守る時間：秒
-    const secNum = Number(getValues(["secNum"]));
+    const secNum = Number(getValues().secNum);
     // 守る時間：秒を分に換算
     const convertSecToMin = secNum / 60;
     // 守る時間の分に合算

@@ -10,7 +10,7 @@
         // "airbnb",
         // "airbnb/hooks",
         "prettier",
-        "plugin:prettier/recommended" // Prettierとの統合を行う設定
+        // "plugin:prettier/recommended" // Prettierとの統合を行う設定
     ],
     "parser": "@typescript-eslint/parser", // ECMAScriptの特定のバージョンやTSなどに対応するためのツール
     "parserOptions": { // コードの解析をカスタマイズするための
@@ -35,7 +35,7 @@
     "rules": {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
-        "prettier/prettier": "error"
+        // "prettier/prettier": "error"
     },
     "overrides": [
         {

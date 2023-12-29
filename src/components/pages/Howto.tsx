@@ -39,7 +39,11 @@ export default function Howto() {
           {castelColors.map((castleColor, i) => {
             i++;
             return (
-              <AlignmentNum selectedNumber={i} castleColorJa={castleColor.ja} />
+              <AlignmentNum
+                key={i}
+                selectedNumber={i}
+                castleColorJa={castleColor.ja}
+              />
             );
           })}
         </Box>

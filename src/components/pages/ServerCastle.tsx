@@ -14,7 +14,6 @@ import CalcTime from "../parts/CalcTime";
 import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
-
 interface ServerCastleProps {
   alignmentNum: {
     red: number;

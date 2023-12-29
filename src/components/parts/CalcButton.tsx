@@ -7,7 +7,10 @@ interface CalcButtonProps {
   setStackNumberFunction: (requireStackNum: number) => void;
 }
 
-export default function CalcButton({ getValues, setStackNumberFunction }: CalcButtonProps) {
+export default function CalcButton({
+    getValues,
+    setStackNumberFunction
+  }: CalcButtonProps) {
   // 計算機能
   const calculator = (): void => {
     // 守る時間：分

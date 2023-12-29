@@ -7,8 +7,8 @@ import {
 } from "@mui/material";
 
 interface CastleKindsProps {
-  selectedToggleButton: number;
-  toggleChange: void;
+  selectedToggleButton: string | null;
+  toggleChange: (value: string) => void;
 }
 
 export default function CastleKinds({

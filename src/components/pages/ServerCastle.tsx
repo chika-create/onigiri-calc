@@ -14,8 +14,13 @@ import CalcTime from "../parts/CalcTime";
 import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
+
 interface ServerCastleProps {
-  alignmentNum: Record<string, number>;
+  alignmentNum: {
+    red: number;
+    blue: number;
+    gold: number;
+  };
 }
 
 export default function ServerCastle({ alignmentNum }: ServerCastleProps) {

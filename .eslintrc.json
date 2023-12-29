@@ -4,17 +4,18 @@
     //     "es2023": true
     // },
     "extends": [
-        "eslint:recommended",   // ESLintが推奨するチェック項目でまとめてチェック
+        "eslint:recommended", // ESLintが推奨するチェック項目でまとめてチェック
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
-        "airbnb",
-        "airbnb/hooks",
-        "prettier"
+        // "airbnb",
+        // "airbnb/hooks",
+        "prettier",
+        "plugin:prettier/recommended" // Prettierとの統合を行う設定
     ],
     "parser": "@typescript-eslint/parser", // ECMAScriptの特定のバージョンやTSなどに対応するためのツール
-    "parserOptions": {           // コードの解析をカスタマイズするための
-        "ecmaVersion": 2023,     // latestではなく、直接のバージョン指定が推奨されている
-        "sourceType": "module"   // コードのタイプ：ECMAScriptモジュールを使用
+    "parserOptions": { // コードの解析をカスタマイズするための
+        "ecmaVersion": 2023, // latestではなく、直接のバージョン指定が推奨されている
+        "sourceType": "module" // コードのタイプ：ECMAScriptモジュールを使用
     },
     "plugins": [
         "@typescript-eslint",
@@ -25,7 +26,9 @@
     "settings": {
         "import/resolver": {
             "node": {
-                "paths": ["src"]
+                "paths": [
+                    "src"
+                ]
             }
         }
     },
@@ -36,7 +39,9 @@
     },
     "overrides": [
         {
-            "files": ["*.tsx"],
+            "files": [
+                "*.tsx"
+            ],
             "rules": {
                 "react/prop-types": "off" // TypeScriptの場合、PropTypesのチェックは不要
             }

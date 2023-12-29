@@ -5,12 +5,12 @@
     // },
     "extends": [
         "eslint:recommended", // ESLintが推奨するチェック項目でまとめてチェック
+        "prettier",
         "plugin:@typescript-eslint/recommended",
-        "plugin:react/recommended",
+        "plugin:prettier/recommended" // Prettierとの統合を行う設定
+        // "plugin:react/recommended",
         // "airbnb",
         // "airbnb/hooks",
-        "prettier",
-        // "plugin:prettier/recommended" // Prettierとの統合を行う設定
     ],
     "parser": "@typescript-eslint/parser", // ECMAScriptの特定のバージョンやTSなどに対応するためのツール
     "parserOptions": { // コードの解析をカスタマイズするための

@@ -1,4 +1,3 @@
-import React from "react";
 import { Box } from "@mui/material";
 import TitleH1 from "../parts/typography/TitleH1";
 import TitleH2 from "../parts/typography/TitleH2";

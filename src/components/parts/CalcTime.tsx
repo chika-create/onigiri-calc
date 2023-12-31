@@ -1,6 +1,11 @@
 import { Box, Typography, TextField } from "@mui/material";
+import { FieldValues, UseFormRegister } from "react-hook-form";
 
-export default function CalcTime({ register }: any) {
+interface CalcTimeProps {
+  register: UseFormRegister<FieldValues>;
+}
+
+export default function CalcTime({ register }: CalcTimeProps) {
   return (
     <Box
       sx={{

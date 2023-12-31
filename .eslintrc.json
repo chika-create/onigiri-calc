@@ -5,8 +5,8 @@
     // },
     "extends": [
         "eslint:recommended", // ESLintが推奨するチェック項目でまとめてチェック
-        "prettier",
         "plugin:@typescript-eslint/recommended",
+        "prettier",
         "plugin:prettier/recommended" // Prettierとの統合を行う設定
         // "plugin:react/recommended",
         // "airbnb",
@@ -35,7 +35,7 @@
     "rules": {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
-        // "prettier/prettier": "error"
+        "prettier/prettier": "error"
     },
     "overrides": [
         {

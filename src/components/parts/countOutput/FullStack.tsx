@@ -4,7 +4,11 @@ import { stackNumberContext } from "../../../context/SettingUseContext";
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
-export default function FullStack({ copyToClipboard }: any) {
+interface FullStackProps {
+  copyToClipboard: (num: number | string) => Promise<void>;
+}
+
+export default function FullStack({ copyToClipboard }: FullStackProps) {
   const [openTip, setOpenTip] = useState<boolean>(false);
   const stackNumber = useContext(stackNumberContext);
 

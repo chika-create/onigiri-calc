@@ -15,7 +15,11 @@ type AlignmentNumbersType = {
   gold: number;
 };
 
-export default function FullOnigiri({ copyToClipboard }: any) {
+interface FullOnigiriProps {
+  copyToClipboard: (num: number | string) => Promise<void>;
+}
+
+export default function FullOnigiri({ copyToClipboard }: FullOnigiriProps) {
   const [openTip, setOpenTip] = useState<boolean>(false);
   const stackNumber = useContext(stackNumberContext);
   const selectCastleKind: string = useContext(selectCastleKindContext);

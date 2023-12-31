@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { stackNumberContext } from "../../../context/SettingUseContext";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
@@ -9,11 +9,9 @@ interface FullStackProps {
 }
 
 export default function FullStack({ copyToClipboard }: FullStackProps) {
-  const [openTip, setOpenTip] = useState<boolean>(false);
   const stackNumber = useContext(stackNumberContext);
 
   const handleClickButtonFullStack = (): void => {
-    setOpenTip(true);
     copyToClipboard(stackNumber);
   };
 

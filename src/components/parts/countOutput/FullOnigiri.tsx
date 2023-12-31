@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import {
   stackNumberContext,
   alignmentNumbersContext,
@@ -20,7 +20,6 @@ interface FullOnigiriProps {
 }
 
 export default function FullOnigiri({ copyToClipboard }: FullOnigiriProps) {
-  const [openTip, setOpenTip] = useState<boolean>(false);
   const stackNumber = useContext(stackNumberContext);
   const selectCastleKind: string = useContext(selectCastleKindContext);
   const alignmentNumbers: AlignmentNumbersType = useContext(
@@ -32,7 +31,6 @@ export default function FullOnigiri({ copyToClipboard }: FullOnigiriProps) {
   const fullOnigiriNumber = stackNumber * castleAlignmentNumber;
 
   const handleClickButtonFullOnigiri = (): void => {
-    setOpenTip(true);
     copyToClipboard(fullOnigiriNumber);
   };
 

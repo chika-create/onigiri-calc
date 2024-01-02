@@ -41,9 +41,6 @@ export default function AlignmentNum({
 
   const handleButtonClick = (value: number) => {
     setSelectedNumber(value);
-    console.log(
-      "AlignmentNum_value: " + value + "   / castleColorEn: " + castleColorEn
-    );
     castleChange(value, castleColorEn);
     localStorage.setItem(castleColorEn, JSON.stringify(value));
   };

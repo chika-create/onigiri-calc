@@ -5,7 +5,7 @@ interface TitleH1props extends TypographyProps {
   children: ReactNode;
 }
 
-function TitleH1({ children, ...typographyProps }: TitleH1props) {
+function TitleH1({ children }: TitleH1props) {
   return (
     <Typography
       variant="h1"
@@ -14,7 +14,6 @@ function TitleH1({ children, ...typographyProps }: TitleH1props) {
         fontSize: 25,
         mb: 4,
       }}
-      {...typographyProps}
     >
       {children}
     </Typography>

@@ -5,14 +5,13 @@ interface TextProps extends TypographyProps {
   children: ReactNode;
 }
 
-function Text({ children, ...typographyProps }: TextProps) {
+function Text({ children }: TextProps) {
   return (
     <Typography
       sx={{
         fontSize: 14,
         mb: 2,
       }}
-      {...typographyProps}
     >
       {children}
     </Typography>

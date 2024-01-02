@@ -32,7 +32,9 @@ interface castleChange {
 export interface AlignmentNumProps {
   castleColorJa: string;
   castleColorEn: string;
-  setAlignmentNum: any;
+  setAlignmentNum: React.Dispatch<
+    React.SetStateAction<{ [key: string]: number }>
+  >;
 }
 
 export type TabBoxProps = {

@@ -22,7 +22,7 @@ export default function AlignmentNum({
       string: string,
     };
     // 城種別ごとのデッキ数を登録
-    setAlignmentNum((prevAlignmentNum: any) => ({
+    setAlignmentNum((prevAlignmentNum: { [key: string]: number }) => ({
       ...prevAlignmentNum,
       [newData.string]: newData.value,
     }));

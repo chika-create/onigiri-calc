@@ -33,12 +33,17 @@ function AppContent() {
           <TabBox tabToChange={tabToChange} />
 
           <TabPanel value="1" sx={{ p: 0 }}>
-            <InitialSetting setAlignmentNum={setAlignmentNum} />
+            <InitialSetting
+              setAlignmentNum={
+                setAlignmentNum as React.Dispatch<
+                  React.SetStateAction<{ [key: string]: number }>
+                >
+              }
+            />
             <Box sx={{ p: 2 }}>
               <ServerCastle alignmentNum={alignmentNum} />
             </Box>
           </TabPanel>
-
           <TabPanel value="2" sx={{ p: 0 }}>
             <Howto />
           </TabPanel>

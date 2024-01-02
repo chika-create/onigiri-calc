@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, ChangeEvent } from "react";
 import { Box, Typography, TextField } from "@mui/material";
 
 export default function MinDeckNum() {
@@ -12,11 +12,11 @@ export default function MinDeckNum() {
     }
   }, []);
 
-  const handleDeckNumChange = (event: any) => {
-    const value = event.target.value;
+  const handleDeckNumChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = Number(event.target.value);
     setDeckNum(value);
     // 値が変更されるたびにlocalStorageに保存する
-    localStorage.setItem("deckNum", value);
+    localStorage.setItem("deckNum", String(value));
   };
 
   return (

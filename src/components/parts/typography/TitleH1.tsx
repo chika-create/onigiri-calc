@@ -1,6 +1,11 @@
-import { Typography } from "@mui/material";
+import { ReactNode } from "react";
+import { Typography, TypographyProps } from "@mui/material";
 
-function TitleH1({ children }: any) {
+interface TitleH1props extends TypographyProps {
+  children: ReactNode;
+}
+
+function TitleH1({ children, ...typographyProps }: TitleH1props) {
   return (
     <Typography
       variant="h1"
@@ -9,6 +14,7 @@ function TitleH1({ children }: any) {
         fontSize: 25,
         mb: 4,
       }}
+      {...typographyProps}
     >
       {children}
     </Typography>

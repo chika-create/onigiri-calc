@@ -15,13 +15,13 @@ export interface CastleData {
   num: number;
 }
 
-export interface DeckData {
-  num: number;
+export interface minDeckData {
+  minDeckNum: number;
 }
 
 export interface LocalDate {
   castleNum: CastleData[];
-  minDeckNum: DeckData;
+  minDeckNum: minDeckData;
 }
 
 // interface castleChange {

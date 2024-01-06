@@ -5,29 +5,20 @@ import {
   selectCastleKindContext,
 } from "../../../context/SettingUseContext";
 
+import { copyToClipboardData, alignmentListData } from "../../../types/types";
+
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
-// alignmentNumbers の型をアノテーション
-type AlignmentNumbersType = {
-  red: number;
-  blue: number;
-  gold: number;
-};
-
-interface FullOnigiriProps {
-  copyToClipboard: (num: number | string) => Promise<void>;
-}
-
-export default function FullOnigiri({ copyToClipboard }: FullOnigiriProps) {
+export default function FullOnigiri({ copyToClipboard }: copyToClipboardData) {
   const stackNumber = useContext(stackNumberContext);
   const selectCastleKind: string = useContext(selectCastleKindContext);
-  const alignmentNumbers: AlignmentNumbersType = useContext(
+  const alignmentNumbers: alignmentListData = useContext(
     alignmentNumbersContext
   );
 
   const castleAlignmentNumber: number =
-    alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];
+    alignmentNumbers[selectCastleKind as keyof alignmentListData];
   const fullOnigiriNumber = stackNumber * castleAlignmentNumber;
 
   const handleClickButtonFullOnigiri = (): void => {

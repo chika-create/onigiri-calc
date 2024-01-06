@@ -29,12 +29,26 @@ export interface LocalDate {
 //   castleColorEn: CastleColorEn;
 // }
 
+export interface alignmentListData {
+  red: number;
+  blue: number;
+  gold: number;
+}
+
+export interface alignmentNumData {
+  alignmentNum: alignmentListData;
+}
+
 export interface AlignmentNumProps {
   castleColorJa: string;
   castleColorEn: string;
   setAlignmentNum: React.Dispatch<
     React.SetStateAction<{ [key: string]: number }>
   >;
+}
+
+export interface copyToClipboardData {
+  copyToClipboard: (num: number | string) => Promise<void>;
 }
 
 export type TabBoxProps = {

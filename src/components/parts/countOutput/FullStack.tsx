@@ -1,14 +1,12 @@
 import { useContext } from "react";
 import { stackNumberContext } from "../../../context/SettingUseContext";
 
+import { copyToClipboardData } from "../../../types/types";
+
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
-interface FullStackProps {
-  copyToClipboard: (num: number | string) => Promise<void>;
-}
-
-export default function FullStack({ copyToClipboard }: FullStackProps) {
+export default function FullStack({ copyToClipboard }: copyToClipboardData) {
   const stackNumber = useContext(stackNumberContext);
 
   const handleClickButtonFullStack = (): void => {

@@ -7,22 +7,14 @@ import {
   alignmentNumbersContext,
   selectCastleKindContext,
 } from "../../context/SettingUseContext";
-import { CalcFormInput } from "../../types/types";
+import { CalcFormInput, alignmentNumData } from "../../types/types";
 
 import CastleKinds from "../parts/CastleKinds";
 import CalcTime from "../parts/CalcTime";
 import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
-interface ServerCastleProps {
-  alignmentNum: {
-    red: number;
-    blue: number;
-    gold: number;
-  };
-}
-
-export default function ServerCastle({ alignmentNum }: ServerCastleProps) {
+export default function ServerCastle({ alignmentNum }: alignmentNumData) {
   // 選択した城種別（赤など）
   const [selectCastleKind, setSelectCastleKind] = useState("red");
 

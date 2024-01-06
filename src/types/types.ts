@@ -1,4 +1,5 @@
-import { SyntheticEvent } from "react";
+import { SyntheticEvent, ReactNode } from "react";
+import { TypographyProps } from "@mui/material";
 
 // export type AlignmentNum = number;
 // type CastleColorEn = string;
@@ -49,6 +50,10 @@ export interface AlignmentNumProps {
 
 export interface copyToClipboardData {
   copyToClipboard: (num: number | string) => Promise<void>;
+}
+
+export interface TextData extends TypographyProps {
+  children: ReactNode;
 }
 
 export type TabBoxProps = {

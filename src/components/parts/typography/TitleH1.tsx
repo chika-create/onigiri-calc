@@ -1,11 +1,7 @@
-import { ReactNode } from "react";
-import { Typography, TypographyProps } from "@mui/material";
+import { Typography } from "@mui/material";
+import { TextData } from "../../../types/types";
 
-interface TitleH1props extends TypographyProps {
-  children: ReactNode;
-}
-
-function TitleH1({ children }: TitleH1props) {
+function TitleH1({ children }: TextData) {
   return (
     <Typography
       variant="h1"

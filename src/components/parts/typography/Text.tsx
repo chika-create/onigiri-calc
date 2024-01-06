@@ -1,11 +1,7 @@
-import { ReactNode } from "react";
-import { Typography, TypographyProps } from "@mui/material";
+import { Typography } from "@mui/material";
+import { TextData } from "../../../types/types";
 
-interface TextProps extends TypographyProps {
-  children: ReactNode;
-}
-
-function Text({ children }: TextProps) {
+function Text({ children }: TextData) {
   return (
     <Typography
       sx={{

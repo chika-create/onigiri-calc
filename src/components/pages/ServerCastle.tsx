@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import { useForm } from "react-hook-form";
 import Box from "@mui/material/Box";
 
@@ -18,6 +18,12 @@ import CountOutput from "../templates/CountOutput";
 type Action =
   | { type: "SET_STACK_NUMBER"; payload: number }
   | { type: "SET_CASTLE_KIND"; payload: string };
+
+// 状態の型定義
+type State = {
+  stackNumber: number;
+  selectCastleKind: string;
+};
 
 // Reducer関数
 const reducer = (state: State, action: Action): State => {
@@ -70,7 +76,7 @@ export default function ServerCastle({ alignmentNum }: alignmentNumData) {
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
       <CalcTime register={register} />
       <CastleKinds
-        selectedToggleButton={state.selectedToggleButton}
+        selectedToggleButton={state.selectCastleKind}
         toggleChange={(value) =>
           dispatch({ type: "SET_CASTLE_KIND", payload: value })
         }

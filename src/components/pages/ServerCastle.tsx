@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import { useForm } from "react-hook-form";
 import Box from "@mui/material/Box";
 
@@ -14,36 +14,72 @@ import CalcTime from "../parts/CalcTime";
 import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
+// アクションの型定義
+type Action =
+  | { type: "SET_STACK_NUMBER"; payload: number }
+  | { type: "SET_CASTLE_KIND"; payload: string };
+
+// Reducer関数
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case "SET_STACK_NUMBER":
+      return {
+        ...state,
+        stackNumber: action.payload,
+      };
+    case "SET_CASTLE_KIND":
+      return {
+        ...state,
+        selectCastleKind: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+// 状態の初期値
+const initialState: State = {
+  stackNumber: 0,
+  selectCastleKind: "red",
+};
+
 export default function ServerCastle({ alignmentNum }: alignmentNumData) {
   // 選択した城種別（赤など）
-  const [selectCastleKind, setSelectCastleKind] = useState("red");
+  // const [selectCastleKind, setSelectCastleKind] = useState("red");
+
+  // Reducerの使用
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   // 城種別を変更した場合、どのトグルボタンがアクティブかを管理する State
-  const [selectedToggleButton, setSelectedToggleButton] = useState<
-    string | null
-  >("left");
+  // const [selectedToggleButton, setSelectedToggleButton] = useState<
+  //   string | null
+  // >("left");
 
-  const toggleChange = (value: string) => {
-    setSelectedToggleButton(value);
-    setSelectCastleKind(value);
-  };
+  // const toggleChange = (value: string) => {
+  //   setSelectedToggleButton(value);
+  //   setSelectCastleKind(value);
+  // };
 
   // 計算機能用
   const { register, getValues } = useForm<CalcFormInput>();
-  const [stackNumber, setStackNumber] = useState(0);
-  const setStackNumberFunction = (requireStackNum: number) =>
-    setStackNumber(requireStackNum);
+  // const [stackNumber, setStackNumber] = useState(0);
+  // const setStackNumberFunction = (requireStackNum: number) =>
+  //   setStackNumber(requireStackNum);
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
       <CalcTime register={register} />
       <CastleKinds
-        selectedToggleButton={selectedToggleButton}
-        toggleChange={toggleChange}
+        selectedToggleButton={state.selectedToggleButton}
+        toggleChange={(value) =>
+          dispatch({ type: "SET_CASTLE_KIND", payload: value })
+        }
       />
       <CalcButton
         getValues={getValues}
-        setStackNumberFunction={setStackNumberFunction}
+        setStackNumberFunction={(requireStackNum) =>
+          dispatch({ type: "SET_STACK_NUMBER", payload: requireStackNum })
+        }
       />
       {/* <Box>
               <FormControlLabel
@@ -51,8 +87,8 @@ export default function ServerCastle({ alignmentNum }: alignmentNumData) {
                 label="今から終了まで（まだ使えません）"
               />
               </Box> */}
-      <stackNumberContext.Provider value={stackNumber}>
-        <selectCastleKindContext.Provider value={selectCastleKind}>
+      <stackNumberContext.Provider value={state.stackNumber}>
+        <selectCastleKindContext.Provider value={state.selectCastleKind}>
           <alignmentNumbersContext.Provider value={alignmentNum}>
             <CountOutput />
           </alignmentNumbersContext.Provider>

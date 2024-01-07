@@ -50,27 +50,11 @@ const initialState: State = {
 };
 
 export default function ServerCastle({ alignmentNum }: alignmentNumData) {
-  // 選択した城種別（赤など）
-  // const [selectCastleKind, setSelectCastleKind] = useState("red");
-
   // Reducerの使用
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // 城種別を変更した場合、どのトグルボタンがアクティブかを管理する State
-  // const [selectedToggleButton, setSelectedToggleButton] = useState<
-  //   string | null
-  // >("left");
-
-  // const toggleChange = (value: string) => {
-  //   setSelectedToggleButton(value);
-  //   setSelectCastleKind(value);
-  // };
-
   // 計算機能用
   const { register, getValues } = useForm<CalcFormInput>();
-  // const [stackNumber, setStackNumber] = useState(0);
-  // const setStackNumberFunction = (requireStackNum: number) =>
-  //   setStackNumber(requireStackNum);
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>

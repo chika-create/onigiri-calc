@@ -7,12 +7,9 @@ interface CalcButtonProps {
   setStackNumberFunction: (requireStackNum: number) => void;
 }
 
-const calcButtonClick = (data: CustomEvent) => {
-  // GA4へのイベントトラッキング
-  ReactGA.event({
-    category: data.category,
-    action: data.action,
-  });
+// GA4へのイベントトラッキング
+const calcButtonClick = (data: CustomEvent): void => {
+  ReactGA.event(data);
 };
 
 interface CustomEvent {

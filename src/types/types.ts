@@ -60,6 +60,7 @@ export interface TextData extends TypographyProps {
 export interface CustomEventData {
   category: string;
   action: string;
+  label: string;
 }
 
 export type TabBoxProps = {

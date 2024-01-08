@@ -13,11 +13,12 @@ interface CastleKindsProps {
   toggleChange: (value: string) => void;
 }
 
-// 送信するGAデータ
-const gaSetting: CustomEventData = {
-  category: "Calculation2",
+// 送信するGAデータを生成する関数
+const gaSetting = (data: string): CustomEventData => ({
+  category: "Calculation",
   action: "CastleKinds",
-};
+  label: data,
+});
 
 export default function CastleKinds({
   selectedToggleButton,
@@ -45,7 +46,7 @@ export default function CastleKinds({
         exclusive
         onChange={(event, value) => {
           toggleChange(value as string);
-          calcButtonClick(gaSetting);
+          calcButtonClick(gaSetting("red"));
         }}
       >
         <ToggleButton

@@ -1,17 +1,13 @@
 import { Box, Button } from "@mui/material";
 import { CalcFormInput, CustomEventData } from "../../types/types";
-import ReactGA from "react-ga4";
+import { calcButtonClick } from "../../ga/SendEvent";
 
 interface CalcButtonProps {
   getValues: () => CalcFormInput;
   setStackNumberFunction: (requireStackNum: number) => void;
 }
 
-// GA4へのイベントトラッキング
-const calcButtonClick = (data: CustomEventData): void => {
-  ReactGA.event(data);
-};
-
+// 送信するGAデータ
 const gaSetting: CustomEventData = {
   category: "Calculation",
   action: "CalcButton",

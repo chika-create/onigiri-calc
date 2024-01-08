@@ -46,7 +46,7 @@ export default function CastleKinds({
         exclusive
         onChange={(event, value) => {
           toggleChange(value as string);
-          calcButtonClick(gaSetting("red"));
+          calcButtonClick(gaSetting(value));
         }}
       >
         <ToggleButton

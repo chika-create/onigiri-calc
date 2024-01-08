@@ -1,10 +1,19 @@
 import { Box, Button } from "@mui/material";
 import { CalcFormInput } from "../../types/types";
+import ReactGA from "react-ga4";
 
 interface CalcButtonProps {
   getValues: () => CalcFormInput;
   setStackNumberFunction: (requireStackNum: number) => void;
 }
+
+const calcButtonClick = () => {
+  // GA4へのイベントトラッキング
+  ReactGA.event({
+    category: "Calculation",
+    action: "CalcButton",
+  });
+};
 
 export default function CalcButton({
   getValues,
@@ -31,6 +40,7 @@ export default function CalcButton({
     const requireStackNum = Math.floor((totalNum * 60) / oneDeckSec);
 
     setStackNumberFunction(requireStackNum);
+    calcButtonClick();
   };
   return (
     <Box sx={{ textAlign: "center" }}>

@@ -15,6 +15,16 @@ const calcButtonClick = (category: any, action: any) => {
   });
 };
 
+interface CustomEvent {
+  category: string;
+  action: string;
+}
+
+const gaSetting: CustomEvent = {
+  category: "Calculation",
+  action: "CalcButton",
+};
+
 export default function CalcButton({
   getValues,
   setStackNumberFunction,

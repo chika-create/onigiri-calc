@@ -7,11 +7,11 @@ interface CalcButtonProps {
   setStackNumberFunction: (requireStackNum: number) => void;
 }
 
-const calcButtonClick = (category: any, action: any) => {
+const calcButtonClick = (data: CustomEvent) => {
   // GA4へのイベントトラッキング
   ReactGA.event({
-    category: category,
-    action: action,
+    category: data.category,
+    action: data.action,
   });
 };
 
@@ -50,7 +50,7 @@ export default function CalcButton({
     const requireStackNum = Math.floor((totalNum * 60) / oneDeckSec);
 
     setStackNumberFunction(requireStackNum);
-    calcButtonClick("Calculation", "CalcButton");
+    calcButtonClick(gaSetting);
   };
   return (
     <Box sx={{ textAlign: "center" }}>

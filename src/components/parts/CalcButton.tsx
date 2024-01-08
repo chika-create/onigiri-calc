@@ -11,6 +11,7 @@ interface CalcButtonProps {
 const gaSetting: CustomEventData = {
   category: "Calculation",
   action: "CalcButton",
+  label: "",
 };
 
 export default function CalcButton({

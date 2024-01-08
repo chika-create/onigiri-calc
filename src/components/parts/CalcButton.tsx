@@ -1,6 +1,6 @@
 import { Box, Button } from "@mui/material";
 import { CalcFormInput, CustomEventData } from "../../types/types";
-import { calcButtonClick } from "../../ga/SendEvent";
+import { calcButtonClick } from "../../ga/sendEvent";
 
 interface CalcButtonProps {
   getValues: () => CalcFormInput;

@@ -5,10 +5,20 @@ import {
   ToggleButton,
 } from "@mui/material";
 
+import { CustomEventData } from "../../types/types";
+import { calcButtonClick } from "../../ga/sendEvent";
+
 interface CastleKindsProps {
   selectedToggleButton: string | null;
   toggleChange: (value: string) => void;
 }
+
+// 送信するGAデータを生成する関数
+const gaSetting = (data: string): CustomEventData => ({
+  category: "Calculation",
+  action: "CastleKinds",
+  label: data,
+});
 
 export default function CastleKinds({
   selectedToggleButton,
@@ -34,7 +44,10 @@ export default function CastleKinds({
       <ToggleButtonGroup
         value={selectedToggleButton}
         exclusive
-        onChange={(event, value) => toggleChange(value as string)}
+        onChange={(event, value) => {
+          toggleChange(value as string);
+          calcButtonClick(gaSetting(value));
+        }}
       >
         <ToggleButton
           value="red"

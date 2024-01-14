@@ -56,6 +56,13 @@ export interface TextData extends TypographyProps {
   children: ReactNode;
 }
 
+// GA送信用
+export interface CustomEventData {
+  category: string;
+  action: string;
+  label: string;
+}
+
 export type TabBoxProps = {
   tabToChange: (event: SyntheticEvent, newValue: string) => void;
 };

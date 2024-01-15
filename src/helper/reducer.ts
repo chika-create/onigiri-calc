@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { useForm } from "react-hook-form";
 
-import { CalcFormInput, alignmentNumData } from "../types/types";
+import { CalcFormInput } from "../types/types";
 
 // アクションの型定義
 type Action =
@@ -38,7 +38,7 @@ const initialState: State = {
   selectCastleKind: "red",
 };
 
-export default function useCalcReducer({ alignmentNum }: alignmentNumData) {
+export default function useCalcReducer() {
   // Reducerの使用
   const [state, dispatch] = useReducer(reducer, initialState);
 

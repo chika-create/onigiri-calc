@@ -38,7 +38,7 @@ const initialState: State = {
   selectCastleKind: "red",
 };
 
-export default function ServerCastle({ alignmentNum }: alignmentNumData) {
+export default function useCalcReducer({ alignmentNum }: alignmentNumData) {
   // Reducerの使用
   const [state, dispatch] = useReducer(reducer, initialState);
 

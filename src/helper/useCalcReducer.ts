@@ -45,4 +45,5 @@ export default function useCalcReducer() {
   // 計算機能用
   const { register, getValues } = useForm<CalcFormInput>();
 
+  return { state, dispatch, register, getValues };
 }

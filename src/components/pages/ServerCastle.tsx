@@ -8,7 +8,7 @@ import {
   selectCastleKindContext,
 } from "../../context/SettingUseContext";
 import { CalcFormInput, alignmentNumData } from "../../types/types";
-import useCalcReducer from "../../helper/reducer";
+import useCalcReducer from "../../helper/useCalcReducer";
 
 import CastleKinds from "../parts/CastleKinds";
 import CalcTime from "../parts/CalcTime";

@@ -1,7 +1,4 @@
 import { useReducer } from "react";
-import { useForm } from "react-hook-form";
-
-import { CalcFormInput } from "../types/types";
 
 // アクションの型定義
 type Action =
@@ -42,8 +39,5 @@ export default function useCalcReducer() {
   // Reducerの使用
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // 計算機能用
-  const { register, getValues } = useForm<CalcFormInput>();
-
-  return { state, dispatch, register, getValues };
+  return { state, dispatch };
 }

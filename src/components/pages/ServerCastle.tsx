@@ -15,6 +15,8 @@ import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
 export default function ServerCastle({ alignmentNum }: alignmentNumData) {
+  const { state, dispatch, register, getValues } = useCalcReducer();
+
   // 計算機能用
   const { register, getValues } = useForm<CalcFormInput>();
 

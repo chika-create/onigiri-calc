@@ -43,10 +43,7 @@ export default function CalcButton({
   };
   return (
     <Box sx={{ textAlign: "center" }}>
-      <Button
-        variant="contained"
-        onClick={calculator}
-      >
+      <Button variant="contained" onClick={calculator}>
         計算する
       </Button>
     </Box>

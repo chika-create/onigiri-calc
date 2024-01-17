@@ -45,7 +45,6 @@ export default function CalcButton({
     <Box sx={{ textAlign: "center" }}>
       <Button
         variant="contained"
-        className="ga_calcButton"
         onClick={calculator}
       >
         計算する

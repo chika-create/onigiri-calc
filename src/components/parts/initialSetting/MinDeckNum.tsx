@@ -2,7 +2,7 @@ import { useEffect, useState, ChangeEvent } from "react";
 import { Box, Typography, TextField } from "@mui/material";
 
 export default function MinDeckNum() {
-  const [deckNum, setDeckNum] = useState(0);
+  const [deckNum, setDeckNum] = useState(38);
 
   useEffect(() => {
     // コンポーネントがマウントされた時にlocalStorageから値を読み込む

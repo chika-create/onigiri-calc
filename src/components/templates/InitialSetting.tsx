@@ -32,6 +32,7 @@ export default function InitialSetting({
         {castelColors.map((castleColor) => {
           return (
             <AlignmentNum
+              key={castleColor.en}
               castleColorJa={castleColor.ja}
               castleColorEn={castleColor.en}
               setAlignmentNum={setAlignmentNum}

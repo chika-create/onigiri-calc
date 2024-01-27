@@ -6,7 +6,7 @@ import {
 } from "@mui/material";
 
 import { CustomEventData } from "../../types/types";
-import { calcButtonClick } from "../../ga/sendEvent";
+import { sendGAEvent } from "../../ga/sendGAEvent";
 
 interface CastleKindsProps {
   selectedToggleButton: string | null;
@@ -47,7 +47,7 @@ export default function CastleKinds({
         onChange={(event, value) => {
           if (value !== null && value !== selectedToggleButton) {
             toggleChange(value as string);
-            calcButtonClick(gaSetting(value as string));
+            sendGAEvent(gaSetting(value as string));
           }
         }}
       >

@@ -39,6 +39,7 @@ export default function AlignmentNum({
         {castleNumber.map((item: number) => {
           return (
             <ToggleButton
+              key={item}
               value={item}
               selected={selectedNumber === item}
               aria-label="left aligned"

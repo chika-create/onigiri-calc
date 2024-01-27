@@ -1,6 +1,6 @@
 import { Box, Button } from "@mui/material";
 import { CalcFormInput, CustomEventData } from "../../types/types";
-import { calcButtonClick } from "../../ga/sendEvent";
+import { sendGAEvent } from "../../ga/sendGAEvent";
 
 interface CalcButtonProps {
   getValues: () => CalcFormInput;
@@ -39,7 +39,7 @@ export default function CalcButton({
     const requireStackNum = Math.floor((totalNum * 60) / oneDeckSec);
 
     setStackNumberFunction(requireStackNum);
-    calcButtonClick(gaSetting);
+    sendGAEvent(gaSetting);
   };
   return (
     <Box sx={{ textAlign: "center" }}>

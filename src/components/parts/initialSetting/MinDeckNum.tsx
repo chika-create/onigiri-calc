@@ -7,8 +7,12 @@ export default function MinDeckNum() {
   useEffect(() => {
     // コンポーネントがマウントされた時にlocalStorageから値を読み込む
     const savedDeckNum = localStorage.getItem("deckNum");
+
+    // savedDeckNumが null もしくは undefined じゃない場合に if に入る
     if (savedDeckNum) {
       setDeckNum(Number(savedDeckNum));
+    } else {
+      setDeckNum(38);
     }
   }, []);
 

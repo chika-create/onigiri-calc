@@ -1,4 +1,3 @@
-import React from "react";
 import { Box } from "@mui/material";
 import TitleH1 from "../parts/typography/TitleH1";
 import TitleH2 from "../parts/typography/TitleH2";
@@ -191,7 +190,7 @@ function Term() {
         当社及び利用者は、本サービスに関し、当社と利用者との間で生じた紛争の解決について、大阪地方裁判所を第一審の専属的合意管轄裁判所とすることにあらかじめ合意します。
       </Text>
 
-      <Text>2023年9月15日　制定</Text>
+      <Text>2023年9月15日 制定</Text>
     </Box>
   );
 }

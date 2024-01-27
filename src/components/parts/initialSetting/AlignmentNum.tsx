@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -16,17 +16,19 @@ export default function AlignmentNum({
   const [selectedNumber, setSelectedNumber] = useState(1);
 
   // 受け取ったデータを「城種別ごとのデッキ数を登録」に流す
-  const castleChange = (value: number, string: string): void => {
-    const newData = {
-      value: value,
-      string: string,
-    };
-    // 城種別ごとのデッキ数を登録
-    setAlignmentNum((prevAlignmentNum: any) => ({
-      ...prevAlignmentNum,
-      [newData.string]: newData.value,
-    }));
-  };
+  const castleChange = useCallback(
+    (value: number, string: string): void => {
+      const newData = {
+        value: value,
+        string: string,
+      };
+      setAlignmentNum((prevAlignmentNum: { [key: string]: number }) => ({
+        ...prevAlignmentNum,
+        [newData.string]: newData.value,
+      }));
+    },
+    [setAlignmentNum]
+  );
 
   useEffect(() => {
     const savedAlignmentNum = localStorage.getItem(castleColorEn);
@@ -35,13 +37,10 @@ export default function AlignmentNum({
       setSelectedNumber(alignmentNum);
       castleChange(alignmentNum, castleColorEn);
     }
-  }, []);
+  }, [castleChange, castleColorEn]);
 
   const handleButtonClick = (value: number) => {
     setSelectedNumber(value);
-    console.log(
-      "AlignmentNum_value: " + value + "   / castleColorEn: " + castleColorEn
-    );
     castleChange(value, castleColorEn);
     localStorage.setItem(castleColorEn, JSON.stringify(value));
   };
@@ -74,7 +73,7 @@ export default function AlignmentNum({
               selected={selectedNumber === item}
               onClick={() => handleButtonClick(item)}
               sx={{
-                width: 1 / 5,
+                width: 1 / castleNumber.length,
               }}
             >
               {item}

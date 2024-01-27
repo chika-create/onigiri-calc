@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Box, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
@@ -39,7 +38,11 @@ export default function Howto() {
           {castelColors.map((castleColor, i) => {
             i++;
             return (
-              <AlignmentNum selectedNumber={i} castleColorJa={castleColor.ja} />
+              <AlignmentNum
+                key={i}
+                selectedNumber={i}
+                castleColorJa={castleColor.ja}
+              />
             );
           })}
         </Box>

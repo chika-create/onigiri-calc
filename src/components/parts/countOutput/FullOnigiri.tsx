@@ -1,38 +1,27 @@
-import React from "react";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import {
   stackNumberContext,
   alignmentNumbersContext,
   selectCastleKindContext,
 } from "../../../context/SettingUseContext";
 
+import { copyToClipboardData, alignmentListData } from "../../../types/types";
+
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
-// alignmentNumbers の型をアノテーション
-type AlignmentNumbersType = {
-  red: number;
-  blue: number;
-  gold: number;
-};
-
-export default function FullOnigiri({ copyToClipboard }: any) {
-  const [openTip, setOpenTip] = useState<boolean>(false);
+export default function FullOnigiri({ copyToClipboard }: copyToClipboardData) {
   const stackNumber = useContext(stackNumberContext);
   const selectCastleKind: string = useContext(selectCastleKindContext);
-  const alignmentNumbers: AlignmentNumbersType = useContext(
+  const alignmentNumbers: alignmentListData = useContext(
     alignmentNumbersContext
   );
-  // console.log("FullOnigiri_alignmentNumbers: ", alignmentNumbers);
 
   const castleAlignmentNumber: number =
-    alignmentNumbers[selectCastleKind as keyof AlignmentNumbersType];
-  // console.log("stackNumber : ", stackNumber);
-  // console.log("castleAlignmentNumber: ", castleAlignmentNumber);
+    alignmentNumbers[selectCastleKind as keyof alignmentListData];
   const fullOnigiriNumber = stackNumber * castleAlignmentNumber;
 
   const handleClickButtonFullOnigiri = (): void => {
-    setOpenTip(true);
     copyToClipboard(fullOnigiriNumber);
   };
 

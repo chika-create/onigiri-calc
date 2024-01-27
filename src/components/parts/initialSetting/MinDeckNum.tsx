@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, ChangeEvent } from "react";
 import { Box, Typography, TextField } from "@mui/material";
 
 export default function MinDeckNum() {
-  const [deckNum, setDeckNum] = useState(0);
+  const [deckNum, setDeckNum] = useState<number | null>(38);
 
   useEffect(() => {
     // コンポーネントがマウントされた時にlocalStorageから値を読み込む
@@ -12,11 +12,16 @@ export default function MinDeckNum() {
     }
   }, []);
 
-  const handleDeckNumChange = (event: any) => {
+  const handleDeckNumChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    setDeckNum(value);
-    // 値が変更されるたびにlocalStorageに保存する
-    localStorage.setItem("deckNum", value);
+
+    if (value.trim() === "") {
+      setDeckNum(null);
+    } else {
+      setDeckNum(Number(value));
+      // 値が変更されるたびにlocalStorageに保存する
+      localStorage.setItem("deckNum", String(value));
+    }
   };
 
   return (
@@ -37,7 +42,7 @@ export default function MinDeckNum() {
         id="outlined-basic"
         type="number"
         variant="outlined"
-        value={deckNum}
+        value={deckNum === null ? "" : deckNum}
         onChange={handleDeckNumChange}
         sx={{
           ml: 2,

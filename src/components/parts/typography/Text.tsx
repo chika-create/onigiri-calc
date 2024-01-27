@@ -1,7 +1,7 @@
-import React from "react";
 import { Typography } from "@mui/material";
+import { TextData } from "../../../types/types";
 
-function Text({ children }: any) {
+function Text({ children }: TextData) {
   return (
     <Typography
       sx={{

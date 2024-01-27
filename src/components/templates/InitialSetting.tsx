@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Accordion,
   AccordionSummary,
@@ -8,15 +7,18 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import { castelColors } from "../../constants/constants";
-
 import AlignmentNum from "../parts/initialSetting/AlignmentNum";
 import MinDeckNum from "../parts/initialSetting/MinDeckNum";
 
-// interface InitialSettingProps {
-//   setAlignmentNum: (newAlignmentNum: number, castleColor: string) => void;
-// }
+interface InitialSettingProps {
+  setAlignmentNum: React.Dispatch<
+    React.SetStateAction<{ [key: string]: number }>
+  >;
+}
 
-export default function InitialSetting({ setAlignmentNum }: any) {
+export default function InitialSetting({
+  setAlignmentNum,
+}: InitialSettingProps) {
   return (
     <Accordion>
       <AccordionSummary

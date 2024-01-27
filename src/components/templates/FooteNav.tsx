@@ -1,10 +1,9 @@
-import React from "react";
 import { Breadcrumbs, Box } from "@mui/material";
 
 import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
 import AppContent from "../views/AppContent";
-import Term from "../../components/pages/Term";
-import PrivacyPolicy from "../../components/pages/PrivacyPolicy";
+import Term from "../pages/Term";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
 import { grayColors } from "../../constants/colors";
 
 export default function FooterNav() {

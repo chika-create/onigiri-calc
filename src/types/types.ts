@@ -1,7 +1,8 @@
-import { SyntheticEvent } from "react";
+import { SyntheticEvent, ReactNode } from "react";
+import { TypographyProps } from "@mui/material";
 
-export type AlignmentNum = number;
-type CastleColorEn = string;
+// export type AlignmentNum = number;
+// type CastleColorEn = string;
 
 // フォームの型
 export interface CalcFormInput {
@@ -15,24 +16,51 @@ export interface CastleData {
   num: number;
 }
 
-export interface DeckData {
-  num: number;
+export interface minDeckData {
+  minDeckNum: number;
 }
 
 export interface LocalDate {
   castleNum: CastleData[];
-  minDeckNum: DeckData;
+  minDeckNum: minDeckData;
 }
 
-interface castleChange {
-  alignmentNum: AlignmentNum;
-  castleColorEn: CastleColorEn;
+// interface castleChange {
+//   alignmentNum: AlignmentNum;
+//   castleColorEn: CastleColorEn;
+// }
+
+export interface alignmentListData {
+  red: number;
+  blue: number;
+  gold: number;
+}
+
+export interface alignmentNumData {
+  alignmentNum: alignmentListData;
 }
 
 export interface AlignmentNumProps {
   castleColorJa: string;
   castleColorEn: string;
-  setAlignmentNum: any;
+  setAlignmentNum: React.Dispatch<
+    React.SetStateAction<{ [key: string]: number }>
+  >;
+}
+
+export interface copyToClipboardData {
+  copyToClipboard: (num: number | string) => Promise<void>;
+}
+
+export interface TextData extends TypographyProps {
+  children: ReactNode;
+}
+
+// GA送信用
+export interface CustomEventData {
+  category: string;
+  action: string;
+  label: string;
 }
 
 export type TabBoxProps = {

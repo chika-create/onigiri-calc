@@ -1,7 +1,7 @@
-import React from "react";
 import { Typography } from "@mui/material";
+import { TextData } from "../../../types/types";
 
-function TitleH1({ children }: any) {
+function TitleH1({ children }: TextData) {
   return (
     <Typography
       variant="h1"

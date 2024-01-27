@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Typography,
@@ -7,10 +6,15 @@ import {
 } from "@mui/material";
 import { castleNumber } from "../../../../constants/constants";
 
-export default function AlignmentNum(props: {
+interface AlignmentNumProps {
   selectedNumber: number;
   castleColorJa: string;
-}) {
+}
+
+export default function AlignmentNum({
+  selectedNumber,
+  castleColorJa,
+}: AlignmentNumProps) {
   return (
     <Box
       sx={{
@@ -24,7 +28,7 @@ export default function AlignmentNum(props: {
           alignSelf: "center",
         }}
       >
-        {props.castleColorJa}城
+        {castleColorJa}城
       </Typography>
       <ToggleButtonGroup
         exclusive
@@ -36,7 +40,7 @@ export default function AlignmentNum(props: {
           return (
             <ToggleButton
               value={item}
-              selected={props.selectedNumber === item}
+              selected={selectedNumber === item}
               aria-label="left aligned"
               sx={{
                 width: 1 / 5,

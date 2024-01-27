@@ -1,16 +1,15 @@
-import React from "react";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { stackNumberContext } from "../../../context/SettingUseContext";
+
+import { copyToClipboardData } from "../../../types/types";
 
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
-export default function FullStack({ copyToClipboard }: any) {
-  const [openTip, setOpenTip] = useState<boolean>(false);
+export default function FullStack({ copyToClipboard }: copyToClipboardData) {
   const stackNumber = useContext(stackNumberContext);
 
   const handleClickButtonFullStack = (): void => {
-    setOpenTip(true);
     copyToClipboard(stackNumber);
   };
 

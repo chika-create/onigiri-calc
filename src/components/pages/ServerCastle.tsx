@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Box from "@mui/material/Box";
 
@@ -8,6 +7,7 @@ import {
   selectCastleKindContext,
 } from "../../context/SettingUseContext";
 import { CalcFormInput, alignmentNumData } from "../../types/types";
+import useCalcReducer from "../../helper/useCalcReducer";
 
 import CastleKinds from "../parts/CastleKinds";
 import CalcTime from "../parts/CalcTime";
@@ -15,35 +15,25 @@ import CalcButton from "../parts/CalcButton";
 import CountOutput from "../templates/CountOutput";
 
 export default function ServerCastle({ alignmentNum }: alignmentNumData) {
-  // 選択した城種別（赤など）
-  const [selectCastleKind, setSelectCastleKind] = useState("red");
-
-  // 城種別を変更した場合、どのトグルボタンがアクティブかを管理する State
-  const [selectedToggleButton, setSelectedToggleButton] = useState<
-    string | null
-  >("left");
-
-  const toggleChange = (value: string) => {
-    setSelectedToggleButton(value);
-    setSelectCastleKind(value);
-  };
+  const { state, dispatch } = useCalcReducer();
 
   // 計算機能用
   const { register, getValues } = useForm<CalcFormInput>();
-  const [stackNumber, setStackNumber] = useState(0);
-  const setStackNumberFunction = (requireStackNum: number) =>
-    setStackNumber(requireStackNum);
 
   return (
     <Box maxWidth="sm" sx={{ mb: 1.5 }}>
       <CalcTime register={register} />
       <CastleKinds
-        selectedToggleButton={selectedToggleButton}
-        toggleChange={toggleChange}
+        selectedToggleButton={state.selectCastleKind}
+        toggleChange={(value) =>
+          dispatch({ type: "SET_CASTLE_KIND", payload: value })
+        }
       />
       <CalcButton
         getValues={getValues}
-        setStackNumberFunction={setStackNumberFunction}
+        setStackNumberFunction={(requireStackNum) =>
+          dispatch({ type: "SET_STACK_NUMBER", payload: requireStackNum })
+        }
       />
       {/* <Box>
               <FormControlLabel
@@ -51,8 +41,8 @@ export default function ServerCastle({ alignmentNum }: alignmentNumData) {
                 label="今から終了まで（まだ使えません）"
               />
               </Box> */}
-      <stackNumberContext.Provider value={stackNumber}>
-        <selectCastleKindContext.Provider value={selectCastleKind}>
+      <stackNumberContext.Provider value={state.stackNumber}>
+        <selectCastleKindContext.Provider value={state.selectCastleKind}>
           <alignmentNumbersContext.Provider value={alignmentNum}>
             <CountOutput />
           </alignmentNumbersContext.Provider>

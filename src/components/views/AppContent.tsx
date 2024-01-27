@@ -8,7 +8,7 @@ import InitialSetting from "../templates/InitialSetting";
 import TabBox from "./TabBox";
 import Howto from "../pages/Howto";
 
-import usePageTracking from "../../useTracking";
+import usePageTracking from "../../ga/useTracking";
 
 function AppContent() {
   const [tabSelectNo, setTabSelectNo] = useState("1");

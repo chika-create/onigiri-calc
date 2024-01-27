@@ -73,7 +73,7 @@ export default function AlignmentNum({
               selected={selectedNumber === item}
               onClick={() => handleButtonClick(item)}
               sx={{
-                width: 1 / 5,
+                width: 1 / castleNumber.length,
               }}
             >
               {item}
